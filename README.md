@@ -159,21 +159,21 @@ Service pages created:
 
 City + service pages are generated for the 12 primary cities shown on the homepage and 11 services, for 132 local service URLs. Each page is built as a full SEO landing page with unique title/meta/H1, quote form, included-work checklist, best-fit situations, pricing logic, internal links, trust block, FAQ, `Service` schema, `FAQPage` schema, and `BreadcrumbList` schema.
 
-## Shiny Deep Cleaning Site
+## Shynli Deep Cleaning Site
 
-The `/services/deep-cleaning` route now opens a separate shadcn-built `Shiny Deep Cleaning` site. The same standalone concept is also available at `/shiny-deep-cleaning`.
+The `/services/deep-cleaning` route now opens a separate shadcn-built `Shynli Deep Cleaning` site. The same standalone concept is also available at `/shiny-deep-cleaning`.
 
 This is no longer a generic Shynli service page with an inserted block. The design direction is intentionally different:
 
 - dark editorial hero with acid-lime accent, warm ivory page surface, and a separate brand mark
-- full-screen `Shiny Deep` first impression instead of the shared clean-blue Shynli template
+- full-screen `Shynli Deep` first impression instead of the shared clean-blue Shynli template
 - fast quote flow inspired by `Tidy Casa` and `Maid Marines`
 - included / quoted extras / not covered scope tabs inspired by `Euro Maids` and `MyClean`
 - checklist proof for kitchen buildup, bathroom recovery, house edges, and final reset
 - trust grid that translates competitor patterns into customer-facing promises
 - final CTA and full footer with deep-cleaning, service-area, and trust navigation
 
-## Shiny Airbnb Cleaning Site
+## Shynli Airbnb Cleaning Site
 
 The prototype now includes a separate shadcn-built microsite at `/shiny-airbnb-cleaning`. This is not a public service-page launch and is intentionally kept out of `/services` and `sitemap.xml`.
 
@@ -364,7 +364,7 @@ Additional quality checks:
 - hero background crawl over `252` sitemap URLs passed with `0` pages missing hero background images and `0` horizontal overflow pages
 - post-construction routing checks passed for `/services/post-construction-cleaning`, `/service-areas/naperville/post-construction-cleaning`, `/pricing/post-construction-cleaning-cost`, `/checklists/post-construction-cleaning-checklist`, `/faq/what-is-included-in-post-construction-cleaning`, and `/post-construction-cleaning-vs-deep-cleaning`
 - Airbnb cleaning draft route check passed for `/services/airbnb-cleaning`; this route uses shadcn components and is intentionally kept out of public service navigation / sitemap until the launch gate is open.
-- Shiny Airbnb Cleaning microsite checks passed for `/shiny-airbnb-cleaning`; sales-copy desktop and mobile screenshots: `screenshots/shiny-airbnb-cleaning-sales-copy-desktop-2026-05-10.png`, `screenshots/shiny-airbnb-cleaning-sales-copy-mobile-2026-05-10.png`
+- Shynli Airbnb Cleaning microsite checks passed for `/shiny-airbnb-cleaning`; sales-copy desktop and mobile screenshots: `screenshots/shiny-airbnb-cleaning-sales-copy-desktop-2026-05-10.png`, `screenshots/shiny-airbnb-cleaning-sales-copy-mobile-2026-05-10.png`
 - Airbnb Cleaning visitor-facing copy check passed: no visible `draft`, `competitor`, `reference stack`, `prototype`, `technical`, `pattern`, `internal`, `site borrows`, or `not public launch` language remains on the page.
 - polished separate deep-cleaning site checks passed for `/services/deep-cleaning` and `/shiny-deep-cleaning`; no horizontal overflow at `360`, `390`, `820`, and `1440` px; footer has `15` links; internal prototype copy removed from visible page; screenshots: `screenshots/shiny-deep-polished-desktop-1440-2026-05-10.png`, `screenshots/shiny-deep-polished-mobile-390-2026-05-10.png`
 - city hero image checks passed for `/service-areas/addison`, `/service-areas/aurora`, `/service-areas/plainfield`, `/service-areas/wheaton`, `/service-areas/bristol`, and `/service-areas/willowbrook`; these checks verify image layer, image URL `200`, local label, and no horizontal overflow

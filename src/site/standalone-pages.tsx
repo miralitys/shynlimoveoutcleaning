@@ -49,7 +49,7 @@ export const moveOutFaqs = [
 
 const shinyMoveOutCanonicalBase = "https://shynlimoveoutcleaning.com"
 
-function isShinyMoveOutStandaloneHost() {
+function isShynliMoveOutStandaloneHost() {
   if (typeof window === "undefined") {
     return false
   }
@@ -57,15 +57,15 @@ function isShinyMoveOutStandaloneHost() {
   return window.location.hostname === "shynlimoveoutcleaning.com" || window.location.hostname === "www.shynlimoveoutcleaning.com"
 }
 
-function getShinyMoveOutPath(slug?: string) {
-  if (isShinyMoveOutStandaloneHost()) {
+function getShynliMoveOutPath(slug?: string) {
+  if (isShynliMoveOutStandaloneHost()) {
     return slug ? `/${slug}` : "/"
   }
 
   return slug ? `/shiny-move-out-cleaning/${slug}` : "/shiny-move-out-cleaning"
 }
 
-function ShinyMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
+function ShynliMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
   const isPriorityCity = city ? featuredServiceAreaCities.includes(city.name) : false
   const cityLinks: [string, string][] = city
     ? [
@@ -83,7 +83,7 @@ function ShinyMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
     <footer className="bg-[#0b2430] px-4 py-12 text-[#f6fbff] md:px-8 md:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_1.95fr]">
         <div>
-          <a href={getShinyMoveOutPath()} className="flex min-h-11 items-center gap-3">
+          <a href={getShynliMoveOutPath()} className="flex min-h-11 items-center gap-3">
             <span className="grid size-10 place-items-center rounded-sm bg-[#22c7a9] text-sm font-black text-[#0b2430]">SM</span>
             <span className="text-xl font-black">Shynli Move-Out Cleaning</span>
           </a>
@@ -99,7 +99,7 @@ function ShinyMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <a href={buildQuoteUrl({ service: "move-out-cleaning", city: city?.name })}>Start quote</a>
             </Button>
             <Button asChild variant="outline" className="h-11 rounded-sm border-[#f6fbff]/24 bg-[#f6fbff]/8 px-5 font-black text-[#f6fbff] hover:bg-[#f6fbff]/14 hover:text-[#f6fbff]">
-              <a href={getShinyMoveOutPath() + "#areas"}>Service areas</a>
+              <a href={getShynliMoveOutPath() + "#areas"}>Service areas</a>
             </Button>
           </div>
         </div>
@@ -113,7 +113,7 @@ function ShinyMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <h3 className="text-sm font-black uppercase text-[#22c7a9]">{title as string}</h3>
               <div className="mt-4 grid gap-2">
                 {(links as [string, string][]).map(([label, slug]) => (
-                  <a key={label} href={getShinyMoveOutPath(slug || undefined)} className="flex min-h-10 items-center text-sm font-black text-[#f6fbff]/62 transition-colors hover:text-[#f6fbff]">
+                  <a key={label} href={getShynliMoveOutPath(slug || undefined)} className="flex min-h-10 items-center text-sm font-black text-[#f6fbff]/62 transition-colors hover:text-[#f6fbff]">
                     {label}
                   </a>
                 ))}
@@ -206,7 +206,7 @@ export const deepSiteFaqs = [
   ["What if something is missed?", "Reach out after the visit. Covered missed checklist items should have a simple make-right path."],
 ]
 
-export type ShinyDeepSeoPageData = {
+export type ShynliDeepSeoPageData = {
   slug: string
   title: string
   meta: string
@@ -232,10 +232,10 @@ const deepSeoPageLinks: [string, string][] = [
   ["FAQ", "deep-cleaning-faq"],
 ]
 
-const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
+const baseShynliDeepSeoPages: ShynliDeepSeoPageData[] = [
   {
     slug: "deep-cleaning-cost",
-    title: "Deep Cleaning Cost | Shiny Deep Cleaning",
+    title: "Deep Cleaning Cost | Shynli Deep Cleaning",
     meta: "Learn what affects deep cleaning cost, including home size, buildup, bathrooms, kitchens, add-ons, access notes, and appointment timing.",
     eyebrow: "Cost guide",
     h1: "Deep cleaning cost depends on time, buildup, and add-ons.",
@@ -254,7 +254,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "deep-cleaning-checklist",
-    title: "Deep Cleaning Checklist | Shiny Deep Cleaning",
+    title: "Deep Cleaning Checklist | Shynli Deep Cleaning",
     meta: "Review a deep cleaning checklist for kitchens, bathrooms, bedrooms, living areas, baseboards, high-touch surfaces, add-ons, and not-covered work.",
     eyebrow: "Checklist",
     h1: "Deep cleaning checklist: what the visit should actually cover.",
@@ -273,7 +273,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "what-is-included-in-deep-cleaning",
-    title: "What Is Included in Deep Cleaning | Shiny Deep Cleaning",
+    title: "What Is Included in Deep Cleaning | Shynli Deep Cleaning",
     meta: "See what is usually included in deep cleaning, what may be quoted as an extra, and what should be discussed before booking.",
     eyebrow: "Included scope",
     h1: "What is included in deep cleaning?",
@@ -292,7 +292,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "what-is-not-included-in-deep-cleaning",
-    title: "What Is Not Included in Deep Cleaning | Shiny Deep Cleaning",
+    title: "What Is Not Included in Deep Cleaning | Shynli Deep Cleaning",
     meta: "Understand deep cleaning boundaries before you request a quote, including hazardous waste, mold, heavy trash, carpet extraction, exterior windows, and unreachable areas.",
     eyebrow: "Boundaries",
     h1: "What is not included in deep cleaning?",
@@ -311,7 +311,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "deep-cleaning-add-ons",
-    title: "Deep Cleaning Add-Ons | Shiny Deep Cleaning",
+    title: "Deep Cleaning Add-Ons | Shynli Deep Cleaning",
     meta: "Compare deep cleaning add-ons such as fridge, oven, cabinet interiors, interior windows, blinds, doors, baseboards, and basement cleaning.",
     eyebrow: "Add-ons",
     h1: "Deep cleaning add-ons should be named before the visit.",
@@ -330,7 +330,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "how-long-does-deep-cleaning-take",
-    title: "How Long Does Deep Cleaning Take | Shiny Deep Cleaning",
+    title: "How Long Does Deep Cleaning Take | Shynli Deep Cleaning",
     meta: "Learn how long deep cleaning takes and what changes timing, including home size, buildup, bathrooms, kitchens, add-ons, clutter, and access.",
     eyebrow: "Timing",
     h1: "How long does deep cleaning take?",
@@ -349,7 +349,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "prepare-for-deep-cleaning",
-    title: "How to Prepare for Deep Cleaning | Shiny Deep Cleaning",
+    title: "How to Prepare for Deep Cleaning | Shynli Deep Cleaning",
     meta: "Prepare for a deep cleaning visit with access notes, clutter pickup, priority rooms, pets, special surfaces, add-ons, and timing expectations.",
     eyebrow: "Preparation",
     h1: "How to prepare for deep cleaning.",
@@ -368,7 +368,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "standard-cleaning-vs-deep-cleaning",
-    title: "Standard Cleaning vs Deep Cleaning | Shiny Deep Cleaning",
+    title: "Standard Cleaning vs Deep Cleaning | Shynli Deep Cleaning",
     meta: "Compare standard cleaning vs deep cleaning, including maintenance work, buildup, baseboards, bathrooms, kitchens, add-ons, and first-clean timing.",
     eyebrow: "Comparison",
     h1: "Standard cleaning vs deep cleaning: which one do you need?",
@@ -387,7 +387,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "move-out-cleaning-vs-deep-cleaning",
-    title: "Move-Out Cleaning vs Deep Cleaning | Shiny Deep Cleaning",
+    title: "Move-Out Cleaning vs Deep Cleaning | Shynli Deep Cleaning",
     meta: "Compare move-out cleaning vs deep cleaning and learn when an empty-home clean, appliance interiors, cabinets, closets, and handoff scope matter.",
     eyebrow: "Comparison",
     h1: "Move-out cleaning vs deep cleaning: the scope is different.",
@@ -406,7 +406,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "deep-cleaning-before-guests",
-    title: "Deep Cleaning Before Guests | Shiny Deep Cleaning",
+    title: "Deep Cleaning Before Guests | Shynli Deep Cleaning",
     meta: "Plan deep cleaning before guests arrive, focusing on bathrooms, kitchen surfaces, entry areas, floors, high-touch details, and add-ons.",
     eyebrow: "Hosting",
     h1: "Deep cleaning before guests should focus where people notice first.",
@@ -425,7 +425,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "deep-cleaning-before-recurring-cleaning",
-    title: "Deep Cleaning Before Recurring Cleaning | Shiny Deep Cleaning",
+    title: "Deep Cleaning Before Recurring Cleaning | Shynli Deep Cleaning",
     meta: "Learn why a deep cleaning before recurring service can reset bathrooms, kitchens, baseboards, buildup, and high-touch areas before maintenance visits begin.",
     eyebrow: "First visit",
     h1: "A deep clean before recurring service can reset the baseline.",
@@ -444,7 +444,7 @@ const baseShinyDeepSeoPages: ShinyDeepSeoPageData[] = [
   },
   {
     slug: "deep-cleaning-faq",
-    title: "Deep Cleaning FAQ | Shiny Deep Cleaning",
+    title: "Deep Cleaning FAQ | Shynli Deep Cleaning",
     meta: "Answers to common deep cleaning questions about cost, checklist, timing, add-ons, supplies, preparation, boundaries, and follow-up.",
     eyebrow: "FAQ",
     h1: "Deep cleaning FAQ: answers before you book.",
@@ -616,9 +616,9 @@ const deepExtraGuideSeeds = [
   },
 ]
 
-const deepExtraGuidePages: ShinyDeepSeoPageData[] = deepExtraGuideSeeds.map((seed) => ({
+const deepExtraGuidePages: ShynliDeepSeoPageData[] = deepExtraGuideSeeds.map((seed) => ({
   slug: seed.slug,
-  title: `${seed.label} | Shiny Deep Cleaning`,
+  title: `${seed.label} | Shynli Deep Cleaning`,
   meta: `${seed.label} guidance for deep cleaning scope, quote notes, add-ons, priority rooms, timing, and what to confirm before booking.`,
   eyebrow: "Deep cleaning guide",
   h1: `${seed.label}: what to plan before the visit.`,
@@ -648,7 +648,7 @@ const deepExtraGuidePages: ShinyDeepSeoPageData[] = deepExtraGuideSeeds.map((see
   ],
 }))
 
-export const shinyDeepSeoPages: ShinyDeepSeoPageData[] = [...baseShinyDeepSeoPages, ...deepExtraGuidePages]
+export const shinyDeepSeoPages: ShynliDeepSeoPageData[] = [...baseShynliDeepSeoPages, ...deepExtraGuidePages]
 
 export const deepSiteFooterColumns = [
   {
@@ -803,7 +803,7 @@ function getDeepCityProfile(city: (typeof cityPages)[number]) {
   }
 }
 
-export type ShinyDeepCityIntentPageData = {
+export type ShynliDeepCityIntentPageData = {
   slug: string
   city: (typeof cityPages)[number]
   kind: "cost" | "checklist" | "property" | "situation"
@@ -985,7 +985,7 @@ function getDeepCityRelatedLinks(city: (typeof cityPages)[number], currentSlug: 
   return [...cityLinks, ...situationLinks, ...propertyLinks, ...nearbyLinks].filter(([, slug]) => slug !== currentSlug).slice(0, 12)
 }
 
-function makeDeepCityCostPage(city: (typeof cityPages)[number]): ShinyDeepCityIntentPageData {
+function makeDeepCityCostPage(city: (typeof cityPages)[number]): ShynliDeepCityIntentPageData {
   const profile = getDeepCityProfile(city)
   const slug = `${city.slug}/deep-cleaning-cost`
 
@@ -993,7 +993,7 @@ function makeDeepCityCostPage(city: (typeof cityPages)[number]): ShinyDeepCityIn
     slug,
     city,
     kind: "cost",
-    title: `Deep Cleaning Cost in ${city.name}, IL | Shiny Deep Cleaning`,
+    title: `Deep Cleaning Cost in ${city.name}, IL | Shynli Deep Cleaning`,
     meta: `Deep cleaning cost in ${city.name}, IL depends on home size, bathrooms, condition, add-ons, access, and timing. Check quote factors before booking.`,
     eyebrow: `${city.name} cost guide`,
     h1: `Deep cleaning cost in ${city.name}, IL.`,
@@ -1025,7 +1025,7 @@ function makeDeepCityCostPage(city: (typeof cityPages)[number]): ShinyDeepCityIn
   }
 }
 
-function makeDeepCityChecklistPage(city: (typeof cityPages)[number]): ShinyDeepCityIntentPageData {
+function makeDeepCityChecklistPage(city: (typeof cityPages)[number]): ShynliDeepCityIntentPageData {
   const profile = getDeepCityProfile(city)
   const slug = `${city.slug}/deep-cleaning-checklist`
 
@@ -1033,7 +1033,7 @@ function makeDeepCityChecklistPage(city: (typeof cityPages)[number]): ShinyDeepC
     slug,
     city,
     kind: "checklist",
-    title: `Deep Cleaning Checklist in ${city.name}, IL | Shiny Deep Cleaning`,
+    title: `Deep Cleaning Checklist in ${city.name}, IL | Shynli Deep Cleaning`,
     meta: `Use this ${city.name} deep cleaning checklist for kitchens, bathrooms, baseboards, high-touch areas, add-ons, access notes, and quote planning.`,
     eyebrow: `${city.name} checklist`,
     h1: `${city.name} deep cleaning checklist.`,
@@ -1065,7 +1065,7 @@ function makeDeepCityChecklistPage(city: (typeof cityPages)[number]): ShinyDeepC
   }
 }
 
-function makeDeepPropertyPage(city: (typeof cityPages)[number], seed: DeepCityIntentSeed, kind: "property" | "situation" = "property"): ShinyDeepCityIntentPageData {
+function makeDeepPropertyPage(city: (typeof cityPages)[number], seed: DeepCityIntentSeed, kind: "property" | "situation" = "property"): ShynliDeepCityIntentPageData {
   const profile = getDeepCityProfile(city)
   const slug = `${city.slug}/${seed.slug}`
 
@@ -1073,7 +1073,7 @@ function makeDeepPropertyPage(city: (typeof cityPages)[number], seed: DeepCityIn
     slug,
     city,
     kind,
-    title: `${seed.titleLabel ?? seed.label} in ${city.name}, IL | Shiny Deep Cleaning`,
+    title: `${seed.titleLabel ?? seed.label} in ${city.name}, IL | Shynli Deep Cleaning`,
     meta: `${seed.label} in ${city.name}, IL. Start with condition, priority rooms, add-ons, access notes, timing, and a clear deep cleaning quote.`,
     eyebrow: `${city.name} ${seed.property}`,
     h1: `${seed.label} in ${city.name}, IL.`,
@@ -1121,7 +1121,7 @@ function makeDeepPropertyPage(city: (typeof cityPages)[number], seed: DeepCityIn
   }
 }
 
-export const shinyDeepCityIntentPages: ShinyDeepCityIntentPageData[] = [
+export const shinyDeepCityIntentPages: ShynliDeepCityIntentPageData[] = [
   ...cityPages.flatMap((city) => [makeDeepCityCostPage(city), makeDeepCityChecklistPage(city)]),
   ...cityPages.flatMap((city) => deepCitySituationIntentSeeds.map((seed) => makeDeepPropertyPage(city, seed, "situation"))),
   ...cityPages
@@ -1129,7 +1129,7 @@ export const shinyDeepCityIntentPages: ShinyDeepCityIntentPageData[] = [
     .flatMap((city) => deepPropertyIntentSeeds.map((seed) => makeDeepPropertyPage(city, seed))),
 ]
 
-function isShinyDeepStandaloneHost() {
+function isShynliDeepStandaloneHost() {
   if (typeof window === "undefined") {
     return false
   }
@@ -1137,15 +1137,15 @@ function isShinyDeepStandaloneHost() {
   return window.location.hostname === "shinydeepcleaning.com" || window.location.hostname === "www.shinydeepcleaning.com"
 }
 
-function getShinyDeepPath(slug?: string) {
-  if (isShinyDeepStandaloneHost()) {
+function getShynliDeepPath(slug?: string) {
+  if (isShynliDeepStandaloneHost()) {
     return slug ? `/${slug}` : "/"
   }
 
   return slug ? `/shiny-deep-cleaning/${slug}` : "/shiny-deep-cleaning"
 }
 
-function ShinyDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
+function ShynliDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
   const guideLinks: [string, string][] = [
     ["Cost guide", "deep-cleaning-cost"],
     ["Checklist", "deep-cleaning-checklist"],
@@ -1176,11 +1176,11 @@ function ShinyDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
     <footer className="bg-[#100d16] px-4 py-12 text-white md:px-8 md:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_1.95fr]">
         <div>
-          <a href={getShinyDeepPath()} className="flex min-h-11 items-center gap-3">
+          <a href={getShynliDeepPath()} className="flex min-h-11 items-center gap-3">
             <span className="grid size-10 place-items-center rounded-full bg-[#d7ff4f] text-[#1b1725]">
               <Sparkles className="size-5" />
             </span>
-            <span className="text-xl font-black">Shiny Deep Cleaning</span>
+            <span className="text-xl font-black">Shynli Deep Cleaning</span>
           </a>
           <p className="mt-5 max-w-sm text-sm font-bold leading-6 text-white/58">
             Deep cleaning for kitchens, bathrooms, buildup, baseboards, add-ons, and homes that need more than a maintenance visit.
@@ -1194,7 +1194,7 @@ function ShinyDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <a href={buildQuoteUrl({ service: "deep-cleaning" })}>Get quote</a>
             </Button>
             <Button asChild variant="outline" className="h-11 rounded-full border-white/22 bg-white/8 px-5 font-black text-white hover:bg-white/14 hover:text-white">
-              <a href={getShinyDeepPath() + "#areas"}>Service areas</a>
+              <a href={getShynliDeepPath() + "#areas"}>Service areas</a>
             </Button>
           </div>
         </div>
@@ -1209,7 +1209,7 @@ function ShinyDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <h3 className="text-sm font-black uppercase text-[#d7ff4f]">{title as string}</h3>
               <div className="mt-4 grid gap-2">
                 {(links as [string, string][]).map(([label, slug]) => (
-                  <a key={label} href={slug.startsWith("http") || slug.startsWith("tel:") ? slug : getShinyDeepPath(slug)} className="flex min-h-10 items-center text-sm font-black text-white/62 transition-colors hover:text-white">
+                  <a key={label} href={slug.startsWith("http") || slug.startsWith("tel:") ? slug : getShynliDeepPath(slug)} className="flex min-h-10 items-center text-sm font-black text-white/62 transition-colors hover:text-white">
                     {label}
                   </a>
                 ))}
@@ -1219,7 +1219,7 @@ function ShinyDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm font-bold text-white/42 md:flex-row md:items-center md:justify-between">
-        <p>ShinyDeepCleaning.com</p>
+        <p>ShynliDeepCleaning.com</p>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           <span>Quote first. Checklist visible. Add-ons named before the visit.</span>
           <a className="transition-colors hover:text-white" href="https://shynli.com/terms">Terms</a>
@@ -1231,17 +1231,17 @@ function ShinyDeepFooter({ city }: { city?: (typeof cityPages)[number] }) {
   )
 }
 
-export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[number] } = {}) {
+export function ShynliDeepCleaningPage({ city }: { city?: (typeof cityPages)[number] } = {}) {
   const [selectedCondition, setSelectedCondition] = useState(deepQuoteConditions[0])
   const [selectedAddOns, setSelectedAddOns] = useState<string[]>([])
   const cityName = city?.name
-  const pageTitle = cityName ? `${cityName} Deep Cleaning | Shiny Deep Cleaning` : "Shiny Deep Cleaning | Deep Cleaning Service"
+  const pageTitle = cityName ? `${cityName} Deep Cleaning | Shynli Deep Cleaning` : "Shynli Deep Cleaning | Deep Cleaning Service"
   const pageDescription = cityName
     ? `Deep cleaning in ${cityName}, IL for kitchens, bathrooms, buildup, edges, add-ons, and rooms that need more than maintenance.`
     : "Deep cleaning for kitchens, bathrooms, buildup, edges, and the details a standard visit does not fully handle."
   const nearbyCityNames = city?.nearby ?? ["Naperville", "Aurora", "Plainfield", "Oswego", "Wheaton"]
   const canonicalPath = city ? `/${city.slug}` : "/"
-  const deepHomeHref = getShinyDeepPath()
+  const deepHomeHref = getShynliDeepPath()
   const cityProfile = city ? getDeepCityProfile(city) : undefined
   const cityIntentLinks: [string, string][] = city
     ? [
@@ -1258,10 +1258,10 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: cityName ? `${cityName} Deep Cleaning` : "Shiny Deep Cleaning",
+      name: cityName ? `${cityName} Deep Cleaning` : "Shynli Deep Cleaning",
       serviceType: "Deep cleaning",
       areaServed: cityName ? { "@type": "City", name: cityName } : cityList.map((name) => ({ "@type": "City", name })),
-      provider: { "@type": "LocalBusiness", name: "Shiny Deep Cleaning", url: shinyDeepCanonicalBase },
+      provider: { "@type": "LocalBusiness", name: "Shynli Deep Cleaning", url: shinyDeepCanonicalBase },
     },
     {
       canonicalBaseUrl: shinyDeepCanonicalBase,
@@ -1273,12 +1273,12 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
     <main className="min-h-screen overflow-hidden bg-[#f7f2e8] text-[#1b1725]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/14 bg-[#1b1725]/72 px-4 text-white backdrop-blur-xl md:px-8">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
-          <a href={deepHomeHref} className="flex min-h-11 items-center gap-3" aria-label="Shiny Deep Cleaning home">
+          <a href={deepHomeHref} className="flex min-h-11 items-center gap-3" aria-label="Shynli Deep Cleaning home">
             <span className="grid size-10 place-items-center rounded-full bg-[#d7ff4f] text-[#1b1725]">
               <Sparkles className="size-5" />
             </span>
             <span className="leading-none">
-              <span className="block text-lg font-black">Shiny</span>
+              <span className="block text-lg font-black">Shynli</span>
               <span className="mt-1 block text-xs font-black uppercase text-[#d7ff4f]">Deep Cleaning</span>
             </span>
           </a>
@@ -1315,7 +1315,7 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
               {cityName ? `${cityName} deep cleaning` : "Deep cleaning service"}
             </Badge>
             <h1 className={`${cityName ? "text-[clamp(3.2rem,7.8vw,7.8rem)] leading-[0.86]" : "text-[clamp(4.4rem,11vw,10.5rem)] leading-[0.78]"} font-black tracking-normal`}>
-              {cityName ? cityName : "Shiny"}
+              {cityName ? cityName : "Shynli"}
               {" "}
               <span className="block text-[#d7ff4f]">{cityName ? "Deep Cleaning." : "Deep."}</span>
             </h1>
@@ -1550,7 +1550,7 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
             </div>
             <div className="grid gap-px overflow-hidden rounded-lg bg-[#cfc1ad] md:grid-cols-2">
               {cityIntentLinks.map(([label, slug]) => (
-                <a key={slug} href={getShinyDeepPath(slug)} className="group flex min-h-16 items-center justify-between gap-4 bg-white p-5 text-sm font-black transition-colors hover:bg-[#f7f2e8]">
+                <a key={slug} href={getShynliDeepPath(slug)} className="group flex min-h-16 items-center justify-between gap-4 bg-white p-5 text-sm font-black transition-colors hover:bg-[#f7f2e8]">
                   {label}
                   <ArrowRight className="size-4 shrink-0 text-[#b54437] transition-transform group-hover:translate-x-1" />
                 </a>
@@ -1669,7 +1669,7 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
                   {group.cities.map((name) => (
                     <a
                       key={name}
-                      href={getShinyDeepPath(slugifyCity(name))}
+                      href={getShynliDeepPath(slugifyCity(name))}
                       className="flex min-h-9 items-center justify-between gap-3 rounded-md px-2 text-sm font-black text-[#1b1725] transition-colors hover:bg-[#f7f2e8]"
                     >
                       {name}
@@ -1700,7 +1700,7 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
             {deepSeoPageLinks.map(([label, slug]) => (
               <a
                 key={slug}
-                href={getShinyDeepPath(slug)}
+                href={getShynliDeepPath(slug)}
                 className="group flex min-h-20 items-center justify-between gap-4 bg-[#fdfaf4] p-5 text-base font-black transition-colors hover:bg-white"
               >
                 {label}
@@ -1728,7 +1728,7 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
             {deepExtraGuideSeeds.map((guide) => (
               <a
                 key={guide.slug}
-                href={getShinyDeepPath(guide.slug)}
+                href={getShynliDeepPath(guide.slug)}
                 className="group flex min-h-20 items-center justify-between gap-4 bg-white p-4 text-sm font-black transition-colors hover:bg-[#f7f2e8]"
               >
                 {guide.label}
@@ -1836,12 +1836,12 @@ export function ShinyDeepCleaningPage({ city }: { city?: (typeof cityPages)[numb
         </div>
       </section>
 
-      <ShinyDeepFooter city={city} />
+      <ShynliDeepFooter city={city} />
     </main>
   )
 }
 
-export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
+export function ShynliDeepSeoPage({ page }: { page: ShynliDeepSeoPageData }) {
   useSeoMeta(
     page.title,
     page.meta,
@@ -1851,8 +1851,8 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
       name: page.h1,
       description: page.meta,
       url: `${shinyDeepCanonicalBase}/${page.slug}`,
-      isPartOf: { "@type": "WebSite", name: "Shiny Deep Cleaning", url: shinyDeepCanonicalBase },
-      about: { "@type": "Service", name: "Deep cleaning", provider: { "@type": "LocalBusiness", name: "Shiny Deep Cleaning", url: shinyDeepCanonicalBase } },
+      isPartOf: { "@type": "WebSite", name: "Shynli Deep Cleaning", url: shinyDeepCanonicalBase },
+      about: { "@type": "Service", name: "Deep cleaning", provider: { "@type": "LocalBusiness", name: "Shynli Deep Cleaning", url: shinyDeepCanonicalBase } },
       mainEntity: page.faqs.map(([question, answer]) => ({
         "@type": "Question",
         name: question,
@@ -1869,24 +1869,24 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
     <main className="min-h-screen overflow-hidden bg-[#f7f2e8] text-[#1b1725]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/14 bg-[#1b1725]/72 px-4 text-white backdrop-blur-xl md:px-8">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
-          <a href={getShinyDeepPath()} className="flex min-h-11 items-center gap-3" aria-label="Shiny Deep Cleaning home">
+          <a href={getShynliDeepPath()} className="flex min-h-11 items-center gap-3" aria-label="Shynli Deep Cleaning home">
             <span className="grid size-10 place-items-center rounded-full bg-[#d7ff4f] text-[#1b1725]">
               <Sparkles className="size-5" />
             </span>
             <span className="leading-none">
-              <span className="block text-lg font-black">Shiny</span>
+              <span className="block text-lg font-black">Shynli</span>
               <span className="mt-1 block text-xs font-black uppercase text-[#d7ff4f]">Deep Cleaning</span>
             </span>
           </a>
           <nav className="hidden items-center gap-1 text-sm font-black text-white/68 md:flex" aria-label="Deep cleaning guide navigation">
             {[["Cost", "deep-cleaning-cost"], ["Checklist", "deep-cleaning-checklist"], ["Add-ons", "deep-cleaning-add-ons"], ["FAQ", "deep-cleaning-faq"]].map(([label, slug]) => (
-              <a key={slug} href={getShinyDeepPath(slug)} className="flex min-h-11 items-center rounded-full px-4 transition-colors hover:bg-white/10 hover:text-white">
+              <a key={slug} href={getShynliDeepPath(slug)} className="flex min-h-11 items-center rounded-full px-4 transition-colors hover:bg-white/10 hover:text-white">
                 {label}
               </a>
             ))}
           </nav>
           <Button asChild className="h-11 rounded-full bg-[#d7ff4f] px-5 font-black text-[#1b1725] hover:bg-[#c6f040]">
-            <a href={getShinyDeepPath() + "#quote"}>Get quote</a>
+            <a href={getShynliDeepPath() + "#quote"}>Get quote</a>
           </Button>
         </div>
       </header>
@@ -1905,7 +1905,7 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
           <p className="mt-7 max-w-3xl text-xl font-bold leading-8 text-white/76">{page.intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild className="h-13 rounded-full bg-[#d7ff4f] px-7 text-base font-black text-[#1b1725] hover:bg-[#c6f040]">
-              <a href={getShinyDeepPath() + "#quote"}>
+              <a href={getShynliDeepPath() + "#quote"}>
                 Check price
                 <ArrowRight />
               </a>
@@ -1950,7 +1950,7 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
           </div>
           <div className="grid gap-px overflow-hidden rounded-lg bg-[#d8cbb7] md:grid-cols-2">
             {deepSeoPageLinks.filter(([, slug]) => slug !== page.slug).slice(0, 8).map(([label, slug]) => (
-              <a key={slug} href={getShinyDeepPath(slug)} className="group flex min-h-16 items-center justify-between gap-4 bg-white p-5 text-sm font-black transition-colors hover:bg-[#f7f2e8]">
+              <a key={slug} href={getShynliDeepPath(slug)} className="group flex min-h-16 items-center justify-between gap-4 bg-white p-5 text-sm font-black transition-colors hover:bg-[#f7f2e8]">
                 {label}
                 <ArrowRight className="size-4 shrink-0 text-[#b54437] transition-transform group-hover:translate-x-1" />
               </a>
@@ -1997,7 +1997,7 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
               Local deep cleaning still starts with the ZIP.
             </h2>
             <p className="mt-5 text-lg font-bold leading-8 text-[#5e574f]">
-              Shiny Deep Cleaning is built for homes across the western suburbs, including Naperville, Aurora, Plainfield, Wheaton, Downers Grove, Bolingbrook, Oswego, Lisle, Warrenville, North Aurora, Sugar Grove, Yorkville, and nearby service areas.
+              Shynli Deep Cleaning is built for homes across the western suburbs, including Naperville, Aurora, Plainfield, Wheaton, Downers Grove, Bolingbrook, Oswego, Lisle, Warrenville, North Aurora, Sugar Grove, Yorkville, and nearby service areas.
             </p>
             <p className="mt-4 text-lg font-bold leading-8 text-[#5e574f]">
               The same deep-cleaning question can lead to different quote notes by city: parking, townhome access, condo instructions, pets, larger suburban layouts, finished basements, move timing, and the rooms that matter most. That is why every quote starts with the city, ZIP, home condition, and add-ons before a visit is confirmed.
@@ -2005,7 +2005,7 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
           </div>
           <div className="grid gap-px overflow-hidden rounded-lg bg-[#d8cbb7] md:grid-cols-2">
             {["Naperville", "Aurora", "Plainfield", "Wheaton"].map((cityName) => (
-              <a key={cityName} href={getShinyDeepPath(slugifyCity(cityName))} className="group flex min-h-20 items-center justify-between gap-4 bg-white p-5 text-base font-black transition-colors hover:bg-[#f7f2e8]">
+              <a key={cityName} href={getShynliDeepPath(slugifyCity(cityName))} className="group flex min-h-20 items-center justify-between gap-4 bg-white p-5 text-base font-black transition-colors hover:bg-[#f7f2e8]">
                 {cityName} deep cleaning
                 <ArrowRight className="size-5 shrink-0 text-[#b54437] transition-transform group-hover:translate-x-1" />
               </a>
@@ -2106,12 +2106,12 @@ export function ShinyDeepSeoPage({ page }: { page: ShinyDeepSeoPageData }) {
         </div>
       </section>
 
-      <ShinyDeepFooter />
+      <ShynliDeepFooter />
     </main>
   )
 }
 
-export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPageData }) {
+export function ShynliDeepCityIntentPage({ page }: { page: ShynliDeepCityIntentPageData }) {
   const profile = getDeepCityProfile(page.city)
 
   useSeoMeta(
@@ -2123,13 +2123,13 @@ export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPag
       name: page.h1,
       description: page.meta,
       url: `${shinyDeepCanonicalBase}/${page.slug}`,
-      isPartOf: { "@type": "WebSite", name: "Shiny Deep Cleaning", url: shinyDeepCanonicalBase },
+      isPartOf: { "@type": "WebSite", name: "Shynli Deep Cleaning", url: shinyDeepCanonicalBase },
       about: {
         "@type": "Service",
         name: `${page.city.name} deep cleaning`,
         serviceType: "Deep cleaning",
         areaServed: { "@type": "City", name: page.city.name },
-        provider: { "@type": "LocalBusiness", name: "Shiny Deep Cleaning", url: shinyDeepCanonicalBase },
+        provider: { "@type": "LocalBusiness", name: "Shynli Deep Cleaning", url: shinyDeepCanonicalBase },
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -2155,12 +2155,12 @@ export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPag
     <main className="min-h-screen overflow-hidden bg-[#f7f2e8] text-[#1b1725]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/14 bg-[#1b1725]/72 px-4 text-white backdrop-blur-xl md:px-8">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
-          <a href={getShinyDeepPath()} className="flex min-h-11 items-center gap-3" aria-label="Shiny Deep Cleaning home">
+          <a href={getShynliDeepPath()} className="flex min-h-11 items-center gap-3" aria-label="Shynli Deep Cleaning home">
             <span className="grid size-10 place-items-center rounded-full bg-[#d7ff4f] text-[#1b1725]">
               <Sparkles className="size-5" />
             </span>
             <span className="leading-none">
-              <span className="block text-lg font-black">Shiny</span>
+              <span className="block text-lg font-black">Shynli</span>
               <span className="mt-1 block text-xs font-black uppercase text-[#d7ff4f]">Deep Cleaning</span>
             </span>
           </a>
@@ -2171,13 +2171,13 @@ export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPag
               ["Checklist", `${page.city.slug}/deep-cleaning-checklist`],
               ["FAQ", "deep-cleaning-faq"],
             ].map(([label, slug]) => (
-              <a key={slug} href={getShinyDeepPath(slug)} className="flex min-h-11 items-center rounded-full px-4 transition-colors hover:bg-white/10 hover:text-white">
+              <a key={slug} href={getShynliDeepPath(slug)} className="flex min-h-11 items-center rounded-full px-4 transition-colors hover:bg-white/10 hover:text-white">
                 {label}
               </a>
             ))}
           </nav>
           <Button asChild className="h-11 rounded-full bg-[#d7ff4f] px-5 font-black text-[#1b1725] hover:bg-[#c6f040]">
-            <a href={getShinyDeepPath() + "#quote"}>Get quote</a>
+            <a href={getShynliDeepPath() + "#quote"}>Get quote</a>
           </Button>
         </div>
       </header>
@@ -2199,7 +2199,7 @@ export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPag
             <p className="text-xl font-bold leading-8 text-white/76">{page.intro}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild className="h-13 rounded-full bg-[#d7ff4f] px-7 text-base font-black text-[#1b1725] hover:bg-[#c6f040]">
-                <a href={getShinyDeepPath() + "#quote"}>
+                <a href={getShynliDeepPath() + "#quote"}>
                   Check price
                   <ArrowRight />
                 </a>
@@ -2289,7 +2289,7 @@ export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPag
           </div>
           <div className="grid gap-px overflow-hidden rounded-lg bg-[#cfc1ad] md:grid-cols-2">
             {page.relatedLinks.map(([label, slug]) => (
-              <a key={slug} href={getShinyDeepPath(slug)} className="group flex min-h-16 items-center justify-between gap-4 bg-white p-5 text-sm font-black transition-colors hover:bg-[#f7f2e8]">
+              <a key={slug} href={getShynliDeepPath(slug)} className="group flex min-h-16 items-center justify-between gap-4 bg-white p-5 text-sm font-black transition-colors hover:bg-[#f7f2e8]">
                 {label}
                 <ArrowRight className="size-4 shrink-0 text-[#b54437] transition-transform group-hover:translate-x-1" />
               </a>
@@ -2375,12 +2375,12 @@ export function ShinyDeepCityIntentPage({ page }: { page: ShinyDeepCityIntentPag
         </div>
       </section>
 
-      <ShinyDeepFooter city={page.city} />
+      <ShynliDeepFooter city={page.city} />
     </main>
   )
 }
 
-export function ShinyMark() {
+export function ShynliMark() {
   return (
     <span className="grid size-11 place-items-center rounded-full bg-[#08212d] text-[#9fe3ff] shadow-[0_18px_40px_rgba(8,33,45,0.22)]">
       <Sparkles className="size-6" />
@@ -2437,14 +2437,14 @@ export const apartmentChecklist = [
   ["Move extras", "Inside empty cabinets, drawers, fridge, oven, and closet floors when quoted."],
 ]
 
-export function ShinyApartmentPage() {
+export function ShynliApartmentPage() {
   useSeoMeta(
-    "Shiny Apartment Cleaning | Shynli",
+    "Shynli Apartment Cleaning | Shynli",
     "Apartment cleaning for renters, busy professionals, and move-in or move-out cleaning across Chicago's western suburbs.",
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "Shiny Apartment Cleaning",
+      name: "Shynli Apartment Cleaning",
       serviceType: "Apartment cleaning",
       areaServed: ["Naperville", "Aurora", "Plainfield", "Oswego", "Bolingbrook", "Downers Grove"].map((name) => ({ "@type": "City", name })),
       provider: { "@type": "LocalBusiness", name: "Shynli Cleaning" },
@@ -2455,10 +2455,10 @@ export function ShinyApartmentPage() {
     <main className="min-h-screen overflow-hidden bg-[#f7fbfd] text-[#092332]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/18 bg-[#061923]/72 px-4 text-white backdrop-blur-xl md:px-8">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between">
-          <a href="/shiny-apartment-cleaning" className="flex min-h-11 items-center gap-3" aria-label="Shiny Apartment Cleaning home">
-            <ShinyMark />
+          <a href="/shiny-apartment-cleaning" className="flex min-h-11 items-center gap-3" aria-label="Shynli Apartment Cleaning home">
+            <ShynliMark />
             <span className="leading-none">
-              <span className="block text-lg font-black">Shiny</span>
+              <span className="block text-lg font-black">Shynli</span>
               <span className="mt-1 block text-xs font-black uppercase text-[#9fe3ff]">Apartment Cleaning</span>
             </span>
           </a>
@@ -2491,7 +2491,7 @@ export function ShinyApartmentPage() {
           <div className="max-w-2xl animate-rise">
             <p className="mb-5 text-sm font-black uppercase text-[#9fe3ff]">Naperville apartment cleaning</p>
             <h1 className="text-6xl font-black leading-[0.86] text-white sm:text-7xl md:text-8xl">
-              Shiny
+              Shynli
               <span className="block text-[#9fe3ff]">Apartment</span>
               <span className="block">Cleaning.</span>
             </h1>
@@ -2748,8 +2748,8 @@ export function ShinyApartmentPage() {
       <footer className="bg-[#061923] px-4 py-10 text-white md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
           <a href="/shiny-apartment-cleaning" className="flex min-h-11 items-center gap-3">
-            <ShinyMark />
-            <span className="text-xl font-black">Shiny Apartment Cleaning</span>
+            <ShynliMark />
+            <span className="text-xl font-black">Shynli Apartment Cleaning</span>
           </a>
           <div className="flex flex-wrap gap-4 text-sm font-black text-white/62">
             <a href="/" className="min-h-10 hover:text-white">Back to Shynli</a>
@@ -2761,8 +2761,8 @@ export function ShinyApartmentPage() {
   )
 }
 
-export function ShinyMoveOutPage({ city }: { city?: (typeof cityPages)[number] } = {}) {
-  const homeHref = getShinyMoveOutPath()
+export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] } = {}) {
+  const homeHref = getShynliMoveOutPath()
   const cityName = city?.name
   const canonicalPath = city ? `/${city.slug}` : "/"
   const pageTitle = cityName ? `${cityName} Move-Out Cleaning | Shynli Move-Out Cleaning` : "Shynli Move-Out Cleaning | Final Walkthrough Cleaning"
@@ -3035,7 +3035,7 @@ export function ShinyMoveOutPage({ city }: { city?: (typeof cityPages)[number] }
             </div>
             <div className="grid gap-3 md:grid-cols-2">
               {[...shinyMoveOutAllCityIntentLinks, ...(shinyMoveOutPriorityCityIntentLinks.length && cityList.includes(city.name) && ["Naperville", "Aurora", "Plainfield", "Oswego", "Bolingbrook", "Lisle", "Warrenville", "Downers Grove", "North Aurora", "Sugar Grove", "Yorkville", "Montgomery"].includes(city.name) ? shinyMoveOutPriorityCityIntentLinks : [])].map(([label, slug]) => (
-                <a key={`${city.slug}-${slug}`} href={getShinyMoveOutPath(`${city.slug}/${slug}`)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-white p-5 transition-colors hover:bg-[#f6fbff]">
+                <a key={`${city.slug}-${slug}`} href={getShynliMoveOutPath(`${city.slug}/${slug}`)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-white p-5 transition-colors hover:bg-[#f6fbff]">
                   <span className="text-lg font-black leading-tight text-[#0b2430]">{city.name} {label}</span>
                   <ArrowRight className="size-5 shrink-0 text-[#0b7f8a] transition-transform group-hover:translate-x-1" />
                 </a>
@@ -3064,7 +3064,7 @@ export function ShinyMoveOutPage({ city }: { city?: (typeof cityPages)[number] }
                   {group.cities.map((name) => (
                     <a
                       key={name}
-                      href={getShinyMoveOutPath(slugifyCity(name))}
+                      href={getShynliMoveOutPath(slugifyCity(name))}
                       className="inline-flex min-h-11 items-center rounded-sm bg-[#e9f7fb] px-3 text-sm font-black text-[#0b2430] transition-colors hover:bg-[#d7f3f7] hover:text-[#0b7f8a]"
                     >
                       {name}
@@ -3090,7 +3090,7 @@ export function ShinyMoveOutPage({ city }: { city?: (typeof cityPages)[number] }
           </div>
           <div className="grid gap-3 md:grid-cols-2">
             {shinyMoveOutFeaturedSeoLinks.map(([label, slug]) => (
-              <a key={slug} href={getShinyMoveOutPath(slug)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-[#f6fbff] p-5 transition-colors hover:bg-[#e9f7fb]">
+              <a key={slug} href={getShynliMoveOutPath(slug)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-[#f6fbff] p-5 transition-colors hover:bg-[#e9f7fb]">
                 <span className="text-lg font-black leading-tight text-[#0b2430]">{label}</span>
                 <ArrowRight className="size-5 shrink-0 text-[#0b7f8a] transition-transform group-hover:translate-x-1" />
               </a>
@@ -3119,14 +3119,14 @@ export function ShinyMoveOutPage({ city }: { city?: (typeof cityPages)[number] }
         </div>
       </section>
 
-      <ShinyMoveOutFooter city={city} />
+      <ShynliMoveOutFooter city={city} />
     </main>
   )
 }
 
-export function ShinyMoveOutLegalPage({ page }: { page: LegalPageData }) {
+export function ShynliMoveOutLegalPage({ page }: { page: LegalPageData }) {
   const bodyLines = page.lines.filter((line) => line !== page.lines[0])
-  const homeHref = getShinyMoveOutPath()
+  const homeHref = getShynliMoveOutPath()
 
   useSeoMeta(
     `${page.title} | Shynli Move-Out Cleaning`,
@@ -3188,7 +3188,7 @@ export function ShinyMoveOutLegalPage({ page }: { page: LegalPageData }) {
         </article>
       </section>
 
-      <ShinyMoveOutFooter />
+      <ShynliMoveOutFooter />
     </main>
   )
 }
@@ -3265,7 +3265,7 @@ export const airbnbSiteCompetitorMoves = [
   ["Keep guests comfortable", "The goal is simple: a clean, stocked, calm space that feels ready when the door opens."],
 ]
 
-export function ShinyAirbnbBadge({ children }: { children: string }) {
+export function ShynliAirbnbBadge({ children }: { children: string }) {
   return (
     <span className="inline-flex min-h-9 items-center rounded-full border border-[#dddddd] bg-white px-4 text-xs font-black text-[#222222] shadow-[0_6px_18px_rgba(0,0,0,0.05)]">
       {children}
@@ -3273,16 +3273,16 @@ export function ShinyAirbnbBadge({ children }: { children: string }) {
   )
 }
 
-export function ShinyAirbnbPage() {
+export function ShynliAirbnbPage() {
   useSeoMeta(
-    "Shiny Airbnb Cleaning | Short-Term Rental Turnovers",
+    "Shynli Airbnb Cleaning | Short-Term Rental Turnovers",
     "Short-term rental turnover cleaning with linens, restocking, photo handoff, and host intake.",
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "Shiny Airbnb Cleaning",
+      name: "Shynli Airbnb Cleaning",
       serviceType: "Short-term rental turnover cleaning",
-      provider: { "@type": "LocalBusiness", name: "Shiny Airbnb Cleaning" },
+      provider: { "@type": "LocalBusiness", name: "Shynli Airbnb Cleaning" },
     },
   )
 
@@ -3290,12 +3290,12 @@ export function ShinyAirbnbPage() {
     <main className="min-h-screen overflow-hidden bg-white text-[#222222]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[#dddddd] bg-white/94 px-4 backdrop-blur-xl md:px-8">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between">
-          <a href="/shiny-airbnb-cleaning" className="flex min-h-11 items-center gap-3" aria-label="Shiny Airbnb Cleaning home">
+          <a href="/shiny-airbnb-cleaning" className="flex min-h-11 items-center gap-3" aria-label="Shynli Airbnb Cleaning home">
             <span className="grid size-10 place-items-center rounded-full bg-[#ff385c] text-white">
               <KeyRound className="size-5" />
             </span>
             <span className="leading-none">
-              <span className="block text-lg font-black">Shiny</span>
+              <span className="block text-lg font-black">Shynli</span>
               <span className="mt-1 block text-xs font-black text-[#ff385c]">Airbnb Cleaning</span>
             </span>
           </a>
@@ -3321,11 +3321,11 @@ export function ShinyAirbnbPage() {
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
           <div className="max-w-4xl">
             <div className="mb-5 flex flex-wrap gap-2">
-              <ShinyAirbnbBadge>For Airbnb and VRBO hosts</ShinyAirbnbBadge>
-              <ShinyAirbnbBadge>Guest-ready turnover support</ShinyAirbnbBadge>
+              <ShynliAirbnbBadge>For Airbnb and VRBO hosts</ShynliAirbnbBadge>
+              <ShynliAirbnbBadge>Guest-ready turnover support</ShynliAirbnbBadge>
             </div>
             <h1 className="max-w-4xl text-[clamp(3.6rem,8vw,8.6rem)] font-black leading-[0.84] tracking-normal">
-              Shiny Airbnb Cleaning
+              Shynli Airbnb Cleaning
             </h1>
             <p className="mt-6 max-w-3xl text-[clamp(1.7rem,3.4vw,4rem)] font-black leading-[0.94]">
               Airbnb turnovers before the next guest arrives.
@@ -3446,7 +3446,7 @@ export function ShinyAirbnbPage() {
               </h2>
             </div>
             <p className="text-lg font-bold leading-8 text-[#717171]">
-              Choose what the property needs before the visit, then confirm what Shiny can support for the route, timing, and listing.
+              Choose what the property needs before the visit, then confirm what Shynli can support for the route, timing, and listing.
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-4">
@@ -3516,7 +3516,7 @@ export function ShinyAirbnbPage() {
               Start with the details that decide the clean.
             </h2>
             <p className="mt-5 text-lg font-bold leading-8 text-[#717171]">
-              Send the ZIP, turnover date, guest times, and what you need handled. Shiny can confirm the route and scope before you rely on the booking.
+              Send the ZIP, turnover date, guest times, and what you need handled. Shynli can confirm the route and scope before you rely on the booking.
             </p>
           </div>
           <Card className="rounded-[28px] border-[#dddddd] bg-white shadow-[0_12px_48px_rgba(0,0,0,0.10)]">
@@ -3571,7 +3571,7 @@ export function ShinyAirbnbPage() {
                   <KeyRound className="size-5" />
                 </span>
                 <span className="leading-none">
-                  <span className="block text-xl font-black">Shiny Airbnb Cleaning</span>
+                  <span className="block text-xl font-black">Shynli Airbnb Cleaning</span>
                   <span className="mt-1 block text-sm font-black text-[#717171]">Turnovers for short-term rental hosts</span>
                 </span>
               </a>
@@ -3618,7 +3618,7 @@ export function ShinyAirbnbPage() {
           </div>
 
           <div className="mt-12 flex flex-col gap-4 border-t border-[#dddddd] pt-6 text-sm font-bold text-[#717171] md:flex-row md:items-center md:justify-between">
-            <p>© 2026 Shiny Airbnb Cleaning. A Shynli service concept.</p>
+            <p>© 2026 Shynli Airbnb Cleaning. A Shynli service concept.</p>
             <div className="flex flex-wrap gap-4">
               <a href="/privacy" className="hover:text-[#222222]">Privacy</a>
               <a href="/terms" className="hover:text-[#222222]">Terms</a>

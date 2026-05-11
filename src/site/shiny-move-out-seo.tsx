@@ -9,7 +9,7 @@ import { buildQuoteUrl, submitQuoteForm, useSeoMeta } from "@/site/shared"
 
 const shinyMoveOutCanonicalBase = "https://shynlimoveoutcleaning.com"
 
-function isShinyMoveOutStandaloneHost() {
+function isShynliMoveOutStandaloneHost() {
   if (typeof window === "undefined") {
     return false
   }
@@ -17,8 +17,8 @@ function isShinyMoveOutStandaloneHost() {
   return window.location.hostname === "shynlimoveoutcleaning.com" || window.location.hostname === "www.shynlimoveoutcleaning.com"
 }
 
-function getShinyMoveOutPath(slug?: string) {
-  if (isShinyMoveOutStandaloneHost()) {
+function getShynliMoveOutPath(slug?: string) {
+  if (isShynliMoveOutStandaloneHost()) {
     return slug ? `/${slug}` : "/"
   }
 
@@ -35,7 +35,7 @@ type MoveOutIntentSeed = {
   proof: string
 }
 
-export type ShinyMoveOutSeoPageData = {
+export type ShynliMoveOutSeoPageData = {
   slug: string
   title: string
   meta: string
@@ -53,7 +53,7 @@ export type ShinyMoveOutSeoPageData = {
   relatedLinks: [string, string][]
 }
 
-export type ShinyMoveOutCityIntentPageData = ShinyMoveOutSeoPageData & {
+export type ShynliMoveOutCityIntentPageData = ShynliMoveOutSeoPageData & {
   city: (typeof cityPages)[number]
   citySlug: string
   intentSlug: string
@@ -92,7 +92,7 @@ function sentenceStart(value: string) {
   return `${value.charAt(0).toUpperCase()}${value.slice(1)}`
 }
 
-function makeHubPage(seed: MoveOutIntentSeed): ShinyMoveOutSeoPageData {
+function makeHubPage(seed: MoveOutIntentSeed): ShynliMoveOutSeoPageData {
   return {
     slug: seed.slug,
     title: `${seed.label} | Shynli Move-Out Cleaning`,
@@ -114,7 +114,7 @@ function makeHubPage(seed: MoveOutIntentSeed): ShinyMoveOutSeoPageData {
       },
       {
         title: "How the quote stays honest",
-        copy: `The right price depends on the size of the home, the condition after the move, the number of bathrooms, the time window, and the add-ons requested. Shiny asks for those details before booking so a small apartment, a heavy rental turnover, and a listing clean are not treated like the same job.`,
+        copy: `The right price depends on the size of the home, the condition after the move, the number of bathrooms, the time window, and the add-ons requested. Shynli asks for those details before booking so a small apartment, a heavy rental turnover, and a listing clean are not treated like the same job.`,
         bullets: ["Home size and property type", "Light, normal, or heavy condition after moving", "Fridge, oven, cabinet, window, blind, and garage requests", "Same-week timing, remote access, pets, and parking instructions"],
       },
       {
@@ -129,7 +129,7 @@ function makeHubPage(seed: MoveOutIntentSeed): ShinyMoveOutSeoPageData {
       },
     ],
     faqs: [
-      ["Can you guarantee a deposit or sale outcome?", "No. Shiny can stand behind the covered cleaning scope and the follow-up path for included missed items, but deposit decisions, buyer opinions, and property manager judgments are outside the cleaner's control."],
+      ["Can you guarantee a deposit or sale outcome?", "No. Shynli can stand behind the covered cleaning scope and the follow-up path for included missed items, but deposit decisions, buyer opinions, and property manager judgments are outside the cleaner's control."],
       ["Does the home need to be empty?", "An empty or mostly empty home is best for move-out work. Personal items, trash, and large furniture should be removed before the visit so shelves, closets, floors, and baseboards are accessible."],
       ["Are fridge, oven, and cabinet interiors included?", "They should be selected or quoted before the visit. Calling them out early protects the appointment time and keeps the scope clear."],
       ["Can you clean when I am not there?", "Usually yes, as long as access, parking, utilities, pets, lock-up, and contact details are provided before the visit."],
@@ -257,7 +257,7 @@ function getMoveOutCityProfile(city: (typeof cityPages)[number]) {
   }
 }
 
-function makeCityIntentPage(city: (typeof cityPages)[number], seed: MoveOutIntentSeed): ShinyMoveOutCityIntentPageData {
+function makeCityIntentPage(city: (typeof cityPages)[number], seed: MoveOutIntentSeed): ShynliMoveOutCityIntentPageData {
   const slug = `${city.slug}/${seed.slug}`
   const nearby = city.nearby.slice(0, 4)
   const cityNote = cityRouteNotes[city.group]
@@ -321,13 +321,13 @@ function makeCityIntentPage(city: (typeof cityPages)[number], seed: MoveOutInten
 
 const priorityCityPages = cityPages.filter((city) => featuredServiceAreaCities.includes(city.name))
 
-export const shinyMoveOutCityIntentPages: ShinyMoveOutCityIntentPageData[] = [
+export const shinyMoveOutCityIntentPages: ShynliMoveOutCityIntentPageData[] = [
   ...cityPages.flatMap((city) => mediumIntentSeeds.map((seed) => makeCityIntentPage(city, seed))),
   ...priorityCityPages.flatMap((city) => lowIntentSeeds.map((seed) => makeCityIntentPage(city, seed))),
 ]
 
 function MoveOutSeoHeader({ ctaLabel = "Start quote" }: { ctaLabel?: string }) {
-  const homeHref = getShinyMoveOutPath()
+  const homeHref = getShynliMoveOutPath()
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#0b2430]/10 bg-[#f6fbff]/92 px-4 backdrop-blur-xl md:px-8">
@@ -353,7 +353,7 @@ function MoveOutSeoHeader({ ctaLabel = "Start quote" }: { ctaLabel?: string }) {
   )
 }
 
-function MoveOutQuoteStrip({ page, cityName }: { page: ShinyMoveOutSeoPageData; cityName?: string }) {
+function MoveOutQuoteStrip({ page, cityName }: { page: ShynliMoveOutSeoPageData; cityName?: string }) {
   return (
     <div id="quote" className="border border-[#b9e5ee] bg-[#f6fbff] p-3 text-[#0b2430] shadow-[0_26px_90px_rgba(0,0,0,0.18)] md:p-4">
       <form action={buildQuoteUrl({ service: page.keyword })} method="get" className="grid gap-3 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] lg:items-end" onSubmit={(event) => submitQuoteForm(event, { service: page.keyword })}>
@@ -401,7 +401,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
     <footer className="bg-[#0b2430] px-4 py-12 text-[#f6fbff] md:px-8 md:py-16">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_1.95fr]">
         <div>
-          <a href={getShinyMoveOutPath()} className="flex min-h-11 items-center gap-3">
+          <a href={getShynliMoveOutPath()} className="flex min-h-11 items-center gap-3">
             <span className="grid size-10 place-items-center rounded-sm bg-[#22c7a9] text-sm font-black text-[#0b2430]">SM</span>
             <span className="text-xl font-black">Shynli Move-Out Cleaning</span>
           </a>
@@ -417,7 +417,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <a href={buildQuoteUrl({ service: "move-out-cleaning" })}>Start quote</a>
             </Button>
             <Button asChild variant="outline" className="h-11 rounded-sm border-[#f6fbff]/24 bg-[#f6fbff]/8 px-5 font-black text-[#f6fbff] hover:bg-[#f6fbff]/14 hover:text-[#f6fbff]">
-              <a href={getShinyMoveOutPath() + "#areas"}>Service areas</a>
+              <a href={getShynliMoveOutPath() + "#areas"}>Service areas</a>
             </Button>
           </div>
         </div>
@@ -427,7 +427,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <h3 className="text-sm font-black uppercase text-[#22c7a9]">{title}</h3>
               <div className="mt-4 grid gap-2">
                 {links.map(([label, slug]) => (
-                  <a key={label} href={getShinyMoveOutPath(slug || undefined)} className="flex min-h-10 items-center text-sm font-black text-[#f6fbff]/62 transition-colors hover:text-[#f6fbff]">
+                  <a key={label} href={getShynliMoveOutPath(slug || undefined)} className="flex min-h-10 items-center text-sm font-black text-[#f6fbff]/62 transition-colors hover:text-[#f6fbff]">
                     {label}
                   </a>
                 ))}
@@ -444,7 +444,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
   )
 }
 
-function MoveOutSeoBody({ page, cityName }: { page: ShinyMoveOutSeoPageData; cityName?: string }) {
+function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; cityName?: string }) {
   const related = page.relatedLinks.length > 0 ? page.relatedLinks : hubLinkSeeds.slice(0, 8)
   const cityLinks = cityPages.slice(0, 12)
 
@@ -522,7 +522,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShinyMoveOutSeoPageData; cit
           </div>
           <div className="grid gap-3 md:grid-cols-2">
             {related.map(([label, slug]) => (
-              <a key={`${label}-${slug}`} href={getShinyMoveOutPath(slug)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-white p-5 transition-colors hover:bg-[#e9f7fb]">
+              <a key={`${label}-${slug}`} href={getShynliMoveOutPath(slug)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-white p-5 transition-colors hover:bg-[#e9f7fb]">
                 <span className="text-lg font-black leading-tight text-[#0b2430]">{label}</span>
                 <ArrowRight className="size-5 shrink-0 text-[#0b7f8a] transition-transform group-hover:translate-x-1" />
               </a>
@@ -543,7 +543,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShinyMoveOutSeoPageData; cit
           <div className="grid gap-4 md:grid-cols-2">
             {cityName ? (
               cityLinks.map((city) => (
-                <a key={city.slug} href={getShinyMoveOutPath(city.slug)} className="flex min-h-16 items-center justify-between border border-[#b9e5ee] bg-[#f6fbff] px-5 text-base font-black text-[#0b2430] hover:bg-[#e9f7fb]">
+                <a key={city.slug} href={getShynliMoveOutPath(city.slug)} className="flex min-h-16 items-center justify-between border border-[#b9e5ee] bg-[#f6fbff] px-5 text-base font-black text-[#0b2430] hover:bg-[#e9f7fb]">
                   {city.name}
                   <MapPin className="size-5 text-[#0b7f8a]" />
                 </a>
@@ -556,7 +556,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShinyMoveOutSeoPageData; cit
                     {group.cities.map((name) => {
                       const city = cityPages.find((item) => item.name === name)
                       return city ? (
-                        <a key={name} href={getShinyMoveOutPath(city.slug)} className="inline-flex min-h-11 items-center rounded-sm bg-white px-3 text-sm font-black text-[#0b2430] hover:bg-[#d7f3f7] hover:text-[#0b7f8a]">
+                        <a key={name} href={getShynliMoveOutPath(city.slug)} className="inline-flex min-h-11 items-center rounded-sm bg-white px-3 text-sm font-black text-[#0b2430] hover:bg-[#d7f3f7] hover:text-[#0b7f8a]">
                           {name}
                         </a>
                       ) : null
@@ -592,7 +592,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShinyMoveOutSeoPageData; cit
   )
 }
 
-function useMoveOutSeoMeta(page: ShinyMoveOutSeoPageData, canonicalPath: string, areaServed: unknown = cityList.map((name) => ({ "@type": "City", name }))) {
+function useMoveOutSeoMeta(page: ShynliMoveOutSeoPageData, canonicalPath: string, areaServed: unknown = cityList.map((name) => ({ "@type": "City", name }))) {
   useSeoMeta(
     page.title,
     page.meta,
@@ -622,7 +622,7 @@ function useMoveOutSeoMeta(page: ShinyMoveOutSeoPageData, canonicalPath: string,
   )
 }
 
-export function ShinyMoveOutSeoPage({ page }: { page: ShinyMoveOutSeoPageData }) {
+export function ShynliMoveOutSeoPage({ page }: { page: ShynliMoveOutSeoPageData }) {
   const canonicalPath = `/${page.slug}`
   useMoveOutSeoMeta(page, canonicalPath)
 
@@ -659,7 +659,7 @@ export function ShinyMoveOutSeoPage({ page }: { page: ShinyMoveOutSeoPageData })
   )
 }
 
-export function ShinyMoveOutCityIntentPage({ page }: { page: ShinyMoveOutCityIntentPageData }) {
+export function ShynliMoveOutCityIntentPage({ page }: { page: ShynliMoveOutCityIntentPageData }) {
   const canonicalPath = `/${page.slug}`
   useMoveOutSeoMeta(page, canonicalPath, { "@type": "City", name: page.city.name })
 

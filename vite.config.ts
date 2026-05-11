@@ -13,7 +13,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("src/site/shiny-move-out-seo")) return "shiny-move-out-seo"
+          if (id.includes("src/site/shiny-move-out-seo")) return "shynli-move-out-seo"
           if (!id.includes("node_modules")) return
           if (id.includes("lucide-react")) return "vendor-icons"
           if (id.includes("react") || id.includes("react-dom")) return "vendor-react"

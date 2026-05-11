@@ -2,8 +2,8 @@ import { cityPages, cityServicePageCities, genericSeoPages, getCityServiceSeoSer
 import { legalPages } from "@/site/legal-data"
 import { LegalPage } from "@/site/legal-pages"
 import { CityPage, GenericSeoPage, HomePage, NotFoundPage, ServiceAreasPage, ServicesIndexPage, ServiceSeoPage } from "@/site/pages"
-import { ShinyMoveOutCityIntentPage, ShinyMoveOutSeoPage, shinyMoveOutCityIntentPages, shinyMoveOutSeoPages } from "@/site/shiny-move-out-seo"
-import { ShinyAirbnbPage, ShinyApartmentPage, ShinyDeepCityIntentPage, ShinyDeepCleaningPage, ShinyDeepSeoPage, ShinyMoveOutLegalPage, ShinyMoveOutPage, shinyDeepCityIntentPages, shinyDeepSeoPages } from "@/site/standalone-pages"
+import { ShynliMoveOutCityIntentPage, ShynliMoveOutSeoPage, shinyMoveOutCityIntentPages, shinyMoveOutSeoPages } from "@/site/shiny-move-out-seo"
+import { ShynliAirbnbPage, ShynliApartmentPage, ShynliDeepCityIntentPage, ShynliDeepCleaningPage, ShynliDeepSeoPage, ShynliMoveOutLegalPage, ShynliMoveOutPage, shinyDeepCityIntentPages, shinyDeepSeoPages } from "@/site/standalone-pages"
 
 function App() {
   const currentPath = window.location.pathname.replace(/\/$/, "") || "/"
@@ -39,84 +39,88 @@ function App() {
 
   if (isDeepCleaningSite) {
     if (currentPath === "/") {
-      return <ShinyDeepCleaningPage />
+      return <ShynliDeepCleaningPage />
     }
 
     if (deepDomainCityMatch) {
-      return <ShinyDeepCleaningPage city={deepDomainCityMatch} />
+      return <ShynliDeepCleaningPage city={deepDomainCityMatch} />
     }
 
     if (deepDomainSeoMatch) {
-      return <ShinyDeepSeoPage page={deepDomainSeoMatch} />
+      return <ShynliDeepSeoPage page={deepDomainSeoMatch} />
     }
 
     if (deepDomainCityIntentMatch) {
-      return <ShinyDeepCityIntentPage page={deepDomainCityIntentMatch} />
+      return <ShynliDeepCityIntentPage page={deepDomainCityIntentMatch} />
     }
   }
 
   if (isMoveOutCleaningSite && currentPath === "/") {
-    return <ShinyMoveOutPage />
+    return <ShynliMoveOutPage />
   }
 
   if (isMoveOutCleaningSite && shinyMoveOutLegalMatch) {
-    return <ShinyMoveOutLegalPage page={shinyMoveOutLegalMatch} />
+    return <ShynliMoveOutLegalPage page={shinyMoveOutLegalMatch} />
   }
 
   if (isMoveOutCleaningSite && moveOutDomainSeoMatch) {
-    return <ShinyMoveOutSeoPage page={moveOutDomainSeoMatch} />
+    return <ShynliMoveOutSeoPage page={moveOutDomainSeoMatch} />
   }
 
   if (isMoveOutCleaningSite && moveOutDomainCityIntentMatch) {
-    return <ShinyMoveOutCityIntentPage page={moveOutDomainCityIntentMatch} />
+    return <ShynliMoveOutCityIntentPage page={moveOutDomainCityIntentMatch} />
   }
 
   if (isMoveOutCleaningSite && moveOutDomainCityMatch) {
-    return <ShinyMoveOutPage city={moveOutDomainCityMatch} />
+    return <ShynliMoveOutPage city={moveOutDomainCityMatch} />
+  }
+
+  if (isMoveOutCleaningSite) {
+    return <NotFoundPage />
   }
 
   if (currentPath === "/shiny-apartment-cleaning") {
-    return <ShinyApartmentPage />
+    return <ShynliApartmentPage />
   }
 
   if (currentPath === "/shiny-deep-cleaning") {
-    return <ShinyDeepCleaningPage />
+    return <ShynliDeepCleaningPage />
   }
 
   if (shinyDeepCityMatch) {
-    return <ShinyDeepCleaningPage city={shinyDeepCityMatch} />
+    return <ShynliDeepCleaningPage city={shinyDeepCityMatch} />
   }
 
   if (shinyDeepSeoMatch) {
-    return <ShinyDeepSeoPage page={shinyDeepSeoMatch} />
+    return <ShynliDeepSeoPage page={shinyDeepSeoMatch} />
   }
 
   if (shinyDeepCityIntentMatch) {
-    return <ShinyDeepCityIntentPage page={shinyDeepCityIntentMatch} />
+    return <ShynliDeepCityIntentPage page={shinyDeepCityIntentMatch} />
   }
 
   if (currentPath === "/shiny-airbnb-cleaning") {
-    return <ShinyAirbnbPage />
+    return <ShynliAirbnbPage />
   }
 
   if (currentPath === "/shiny-move-out-cleaning") {
-    return <ShinyMoveOutPage />
+    return <ShynliMoveOutPage />
   }
 
   if (shinyMoveOutLegalMatch && currentPath.startsWith("/shiny-move-out-cleaning/")) {
-    return <ShinyMoveOutLegalPage page={shinyMoveOutLegalMatch} />
+    return <ShynliMoveOutLegalPage page={shinyMoveOutLegalMatch} />
   }
 
   if (shinyMoveOutSeoMatch) {
-    return <ShinyMoveOutSeoPage page={shinyMoveOutSeoMatch} />
+    return <ShynliMoveOutSeoPage page={shinyMoveOutSeoMatch} />
   }
 
   if (shinyMoveOutCityIntentMatch) {
-    return <ShinyMoveOutCityIntentPage page={shinyMoveOutCityIntentMatch} />
+    return <ShynliMoveOutCityIntentPage page={shinyMoveOutCityIntentMatch} />
   }
 
   if (shinyMoveOutCityMatch) {
-    return <ShinyMoveOutPage city={shinyMoveOutCityMatch} />
+    return <ShynliMoveOutPage city={shinyMoveOutCityMatch} />
   }
 
   if (currentPath === "/services") {
