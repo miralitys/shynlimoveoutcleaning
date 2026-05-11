@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { businessEmail, businessPhoneDisplay, businessPhoneHref, cityHeroImages, cityList, cityPages, cityRouteNotes, serviceAreaGroups, slugifyCity } from "@/site/data"
+import { businessEmail, businessPhoneDisplay, businessPhoneHref, cityHeroImages, cityList, cityPages, cityRouteNotes, featuredServiceAreaCities, serviceAreaGroups, slugifyCity } from "@/site/data"
 import { type LegalPageData, LegalLine } from "@/site/legal-pages"
 import { shinyMoveOutAllCityIntentLinks, shinyMoveOutFeaturedSeoLinks, shinyMoveOutPriorityCityIntentLinks } from "@/site/shiny-move-out-seo"
 import { buildQuoteUrl, submitQuoteForm, useSeoMeta } from "@/site/shared"
@@ -66,12 +66,12 @@ function getShinyMoveOutPath(slug?: string) {
 }
 
 function ShinyMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
+  const isPriorityCity = city ? featuredServiceAreaCities.includes(city.name) : false
   const cityLinks: [string, string][] = city
     ? [
         [city.name, city.slug],
-        ["Move-out cost", `${city.slug}/move-out-cleaning-cost`],
-        ["Move-out checklist", `${city.slug}/move-out-cleaning-checklist`],
-        ["Move-in cleaning", `${city.slug}/move-in-cleaning`],
+        ...shinyMoveOutAllCityIntentLinks.map(([label, slug]) => [label, `${city.slug}/${slug}`] as [string, string]),
+        ...(isPriorityCity ? shinyMoveOutPriorityCityIntentLinks.map(([label, slug]) => [label, `${city.slug}/${slug}`] as [string, string]) : []),
       ]
     : [
         ["Naperville", "naperville"],
