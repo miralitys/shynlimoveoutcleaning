@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shinydeepcleaning.com/sitemap-shinydeepcleaning.xml
