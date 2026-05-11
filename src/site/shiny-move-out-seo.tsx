@@ -383,10 +383,17 @@ function MoveOutQuoteStrip({ page, cityName }: { page: ShinyMoveOutSeoPageData; 
   )
 }
 
-function MoveOutSeoFooter() {
+function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
+  const localLinks: [string, string][] = city
+    ? [
+        [city.name, city.slug],
+        ...mediumIntentSeeds.map((seed) => [seed.label, `${city.slug}/${seed.slug}`] as [string, string]),
+        ...(featuredServiceAreaCities.includes(city.name) ? lowIntentSeeds.map((seed) => [seed.label, `${city.slug}/${seed.slug}`] as [string, string]) : []),
+      ]
+    : [["Naperville", "naperville"], ["Aurora", "aurora"], ["Plainfield", "plainfield"], ["Oswego", "oswego"]]
   const linkGroups: [string, [string, string][]][] = [
     ["Move-out pages", [["Cost guide", "move-out-cleaning-cost"], ["Checklist", "move-out-cleaning-checklist"], ["Empty apartment", "empty-apartment-cleaning"], ["Deposit cleaning", "deposit-cleaning"]]],
-    ["Local pages", [["Naperville", "naperville"], ["Aurora", "aurora"], ["Plainfield", "plainfield"], ["Oswego", "oswego"]]],
+    ["Local pages", localLinks],
     ["Support", [["Privacy", "privacy"], ["Terms", "terms"], ["Cancellation", "cancellation"], ["Home", ""]]],
   ]
 
@@ -688,7 +695,7 @@ export function ShinyMoveOutCityIntentPage({ page }: { page: ShinyMoveOutCityInt
         </div>
       </section>
       <MoveOutSeoBody page={page} cityName={page.city.name} />
-      <MoveOutSeoFooter />
+      <MoveOutSeoFooter city={page.city} />
     </main>
   )
 }
