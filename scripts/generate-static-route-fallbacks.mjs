@@ -53,9 +53,10 @@ const addHomepageShell = (html) => {
         <p style="max-width:42rem;margin:1.5rem 0 0;font-size:clamp(1.125rem,1.9vw,1.25rem);font-weight:700;line-height:1.6;color:rgba(246,251,255,.78);">Move-out cleaning built around empty rooms, inspection checklists, handoff timing, and after-clean proof the customer can actually use.</p>
         <div style="display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem;">
           <a href="https://shynlicleaningservice.com/quote?service=move-out-cleaning&amp;source_page=/" style="display:inline-flex;min-height:3rem;align-items:center;justify-content:center;border-radius:.375rem;background:#20c7d8;padding:0 1.25rem;font-size:.875rem;font-weight:900;line-height:1;color:#06202a;text-decoration:none;">Get quote</a>
-          <a href="/service-areas" style="display:inline-flex;min-height:3rem;align-items:center;justify-content:center;border:1px solid rgba(246,251,255,.5);border-radius:.375rem;background:rgba(246,251,255,.08);padding:0 1.25rem;font-size:.875rem;font-weight:900;line-height:1;color:#f6fbff;text-decoration:none;">Service areas</a>
+          <a href="#areas" style="display:inline-flex;min-height:3rem;align-items:center;justify-content:center;border:1px solid rgba(246,251,255,.5);border-radius:.375rem;background:rgba(246,251,255,.08);padding:0 1.25rem;font-size:.875rem;font-weight:900;line-height:1;color:#f6fbff;text-decoration:none;">Service areas</a>
         </div>
       </section>
+      <span id="areas" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
     </main>`
 
   const withPreload = html.replace(
@@ -80,7 +81,12 @@ const deferHomepageScripts = (html) => {
         const loadApp = () => {
           if (loaded) return;
           loaded = true;
-          import("${entryPath}");
+          import("${entryPath}").then(() => {
+            if (!window.location.hash) return;
+            window.setTimeout(() => {
+              document.querySelector(window.location.hash)?.scrollIntoView();
+            }, 0);
+          });
         };
         window.addEventListener("click", loadApp, { once: true });
         window.addEventListener("keydown", loadApp, { once: true });
