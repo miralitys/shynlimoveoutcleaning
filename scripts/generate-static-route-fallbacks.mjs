@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { dirname, join } from "node:path"
 
 const domain = "https://shynlimoveoutcleaning.com"
@@ -43,7 +43,114 @@ const inlineStylesheets = (html) => {
   return withoutStylesheets.replace(insertionPoint, `${insertionPoint}${inlineStyles}`)
 }
 
-const addHomepageShell = (html) => {
+const serviceAreaCities = [
+  "Addison",
+  "Aurora",
+  "Bartlett",
+  "Batavia",
+  "Bolingbrook",
+  "Bristol",
+  "Burr Ridge",
+  "Carol Stream",
+  "Clarendon Hills",
+  "Darien",
+  "Downers Grove",
+  "Elmhurst",
+  "Geneva",
+  "Glen Ellyn",
+  "Hinsdale",
+  "Homer Glen",
+  "Itasca",
+  "Lemont",
+  "Lisle",
+  "Lockport",
+  "Lombard",
+  "Montgomery",
+  "Naperville",
+  "North Aurora",
+  "Oak Brook",
+  "Oswego",
+  "Plainfield",
+  "Romeoville",
+  "St. Charles",
+  "Streamwood",
+  "Sugar Grove",
+  "Villa Park",
+  "Warrenville",
+  "Wayne",
+  "West Chicago",
+  "Westmont",
+  "Wheaton",
+  "Willowbrook",
+  "Winfield",
+  "Wood Dale",
+  "Woodridge",
+  "Yorkville",
+]
+
+const cityBySlug = new Map(serviceAreaCities.map((city) => [city.toLowerCase().replace(/\./g, "").replace(/\s+/g, "-"), city]))
+
+const titleCaseSlug = (slug) =>
+  slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join(" ")
+
+const getShellCopy = (path) => {
+  if (path === "/") {
+    return {
+      title: "Shynli Move-Out Cleaning | Final Walkthrough Cleaning",
+      description: "Move-out cleaning for empty homes, lease handoffs, listing prep, final walkthroughs, and move-day timing.",
+      kicker: "Apartment empty, keys due, inspection coming",
+      h1: "Ready for the final walkthrough.",
+      copy: "Move-out cleaning built around empty rooms, inspection checklists, handoff timing, and after-clean proof the customer can actually use.",
+      sourcePage: "/",
+    }
+  }
+
+  const segments = path.split("/").filter(Boolean)
+  const cityName = cityBySlug.get(segments[0])
+  const intentSlug = cityName ? segments[1] : segments[0]
+  const intentLabel = intentSlug ? titleCaseSlug(intentSlug) : "Move-out cleaning"
+
+  if (cityName && !intentSlug) {
+    return {
+      title: `${cityName} Move-Out Cleaning | Shynli Move-Out Cleaning`,
+      description: `Move-out cleaning in ${cityName}, IL with empty-home checklist, access notes, after-clean photos, and final walkthrough-ready scope.`,
+      kicker: `${cityName} apartment empty, keys due, inspection coming`,
+      h1: `${cityName} move-out cleaning.`,
+      copy: `Move-out cleaning in ${cityName} built around empty rooms, inspection checklists, handoff timing, and after-clean proof.`,
+      cityName,
+      sourcePage: path,
+    }
+  }
+
+  if (cityName) {
+    return {
+      title: `${cityName} ${intentLabel} | Shynli Move-Out Cleaning`,
+      description: `${cityName} ${intentLabel.toLowerCase()} with move-out scope, access notes, add-on clarity, after-clean photos, and a fast quote path.`,
+      kicker: `${cityName} service`,
+      h1: `${cityName} ${intentLabel} for a cleaner handoff.`,
+      copy: `Plan ${intentLabel.toLowerCase()} in ${cityName} around timing, access, condition, selected add-ons, and final walkthrough expectations.`,
+      cityName,
+      sourcePage: path,
+    }
+  }
+
+  return {
+    title: `${intentLabel} | Shynli Move-Out Cleaning`,
+    description: `${intentLabel} with move-out scope, access notes, add-on clarity, after-clean photos, and a fast quote path.`,
+    kicker: intentLabel,
+    h1: `${intentLabel} built for a clean handoff.`,
+    copy: `${intentLabel} should make the move easier, not add another vague appointment to an already tight week. Start with the property type, timing, condition, access notes, and add-ons.`,
+    sourcePage: path,
+  }
+}
+
+const addMoveOutShell = (html, path = "/") => {
+  const page = getShellCopy(path)
+  const hiddenCityInput = page.cityName ? `<input type="hidden" name="city" value="${page.cityName}" />` : ""
   const shell = `<main id="initial-home-hero" style="min-height:100svh;background:#e9f7fb;color:#0b2430;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;">
       <style>
         #initial-home-hero *{box-sizing:border-box}
@@ -106,12 +213,13 @@ const addHomepageShell = (html) => {
         </picture>
         <div class="initial-overlay"></div>
         <div class="initial-hero-inner">
-          <p class="initial-kicker">Apartment empty, keys due, inspection coming</p>
-          <h1>Ready for the final walkthrough.</h1>
-          <p class="initial-copy">Move-out cleaning built around empty rooms, inspection checklists, handoff timing, and after-clean proof the customer can actually use.</p>
+          <p class="initial-kicker">${page.kicker}</p>
+          <h1>${page.h1}</h1>
+          <p class="initial-copy">${page.copy}</p>
           <form id="quote" class="initial-form" action="https://shynlicleaningservice.com/quote" method="get">
             <input type="hidden" name="service" value="move-out-cleaning" />
-            <input type="hidden" name="source_page" value="/" />
+            <input type="hidden" name="source_page" value="${page.sourcePage}" />
+            ${hiddenCityInput}
             <div class="initial-form-grid">
               <label>Zip code <input name="zip" value="60540" inputmode="numeric" /></label>
               <label>Handoff date <input name="date" placeholder="dd.mm.yyyy" /></label>
@@ -142,11 +250,11 @@ const addHomepageShell = (html) => {
   const withMoveOutMeta = withPreload
     .replace(
       /<title>.*?<\/title>/,
-      "<title>Shynli Move-Out Cleaning | Final Walkthrough Cleaning</title>",
+      `<title>${page.title}</title>`,
     )
     .replace(
       /<meta\s+name="description"\s+content="[^"]*"\s*\/>/s,
-      '<meta name="description" content="Move-out cleaning for empty homes, lease handoffs, listing prep, final walkthroughs, and move-day timing." />',
+      `<meta name="description" content="${page.description}" />`,
     )
 
   return withMoveOutMeta.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
@@ -197,9 +305,9 @@ const paths = urls
 for (const path of paths) {
   const routeIndex = join(distDir, path, "index.html")
   mkdirSync(dirname(routeIndex), { recursive: true })
-  copyFileSync(indexFile, routeIndex)
+  writeFileSync(routeIndex, addMoveOutShell(deferHomepageScripts(indexHtml), path))
 }
 
-writeFileSync(indexFile, addHomepageShell(deferHomepageScripts(indexHtml)))
+writeFileSync(indexFile, addMoveOutShell(deferHomepageScripts(indexHtml)))
 
 console.log(`Generated ${paths.length} static route fallbacks.`)
