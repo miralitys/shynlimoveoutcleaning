@@ -260,7 +260,7 @@ const addMoveOutShell = (html, path = "/") => {
   return withMoveOutMeta.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
 }
 
-const deferHomepageScripts = (html) => {
+const deferHomepageScripts = (html, delayMs = 1200) => {
   const entryScript = html.match(/    <script type="module" crossorigin src="([^"]+)"><\/script>\n/)
 
   if (!entryScript) {
@@ -283,7 +283,7 @@ const deferHomepageScripts = (html) => {
         };
         window.addEventListener("click", loadApp, { once: true });
         window.addEventListener("keydown", loadApp, { once: true });
-        window.setTimeout(loadApp, 1200);
+        window.setTimeout(loadApp, ${delayMs});
       })();
     </script>\n`
 
@@ -305,7 +305,7 @@ const paths = urls
 for (const path of paths) {
   const routeIndex = join(distDir, path, "index.html")
   mkdirSync(dirname(routeIndex), { recursive: true })
-  writeFileSync(routeIndex, addMoveOutShell(deferHomepageScripts(indexHtml), path))
+  writeFileSync(routeIndex, addMoveOutShell(deferHomepageScripts(indexHtml, 4200), path))
 }
 
 writeFileSync(indexFile, addMoveOutShell(deferHomepageScripts(indexHtml)))
