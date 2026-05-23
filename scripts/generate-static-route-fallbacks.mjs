@@ -171,6 +171,7 @@ const deferHomepageScripts = (html) => {
         };
         window.addEventListener("click", loadApp, { once: true });
         window.addEventListener("keydown", loadApp, { once: true });
+        window.setTimeout(loadApp, 1200);
       })();
     </script>\n`
 
