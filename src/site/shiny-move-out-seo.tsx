@@ -1,5 +1,4 @@
 import { ArrowRight, Check, ClipboardCheck, Home, KeyRound, MapPin, ShieldCheck, Sparkles } from "lucide-react"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -578,14 +577,14 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
               The promise stays persuasive because the limits are honest: cleaning scope is controlled by the appointment, while deposits, inspections, and buyer opinions are not.
             </p>
           </div>
-          <Accordion type="single" collapsible defaultValue="item-0" className="border border-[#b9e5ee] bg-white px-5 text-[#0b2430]">
-            {page.faqs.map(([question, answer], index) => (
-              <AccordionItem key={question} value={`item-${index}`}>
-                <AccordionTrigger>{question}</AccordionTrigger>
-                <AccordionContent>{answer}</AccordionContent>
-              </AccordionItem>
+          <div className="border border-[#b9e5ee] bg-white px-5 text-[#0b2430]">
+            {page.faqs.map(([question, answer]) => (
+              <section key={question} className="border-b border-[#d6edf3] py-4 last:border-b-0">
+                <h3 className="text-left text-sm font-black leading-6">{question}</h3>
+                <p className="mt-2 text-sm font-semibold leading-7 text-[#486573]">{answer}</p>
+              </section>
             ))}
-          </Accordion>
+          </div>
         </div>
       </section>
     </>
