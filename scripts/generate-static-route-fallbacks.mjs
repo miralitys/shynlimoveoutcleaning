@@ -82,10 +82,8 @@ const deferHomepageScripts = (html) => {
           loaded = true;
           import("${entryPath}");
         };
-        window.addEventListener("pointerdown", loadApp, { once: true, passive: true });
+        window.addEventListener("click", loadApp, { once: true });
         window.addEventListener("keydown", loadApp, { once: true });
-        window.addEventListener("wheel", loadApp, { once: true, passive: true });
-        window.addEventListener("touchstart", loadApp, { once: true, passive: true });
       })();
     </script>\n`
 
