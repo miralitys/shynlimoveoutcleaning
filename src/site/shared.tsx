@@ -366,10 +366,10 @@ export function AirbnbCleaningLandingBlock({ city }: { city?: (typeof cityPages)
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#1976a3]">Turnover scope</p>
             <h2 className="text-4xl font-black leading-[0.98] md:text-6xl">
-              Design the service now. Keep the public promise honest.
+              Know the scope before the turnover window.
             </h2>
             <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              The page should separate what can be handled in the visit from what needs to be confirmed before the cleaner arrives.
+              See what can be handled during the visit, what needs confirmation first, and which details protect the next guest arrival.
             </p>
           </div>
           <Tabs defaultValue="included">

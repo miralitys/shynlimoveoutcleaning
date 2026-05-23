@@ -12,10 +12,10 @@ import { shinyMoveOutAllCityIntentLinks, shinyMoveOutFeaturedSeoLinks, shinyMove
 import { buildQuoteUrl, submitQuoteForm, useSeoMeta } from "@/site/shared"
 
 export const moveOutProof = [
-  ["60 sec", "start a move-out quote"],
-  ["Photos", "after-clean report available"],
-  ["No card", "to check timing"],
-  ["Re-clean", "for covered missed items"],
+  ["60 sec", "check your date"],
+  ["Photos", "see the finished rooms"],
+  ["No card", "start with availability"],
+  ["Re-clean", "covered misses fixed"],
 ]
 
 export const moveOutMoments = [
@@ -44,7 +44,7 @@ export const moveOutFaqs = [
   ["Can you guarantee my full deposit back?", "No. We can guarantee the covered cleaning scope and a re-clean path for missed checklist items. Deposit decisions belong to the landlord or property manager."],
   ["Do I need to be there?", "Usually no. Add lockbox, door code, parking, elevator, gate, pet, and utility notes before the visit."],
   ["Should the home be empty?", "Yes, for a true move-out clean. Large items, trash, and personal belongings should be removed before the cleaner arrives."],
-  ["Are fridge, oven, cabinets, and garage included?", "Some are included only when selected or quoted. The page should show these add-ons clearly before booking."],
+  ["Are fridge, oven, cabinets, and garage included?", "Tell us what you want cleaned before the visit. We will price those extras clearly so the cleaner has enough time."],
 ]
 
 function splitIntoColumns<T>(items: T[], columnCount = 2) {
@@ -769,7 +769,7 @@ const deepCityBookingPatterns = [
   "The customer should know before booking that hazardous waste, pest treatment, mold remediation, heavy hauling, and exterior windows are not part of the visit.",
   "The form should capture move timing, listing timing, guest timing, or recurring-start timing because each reason changes what the cleaner should prioritize.",
   "The visit should be scoped around outcome, not only square footage, because a smaller home with heavy buildup may need more time than a larger maintained home.",
-  "The page should explain the difference between visible reset work and quoted add-ons, then let the customer ask for the rooms that matter most.",
+  "You can see the difference between core reset work and quoted extras before choosing the rooms that matter most.",
   "The request should collect enough context to prevent a rushed appointment: condition, access, add-ons, surfaces, skipped rooms, and follow-up expectations.",
   "The best conversion path is simple: check the city, explain the home, name the buildup, select extras, and confirm timing with fewer surprises.",
   "The local plan should help the visitor feel that the cleaner understands nearby homes, access notes, and the rooms that usually need extra time.",
@@ -1972,7 +1972,7 @@ export function ShynliDeepSeoPage({ page }: { page: ShynliDeepSeoPageData }) {
               Turn the search into a better appointment.
             </h2>
             <p className="mt-5 text-lg font-bold leading-8 text-[#5e574f]">
-              A deep-cleaning page should do more than answer one question. It should help you decide whether the home needs a true reset, which rooms deserve the most time, which extras should be selected before the visit, and what details the cleaner needs before arrival.
+              Get a cleaner plan before anyone arrives: decide whether the home needs a true reset, which rooms deserve the most time, which extras belong on the quote, and what details help the cleaner walk in prepared.
             </p>
             <p className="mt-4 text-lg font-bold leading-8 text-[#5e574f]">
               Use this guide to make the request more specific. If the kitchen is the problem, name appliance fronts, cabinet handles, sink edges, backsplash, or oven/fridge interiors. If bathrooms are the problem, name shower buildup, tile edges, fixtures, toilet bases, or glass doors. If timing is tight, name the rooms that matter most first.
@@ -2312,7 +2312,7 @@ export function ShynliDeepCityIntentPage({ page }: { page: ShynliDeepCityIntentP
             </h2>
           </div>
           <div className="grid gap-5 text-lg font-bold leading-8 text-[#5e574f]">
-            <p>{page.quoteDetails?.copy ?? `A useful ${page.city.name} deep-cleaning page should reduce confusion before the appointment. The visitor should understand which work is part of the core visit, which tasks are add-ons, which boundaries matter, and what details the cleaner needs before arriving.`}</p>
+            <p>{page.quoteDetails?.copy ?? `Before a ${page.city.name} deep clean, know what belongs in the core visit, which tasks are quoted as extras, where the service boundaries are, and what details help the cleaner arrive ready.`}</p>
             <div className="grid gap-2">
               {(page.quoteDetails?.bullets ?? ["Room count and bathrooms", "Condition level", "Selected add-ons", "Access notes", "Nearby cities"]).map((item) => (
                 <div key={item} className="flex items-start gap-2 text-base font-black text-[#2d2933]">
@@ -2741,7 +2741,7 @@ export function ShynliApartmentPage() {
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#9fe3ff]">Booking questions</p>
             <h2 className="text-4xl font-black leading-[0.96] sm:text-5xl">
-              The page should answer objections before the call.
+              Get the common questions answered before you book.
             </h2>
           </div>
           <Accordion type="single" collapsible defaultValue="supplies" className="rounded-md bg-white px-5 text-[#092332]">
@@ -2869,8 +2869,8 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             </h1>
             <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#f6fbff]/78 md:text-xl">
               {cityName
-                ? `Move-out cleaning in ${cityName} built around empty rooms, inspection checklists, handoff timing, and after-clean proof.`
-                : "Move-out cleaning built around empty rooms, inspection checklists, handoff timing, and after-clean proof the customer can actually use."}
+                ? `Move-out cleaning in ${cityName} for empty rooms, final walkthroughs, key handoffs, and the last details people notice after the furniture is gone.`
+                : "Move-out cleaning for empty homes, final walkthroughs, key handoffs, and the last details people notice after the furniture is gone."}
             </p>
           </div>
 
@@ -2917,7 +2917,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Four handoff moments</p>
-            <h2 className="text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">One page, four reasons to book.</h2>
+            <h2 className="text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Ready for the people checking the home next.</h2>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
             {moveOutMoments.map(([title, copy], index) => (
@@ -2940,10 +2940,10 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#22c7a9]">The report is the receipt</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.96] sm:text-5xl md:text-6xl">
-              Cleaning is invisible after you leave. Proof should not be.
+              Leave with clean rooms and something to show for it.
             </h2>
             <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#f6fbff]/76">
-              Every job ends with documentation: room notes, after photos, access confirmation, and a clear path if a covered item is missed.
+              When you cannot stay on site, after-clean photos, room notes, and lock-up details help you close the loop with a landlord, buyer, realtor, or property manager.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {[
@@ -2990,10 +2990,10 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             </picture>
           </div>
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Scope clarity</p>
-            <h2 className="max-w-2xl text-4xl font-black leading-[0.98] sm:text-5xl">Show what is included before the customer asks.</h2>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">No guessing on move day</p>
+            <h2 className="max-w-2xl text-4xl font-black leading-[0.98] sm:text-5xl">Know what we are cleaning before we arrive.</h2>
             <div className="mt-7 grid gap-2">
-              {["Empty-room floors, surfaces, shelves, closets, switches, doors, and baseboards", "Kitchen and bathroom reset with quoted appliance and cabinet interiors", "Access notes for lockbox, elevator, parking, gate, pets, utilities, and lock-up", "Handoff photos and final notes when the customer cannot be on site"].map((item) => (
+              {["Empty-room floors, surfaces, shelves, closets, switches, doors, and baseboards", "Kitchen and bathroom reset with quoted appliance and cabinet interiors", "Access notes for lockbox, elevator, parking, gate, pets, utilities, and lock-up", "Handoff photos and final notes when you cannot be on site"].map((item) => (
                 <div key={item} className="flex gap-3 border-b border-[#b9e5ee] py-4 last:border-b-0">
                   <Check className="mt-1 size-5 shrink-0 text-[#075f67]" />
                   <p className="text-lg font-bold leading-7 text-[#486573]">{item}</p>
@@ -3009,10 +3009,10 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
           <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
             <div>
               <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Starting points</p>
-              <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Price the handoff, then quote the real condition.</h2>
+              <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Get a price that matches this move.</h2>
             </div>
             <p className="max-w-2xl text-lg font-bold leading-8 text-[#486573] md:justify-self-end">
-              Show a range early, then explain what changes the final number: size, condition, timing, access, pets, and add-ons.
+              The final number depends on the home size, condition, timing, access, pets, and add-ons. Share those details first so there are fewer surprises later.
             </p>
           </div>
           <div className="mt-8 grid gap-3 md:grid-cols-3">
@@ -3077,10 +3077,10 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             <div>
               <p className="mb-4 text-sm font-black uppercase text-[#075f67]">{city.name} cleaning paths</p>
               <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">
-                Pick the page that matches the handoff.
+                Choose the move-out situation that fits your home.
               </h2>
               <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-                Move-in, apartment, house, condo, cost, checklist, landlord, and rental pages are separated when the customer needs a different answer before requesting a quote. That keeps the local page helpful instead of forcing every move into one generic checklist.
+                A condo move-out, landlord turnover, same-week clean, and move-in clean all need different details. Pick the closest situation, then send the date, access notes, and add-ons with your quote request.
               </p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
@@ -3135,10 +3135,10 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Helpful move-out pages</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">
-              Get the exact page for your handoff.
+              Find the move-out answer you actually need.
             </h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-              Cost, checklist, apartment, rental, landlord, and same-week pages are linked here so customers can choose the clearest path before starting a quote. Each page explains what changes the appointment, what should be selected early, and how the final handoff works when the customer, landlord, realtor, or property manager cannot stay on site.
+              Compare cost, checklist, apartment, rental, landlord, and same-week cleaning details before you request a date. Each guide helps you name the rooms, extras, and access notes that matter most.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -3159,9 +3159,9 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Honest answers</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Strong promise, clear limits.</h2>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Clear answers before you hand over the keys.</h2>
             <p className="mt-6 max-w-xl text-lg font-bold leading-8 text-[#486573]">
-              This keeps the page persuasive without making deposit, access, or add-on promises the business cannot control.
+              We are direct about what cleaning can solve, what needs to be quoted separately, and what landlords, buyers, or property managers decide on their own.
             </p>
           </div>
           <Accordion type="single" collapsible defaultValue="item-0" className="border border-[#b9e5ee] bg-[#ffffff] px-5 text-[#0b2430]">

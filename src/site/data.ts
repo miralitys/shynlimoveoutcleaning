@@ -889,7 +889,7 @@ export const deepCleaningBoundaries = [
     value: "included",
     label: "Included",
     title: "The deep-clean core",
-    copy: "The page should sell the extra detail clearly: buildup, bathrooms, kitchens, high-touch areas, edges, and room-by-room reset work.",
+    copy: "See the extra detail clearly: buildup, bathrooms, kitchens, high-touch areas, edges, and room-by-room reset work.",
     items: ["Bathroom buildup and fixtures", "Kitchen detail and appliance fronts", "Baseboards, doors, and trim", "High-touch surfaces and detailed dusting"],
   },
   {
@@ -903,7 +903,7 @@ export const deepCleaningBoundaries = [
     value: "excluded",
     label: "Not included",
     title: "Keep the promise clean",
-    copy: "Clear boundaries build trust. If something needs a special visit, the page should say that before anyone books.",
+    copy: "Clear boundaries build trust. If something needs a special visit, you will know before anyone books.",
     items: ["Hazardous waste", "Pest or mold removal", "Heavy trash hauling", "Outdoor or unreachable areas"],
   },
 ]
@@ -920,7 +920,7 @@ export const deepCleaningReferences = [
 export const airbnbTurnoverMoments = [
   {
     title: "Between checkout and check-in",
-    copy: "The page should speak to hosts who care about timing, guest readiness, and not losing the next arrival window.",
+    copy: "For hosts who care about timing, guest readiness, and protecting the next arrival window.",
     items: ["Checkout / check-in window", "Access and lockbox notes", "Same property checklist"],
   },
   {
@@ -954,7 +954,7 @@ export const airbnbOperationalTabs = [
     value: "avoid",
     label: "Avoid",
     title: "Do not overpromise",
-    copy: "The page should stay credible. Hosts will punish vague promises faster than normal residential customers.",
+    copy: "Keep the promise realistic: hosts need clean rooms, clear timing, and no vague guarantees that fall apart on turnover day.",
     items: ["0-cancellation guarantee", "24/7 coverage", "Calendar sync", "Final manager inspection"],
   },
 ]
@@ -1136,7 +1136,7 @@ export const priceSeoPages: GenericSeoPageData[] = [
   meta: `Learn what affects ${String(label).toLowerCase()} with Shynli, including home size, condition, timing, add-ons, and how to request a clear quote.`,
   eyebrow: "Cost guide",
   h1: `${label}: what changes the quote.`,
-  intro: `A useful ${String(label).toLowerCase()} page should not pretend every home is the same. Shynli prices around the real ${intent}: the home, the timing, the condition, and what should be handled before the cleaner arrives.`,
+  intro: `No two homes need the exact same quote. Shynli prices around the real ${intent}: the home, the timing, the condition, and what needs to be handled before the cleaner arrives.`,
   sections: [
     { title: "Main cost factors", copy: "The quote starts with the details that change time on site.", bullets: bullets as string[] },
     { title: "What can raise the price", copy: "Extra detail, buildup, empty-home requirements, and appliance work need more time than a basic reset.", bullets: ["Inside fridge or oven", "Inside cabinets or drawers", "Heavy buildup", "Interior windows, blinds, or walls"] },
@@ -1266,7 +1266,7 @@ export const trustSeoPages: GenericSeoPageData[] = [
   sections: [
     { title: "What this means", copy: "Trust is not a slogan. It shows up in the small details before, during, and after the clean.", bullets: ["Clear quote path", "Prepared access notes", "Supplies included", "Follow-up after the visit"] },
     { title: "Why homeowners care", copy: "People want a cleaner home, but they also want to know who is coming, what is included, and how to fix something if needed.", bullets: ["Reachable support", "Service expectations", "Cleaners arrive with notes", "No hidden mystery around add-ons"] },
-    { title: "How to use this page", copy: "Compare the standard, then request the service that matches your home today.", bullets: ["Ask about timing", "Share pet or access notes", "Choose standard, deep, or move", "Request add-ons before booking"] },
+    { title: "Choose the right clean", copy: "Compare the options, then request the service that matches your home today.", bullets: ["Ask about timing", "Share pet or access notes", "Choose standard, deep, or move", "Request add-ons before booking"] },
   ],
   faqs: [
     [`Why does ${String(label).toLowerCase()} matter?`, "Because home cleaning requires access, trust, and clear expectations before the visit."],

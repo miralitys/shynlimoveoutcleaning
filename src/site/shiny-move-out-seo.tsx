@@ -71,14 +71,14 @@ const hubSeeds: MoveOutIntentSeed[] = [
   { slug: "landlord-cleaning", label: "Landlord cleaning", keyword: "landlord cleaning", audience: "landlords and small portfolio owners", promise: "cleaning support for lease endings, vacant units, and new tenant preparation", situation: "you need the unit ready without chasing details by phone", proof: "scope confirmation, access handling, photos, and quoted extras" },
   { slug: "property-manager-cleaning", label: "Property manager cleaning", keyword: "property manager cleaning", audience: "property managers and leasing teams", promise: "repeatable cleaning for vacancies, turnovers, and listing refreshes", situation: "multiple units need consistent scope and simple communication", proof: "named checklist items, timing notes, and a follow-up route for covered misses" },
   { slug: "realtor-cleaning", label: "Realtor cleaning", keyword: "realtor cleaning", audience: "realtors, sellers, and listing teams", promise: "listing and pre-closing cleaning that helps the home show clean in person", situation: "buyers, photographers, and final walkthroughs notice dust and neglect quickly", proof: "priority-room focus, photo-ready surfaces, and a documented finish" },
-  { slug: "move-out-cleaning-cost", label: "Move-out cleaning cost", keyword: "move-out cleaning cost", audience: "customers comparing quotes before they book", promise: "a clear explanation of what changes price before the appointment is held", situation: "the same square footage can cost different amounts depending on condition", proof: "price factors, add-on notes, and scope boundaries stated upfront" },
-  { slug: "move-out-cleaning-checklist", label: "Move-out cleaning checklist", keyword: "move-out cleaning checklist", audience: "renters, sellers, landlords, and realtors checking the scope", promise: "a practical checklist for empty rooms, kitchens, bathrooms, floors, and handoff", situation: "the customer wants to know what will actually be cleaned", proof: "included tasks, quoted extras, and not-covered work separated clearly" },
-  { slug: "move-out-cleaning-faq", label: "Move-out cleaning FAQ", keyword: "move-out cleaning FAQ", audience: "customers with timing, deposit, access, and add-on questions", promise: "straight answers before the quote request", situation: "unclear promises create friction before move day", proof: "honest limits, covered follow-up details, and clear booking expectations" },
-  { slug: "same-week-move-out-cleaning", label: "Same-week move-out cleaning", keyword: "same-week move-out cleaning", audience: "customers who need help before a close deadline", promise: "fast quote review for open move-out windows", situation: "the move is already happening and the clean needs to fit the calendar", proof: "date, access, condition, and add-on details collected early" },
+  { slug: "move-out-cleaning-cost", label: "Move-out cleaning cost", keyword: "move-out cleaning cost", audience: "people comparing quotes before they book", promise: "a clear explanation of what changes price before the appointment is held", situation: "the same square footage can cost different amounts depending on condition", proof: "price factors, add-on notes, and scope boundaries stated upfront" },
+  { slug: "move-out-cleaning-checklist", label: "Move-out cleaning checklist", keyword: "move-out cleaning checklist", audience: "renters, sellers, landlords, and realtors checking the scope", promise: "a practical checklist for empty rooms, kitchens, bathrooms, floors, and handoff", situation: "you want to know what will actually be cleaned", proof: "included tasks, quoted extras, and not-covered work separated clearly" },
+  { slug: "move-out-cleaning-faq", label: "Move-out cleaning FAQ", keyword: "move-out cleaning FAQ", audience: "people with timing, deposit, access, and add-on questions", promise: "straight answers before the quote request", situation: "unclear promises create friction before move day", proof: "honest limits, covered follow-up details, and clear booking expectations" },
+  { slug: "same-week-move-out-cleaning", label: "Same-week move-out cleaning", keyword: "same-week move-out cleaning", audience: "people who need help before a close deadline", promise: "fast quote review for open move-out windows", situation: "the move is already happening and the clean needs to fit the calendar", proof: "date, access, condition, and add-on details collected early" },
   { slug: "cleaning-before-selling-house", label: "Cleaning before selling a house", keyword: "cleaning before selling house", audience: "home sellers and listing agents", promise: "a cleaner listing presentation after packing, repairs, and foot traffic", situation: "photos, showings, and walkthroughs make every surface more noticeable", proof: "kitchen, bathroom, floor, baseboard, and priority-room focus" },
   { slug: "cleaning-after-moving-out", label: "Cleaning after moving out", keyword: "cleaning after moving out", audience: "people who already removed furniture and need the home finished", promise: "a final reset after boxes, movers, and dust reveal the real condition", situation: "empty rooms expose shelves, closets, baseboards, and floors", proof: "visible checklist, access notes, and optional appliance interiors" },
   { slug: "empty-apartment-cleaning", label: "Empty apartment cleaning", keyword: "empty apartment cleaning", audience: "renters, leasing teams, and apartment owners", promise: "a focused apartment reset after furniture and personal items are gone", situation: "the unit is empty enough for shelves, closets, floors, and baseboards to show every missed detail", proof: "apartment access notes, kitchen and bathroom checklist, and handoff photos when requested" },
-  { slug: "deposit-cleaning", label: "Deposit cleaning", keyword: "deposit cleaning", audience: "renters preparing for a landlord or property manager walkthrough", promise: "cleaning that focuses on the areas renters are usually asked about during move-out", situation: "the customer wants the apartment to look cared for without pretending cleaning alone controls the deposit decision", proof: "honest scope, optional add-ons, and a documented finish for included checklist items" },
+  { slug: "deposit-cleaning", label: "Deposit cleaning", keyword: "deposit cleaning", audience: "renters preparing for a landlord or property manager walkthrough", promise: "cleaning that focuses on the areas renters are usually asked about during move-out", situation: "you want the apartment to look cared for without pretending cleaning alone controls the deposit decision", proof: "honest scope, optional add-ons, and a documented finish for included checklist items" },
   { slug: "cleaning-after-tenants", label: "Cleaning after tenants", keyword: "cleaning after tenants", audience: "landlords, property managers, and rental owners", promise: "vacant-rental cleaning after a tenant leaves and before the next showing or move-in", situation: "the unit needs to shift from lived-in to ready without a long repair-style process", proof: "priority-room notes, access handling, selected add-ons, and photos for remote owners" },
   { slug: "vacant-home-cleaning", label: "Vacant home cleaning", keyword: "vacant home cleaning", audience: "owners, sellers, realtors, landlords, and families between moves", promise: "cleaning for empty homes where every floor, closet, shelf, and bathroom is visible", situation: "the furniture is gone and the home needs one careful reset before the next person enters", proof: "room-by-room checklist, quote clarity, access notes, and lock-up confirmation" },
 ]
@@ -97,8 +97,8 @@ function makeHubPage(seed: MoveOutIntentSeed): ShynliMoveOutSeoPageData {
     title: `${seed.label} | Shynli Move-Out Cleaning`,
     meta: `${seed.label} for Chicagoland suburbs with checklist-based scope, access notes, add-on clarity, after-clean photos, and a fast quote path.`,
     eyebrow: seed.label,
-    h1: `${seed.label} built for a clean handoff.`,
-    intro: `${sentenceStart(seed.keyword)} should make the move easier, not add another vague appointment to an already tight week. Shynli Move-Out Cleaning helps ${seed.audience} with ${seed.promise}. The visit is planned around the real situation: ${seed.situation}. Before the appointment, the customer can name the property type, condition, access notes, priorities, and add-ons so the cleaner arrives with a practical scope instead of guessing at the door.`,
+    h1: `${seed.label} for the last walkthrough.`,
+    intro: `${sentenceStart(seed.keyword)} takes pressure off the move, not add one more vague appointment to a packed week. Shynli Move-Out Cleaning helps ${seed.audience} with ${seed.promise}. The visit is shaped by the real moment: ${seed.situation}. Share the property type, condition, access notes, priorities, and add-ons first so the cleaner arrives ready for the rooms that matter most.`,
     intentLabel: seed.label,
     keyword: seed.keyword,
     audience: seed.audience,
@@ -107,23 +107,23 @@ function makeHubPage(seed: MoveOutIntentSeed): ShynliMoveOutSeoPageData {
     proof: seed.proof,
     sections: [
       {
-        title: "What the visit is built to solve",
-        copy: `A strong ${seed.keyword} page should speak to the pressure around timing, access, and final condition. The goal is not just a cleaner room. The goal is a home that feels ready for the next person who walks in, with the obvious inspection areas handled before they become a problem.`,
+        title: "What this clean helps you finish",
+        copy: `The pressure is usually timing, access, and final condition. The goal is not just a cleaner room. The goal is a home that feels ready for the next person who walks in, with the obvious inspection areas handled before they become a problem.`,
         bullets: ["Empty-room surfaces, shelves, closets, doors, switches, and baseboards", "Kitchen and bathroom reset with selected cabinet or appliance interiors", "Floors vacuumed and mopped after furniture and boxes are gone", "Access, parking, elevator, lockbox, gate, pet, and utility notes collected before arrival"],
       },
       {
-        title: "How the quote stays honest",
+        title: "Why the price depends on the home",
         copy: `The right price depends on the size of the home, the condition after the move, the number of bathrooms, the time window, and the add-ons requested. Shynli asks for those details before booking so a small apartment, a heavy rental turnover, and a listing clean are not treated like the same job.`,
         bullets: ["Home size and property type", "Light, normal, or heavy condition after moving", "Fridge, oven, cabinet, window, blind, and garage requests", "Same-week timing, remote access, pets, and parking instructions"],
       },
       {
-        title: "What customers can expect after the clean",
-        copy: `The finish matters because many customers cannot stay on site until the end. The handoff can include ${seed.proof}. That makes the service easier to trust for renters, sellers, landlords, realtors, and property managers who need a clear finish instead of a silent appointment.`,
+        title: "What you can see after the clean",
+        copy: `The finish matters because many people cannot stay on site until the end. The handoff can include ${seed.proof}. That makes the service easier to trust for renters, sellers, landlords, realtors, and property managers who need a clear finish instead of a silent appointment.`,
         bullets: ["Room notes for key areas", "After-clean photos when requested", "Lock-up and access confirmation", "A simple route for covered missed checklist items"],
       },
       {
-        title: "Where this service fits best",
-        copy: `${seed.label} is strongest when the home is empty or mostly empty and the customer can share priorities before the crew arrives. The clearer the condition notes, the better the appointment can be timed around the deadline.`,
+        title: "When to choose this service",
+        copy: `${seed.label} works best when the home is empty or mostly empty and you can share priorities before the crew arrives. The clearer the condition notes, the better the appointment can be timed around the deadline.`,
         bullets: ["Lease endings and final walkthroughs", "Move-in windows before furniture arrives", "Listing preparation and pre-closing cleanup", "Vacant rentals, condos, townhomes, and houses"],
       },
     ],
@@ -148,8 +148,8 @@ const mediumIntentSeeds: MoveOutIntentSeed[] = [
 ]
 
 const lowIntentSeeds: MoveOutIntentSeed[] = [
-  { slug: "move-out-cleaning-cost", label: "Move-out cleaning cost", keyword: "move-out cleaning cost", audience: "customers comparing prices", promise: "a clear quote based on the real condition of the home", situation: "price depends on size, bathrooms, access, add-ons, and timing", proof: "named price factors and selected extras before booking" },
-  { slug: "move-out-cleaning-checklist", label: "Move-out cleaning checklist", keyword: "move-out cleaning checklist", audience: "customers checking what should be covered", promise: "a visible checklist for empty rooms, kitchens, bathrooms, and floors", situation: "the walkthrough is close and unclear scope creates stress", proof: "included work, quoted extras, and not-covered work separated clearly" },
+  { slug: "move-out-cleaning-cost", label: "Move-out cleaning cost", keyword: "move-out cleaning cost", audience: "people comparing prices", promise: "a clear quote based on the real condition of the home", situation: "price depends on size, bathrooms, access, add-ons, and timing", proof: "named price factors and selected extras before booking" },
+  { slug: "move-out-cleaning-checklist", label: "Move-out cleaning checklist", keyword: "move-out cleaning checklist", audience: "people checking what should be covered", promise: "a visible checklist for empty rooms, kitchens, bathrooms, and floors", situation: "the walkthrough is close and unclear scope creates stress", proof: "included work, quoted extras, and not-covered work separated clearly" },
   { slug: "end-of-lease-cleaning", label: "End-of-lease cleaning", keyword: "end-of-lease cleaning", audience: "tenants and landlords", promise: "lease-ending cleaning focused on inspection-ready rooms", situation: "keys are due and the unit needs one last reset", proof: "room notes, add-on choices, and after-clean photos when requested" },
   { slug: "rental-turnover-cleaning", label: "Rental turnover cleaning", keyword: "rental turnover cleaning", audience: "landlords and property managers", promise: "vacant-unit cleaning between tenants", situation: "the next tenant, listing, or showing is coming soon", proof: "priority notes, access handling, and documentation for remote owners" },
   { slug: "landlord-cleaning", label: "Landlord cleaning", keyword: "landlord cleaning", audience: "landlords and rental owners", promise: "cleaning support for move-outs and vacant rentals", situation: "the unit needs to be reset without long back-and-forth", proof: "scope confirmation, access notes, optional add-ons, and photos" },
@@ -171,7 +171,7 @@ const cityMoveOutProfiles: Record<string, { housing: string; access: string; tim
     housing: "Fox Valley apartments, older homes, newer subdivisions, townhomes, and rental turnovers with very different room counts and access needs",
     access: "street parking, garage entry, building doors, pet notes, utility status, and lockbox instructions around broad east-west routes",
     timing: "often depends on apartment inspections, lease-end windows, and seller moves where the final clean must happen after boxes and movers leave",
-    localProof: "clear room notes help when an Aurora customer is juggling a landlord, property manager, or buyer on the same day",
+    localProof: "clear room notes help when an Aurora renter, seller, or owner is juggling a landlord, property manager, or buyer on the same day",
     route: "Naperville, North Aurora, Batavia, and Sugar Grove",
   },
   plainfield: {
@@ -183,65 +183,65 @@ const cityMoveOutProfiles: Record<string, { housing: string; access: string; tim
   },
   oswego: {
     housing: "single-family homes, rentals near growing subdivisions, townhomes, and move-in windows before furniture arrives",
-    access: "driveways, garage entry, pet instructions, utility notes, and lockbox handoffs for customers who cannot stay on site",
+    access: "driveways, garage entry, pet instructions, utility notes, and lockbox handoffs for people who cannot stay on site",
     timing: "often connects to school-year moves, new construction handoffs, and lease endings where dust, floors, and bathrooms need a final reset",
-    localProof: "Oswego pages should make the handoff feel planned, with rooms and add-ons named before the cleaner arrives",
+    localProof: "Oswego move-outs feel calmer when rooms and add-ons are named before the cleaner arrives",
     route: "Plainfield, Montgomery, Yorkville, and Aurora",
   },
   bolingbrook: {
     housing: "condos, townhomes, apartments, and houses near major commute routes, with move-out jobs ranging from compact units to full family homes",
     access: "parking instructions, elevator or stair notes, garage codes, lockbox details, pets, and building access timing",
     timing: "often needs a tight same-week window after movers leave and before keys, inspections, or listing photos",
-    localProof: "Bolingbrook customers benefit from a quote that separates apartment access, house-size scope, appliance interiors, and lock-up notes",
+    localProof: "people in Bolingbrook benefit from a quote that separates apartment access, house-size scope, appliance interiors, and lock-up notes",
     route: "Plainfield, Woodridge, Naperville, and Romeoville",
   },
   lisle: {
     housing: "condos, apartments, townhomes, and homes near I-88 where access instructions can matter as much as the cleaning checklist",
     access: "building entry, elevator notes, garage access, parking limits, pets, and lock-up instructions for remote handoffs",
     timing: "often involves commuter schedules, condo turnovers, and move-in cleaning before boxes arrive",
-    localProof: "Lisle pages should make the visit feel easy to coordinate even when the customer is already between addresses",
+    localProof: "the Lisle visit should feel easy to coordinate even when you are already between addresses",
     route: "Naperville, Downers Grove, Glen Ellyn, and Woodridge",
   },
   warrenville: {
     housing: "townhomes, apartments, and single-family homes where empty-room floors, closets, bathrooms, and kitchens become visible after the move",
     access: "driveway or lot parking, garage entry, pets, lockboxes, and utility notes that keep a smaller local route on schedule",
     timing: "often fits between closing dates, apartment walkthroughs, and family moves around the I-88 corridor",
-    localProof: "Warrenville handoffs need clear finish notes because customers may be coordinating nearby movers and cleaners on the same day",
+    localProof: "Warrenville handoffs need clear finish notes because people may be coordinating nearby movers and cleaners on the same day",
     route: "Naperville, Wheaton, Winfield, and Aurora",
   },
   "downers-grove": {
     housing: "older homes, downtown apartments, condos, and family houses where trim, baseboards, bathrooms, and entry areas can show move-week dust",
     access: "street parking, alley or driveway notes, condo access, lockboxes, pets, and utility status before arrival",
     timing: "often tied to realtor schedules, final walkthroughs, and commuter-friendly appointment windows",
-    localProof: "Downers Grove pages should connect the quote to listing prep, buyer walkthroughs, and older-home detail work",
+    localProof: "Downers Grove quotes often need listing prep, buyer walkthrough timing, and older-home detail work named clearly",
     route: "Lisle, Westmont, Woodridge, and Hinsdale",
   },
   "north-aurora": {
     housing: "houses, townhomes, and Fox River area rentals where the move-out clean may follow a longer family move",
     access: "driveway access, garage notes, pets, lockboxes, and utility confirmation before empty-room work begins",
     timing: "often connects to Aurora and Batavia routes, so the handoff should be specific about date, condition, and add-ons",
-    localProof: "North Aurora customers need simple proof when they cannot return after the cleaner locks up",
+    localProof: "North Aurora renters, sellers, and owners need simple proof when they cannot return after the cleaner locks up",
     route: "Aurora, Batavia, Geneva, and Sugar Grove",
   },
   "sugar-grove": {
     housing: "larger homes, rentals, and move-in windows where dust, floors, garages, and appliance add-ons can change appointment time",
     access: "driveway parking, garage or lockbox entry, pet notes, utility status, and longer route timing",
-    timing: "often depends on closing windows and family moves where the customer may already be out of the area",
-    localProof: "Sugar Grove quote notes should be practical and detailed because the route is less compact than a dense apartment area",
+    timing: "often depends on closing windows and family moves where you may already be out of the area",
+    localProof: "Sugar Grove quote notes work best when they are practical and detailed because the route is less compact than a dense apartment area",
     route: "Aurora, North Aurora, Yorkville, and Montgomery",
   },
   yorkville: {
     housing: "newer homes, townhomes, rentals, and family move-outs where kitchens, bathrooms, closets, and floors need a clear final reset",
     access: "driveway access, subdivision instructions, garage codes, pets, utilities, and lock-up directions",
     timing: "often follows movers or closing-day pressure, so selected add-ons should be known before the appointment",
-    localProof: "Yorkville handoffs work best when photos and room notes confirm the finish for a customer who has already left",
+    localProof: "Yorkville handoffs work best when photos and room notes confirm the finish for someone who has already left",
     route: "Oswego, Montgomery, Sugar Grove, and Plainfield",
   },
   montgomery: {
     housing: "apartments, townhomes, rentals, and houses between Aurora and Oswego service routes",
     access: "parking, garage codes, lockboxes, pet notes, building entry, and utility details that prevent delays",
     timing: "often fits between lease endings, family moves, and quick rental resets",
-    localProof: "Montgomery pages should clarify whether the request is an apartment handoff, house clean, rental turnover, or move-in reset",
+    localProof: "Montgomery requests should clarify whether the clean is for an apartment handoff, house move-out, rental turnover, or move-in reset",
     route: "Aurora, Oswego, Yorkville, and North Aurora",
   },
 }
@@ -251,7 +251,7 @@ function getMoveOutCityProfile(city: (typeof cityPages)[number]) {
     housing: `${city.name} apartments, condos, townhomes, rentals, and houses with different move-out checklists`,
     access: "parking, lockbox, gate, elevator, pet, garage, and utility notes before arrival",
     timing: "lease endings, listing preparation, final walkthroughs, and move-in windows where the cleaning date cannot drift",
-    localProof: `customers in ${city.name} can use after-clean notes and photos when they cannot stay through the finish`,
+    localProof: `people in ${city.name} can use after-clean notes and photos when they cannot stay through the finish`,
     route: city.nearby.slice(0, 4).join(", "),
   }
 }
@@ -278,8 +278,8 @@ function makeCityIntentPage(city: (typeof cityPages)[number], seed: MoveOutInten
     title: `${city.name} ${seed.label} | Shynli Move-Out`,
     meta: `${seed.label} in ${city.name}, IL with empty-home checklist, access notes, quote clarity, after-clean photos, and move-day handoff support.`,
     eyebrow: `${city.name} service`,
-    h1: `${city.name} ${seed.label} for a cleaner handoff.`,
-    intro: `${sentenceStart(seed.keyword)} in ${city.name} should fit the real pressure of move week. Shynli Move-Out Cleaning helps ${seed.audience} with ${seed.promise}. ${cityNote} Local requests often involve ${profile.housing}. The page focuses on the details that usually decide whether the home feels ready: empty-room surfaces, kitchen and bathroom reset, floors, closets, access notes, selected add-ons, and proof after the visit.`,
+    h1: `${city.name} ${seed.label} before keys change hands.`,
+    intro: `${sentenceStart(seed.keyword)} in ${city.name} fits the real pressure of move week. Shynli Move-Out Cleaning helps ${seed.audience} with ${seed.promise}. ${cityNote} Local requests often involve ${profile.housing}. We focus on the details that usually decide whether the home feels ready: empty-room surfaces, kitchen and bathroom reset, floors, closets, access notes, selected add-ons, and proof after the visit.`,
     intentLabel: seed.label,
     keyword: seed.keyword,
     audience: seed.audience,
@@ -304,7 +304,7 @@ function makeCityIntentPage(city: (typeof cityPages)[number], seed: MoveOutInten
       },
       {
         title: "How the finish is documented",
-        copy: `A move-out clean is easier to trust when the finish is visible. Customers can request after-clean photos, room notes, lock-up confirmation, and a follow-up route for covered missed checklist items.`,
+        copy: `A move-out clean is easier to trust when the finish is visible. Ask for after-clean photos, room notes, lock-up confirmation, and a simple follow-up path if a covered checklist item is missed.`,
         bullets: ["Photo-ready room finish when requested", "Final notes for access and lock-up", "Checklist-based follow-up for covered missed items", "Simple next step for landlords, realtors, sellers, and renters"],
       },
     ],
@@ -455,7 +455,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Planned scope</p>
             <h2 className="text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">A cleaner handoff starts before arrival.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-              The page is written for real customers who need a clear answer before they request a quote: what is covered, what changes price, and how the finish is handled.
+              Know what is covered, what changes the price, and how the finish is handled before you put the clean on the calendar.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -514,9 +514,9 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Related cleaning pages</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Keep moving through the right page, not a dead end.</h2>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Compare the details before you choose a date.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-              Customers can move from a broad service page to a local page, a checklist, a cost page, or a nearby city without losing the quote path.
+              Move from a broad service to a local city, checklist, cost guide, or nearby area without losing the path back to a quote.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -534,9 +534,9 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">{cityName ? "Nearby cities" : "Service areas"}</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Local pages connect the service to the city.</h2>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Find move-out cleaning near your address.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-              Shynli Move-Out Cleaning serves the same Chicagoland suburbs listed on the main Shynli service-area layer.
+              Shynli Move-Out Cleaning serves Chicagoland suburbs where timing, access, and the exact ZIP can affect the visit.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
@@ -574,7 +574,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Booking questions</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Clear answers before the quote.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-              The promise stays persuasive because the limits are honest: cleaning scope is controlled by the appointment, while deposits, inspections, and buyer opinions are not.
+              We will be clear about the cleaning scope, the add-ons, and the follow-up path, while staying honest about deposits, inspections, and buyer opinions.
             </p>
           </div>
           <div className="border border-[#b9e5ee] bg-white px-5 text-[#0b2430]">

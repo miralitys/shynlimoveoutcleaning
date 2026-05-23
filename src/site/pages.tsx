@@ -438,10 +438,10 @@ export function GenericSeoPage({ page }: { page: GenericSeoPageData }) {
       <section className="bg-[#f7fbfd] px-4 py-12 md:px-8 md:py-16">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.74fr_1.26fr]">
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#1976a3]">How to use this page</p>
+            <p className="mb-4 text-sm font-black uppercase text-[#1976a3]">Plan the right clean</p>
             <h2 className="text-4xl font-black leading-[0.98] md:text-6xl">Turn the search into the right cleaning plan.</h2>
             <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              This page is meant to help you decide what to ask for, what changes the price, and what Shynli should know before a cleaner is assigned to the visit. The better the request is described up front, the easier it is to match the right checklist, enough time, and the right arrival window.
+              Decide what to ask for, what changes the price, and what Shynli should know before a cleaner is assigned to the visit. A clear request makes it easier to match the right checklist, enough time, and the right arrival window.
             </p>
             <p className="mt-4 text-base leading-7 text-muted-foreground">
               Use the notes here like a pre-booking checklist: compare the service type, look for the rooms or surfaces that matter most, then mention anything that would change the work. That could be pets, heavy kitchen use, an upcoming walkthrough, a building access issue, a lease deadline, or a surface that needs special care. Those details make the page more useful for you and make the quote more realistic.
@@ -1418,7 +1418,7 @@ export function ServiceSeoPage({ service, city }: { service: (typeof seoServices
             <p className="mb-4 text-sm font-black uppercase text-[#1976a3]">Before you request this clean</p>
             <h2 className="text-4xl font-black leading-[0.98] md:text-6xl">The details that make {service.name.toLowerCase()}{location} easier to price.</h2>
             <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              A useful cleaning page should not stop at a short list of tasks. Before booking, Shynli needs to understand what the home feels like today, what the visit needs to solve, and what would make the clean feel successful when you walk back in.
+              Before booking, Shynli needs to understand what the home feels like today, what the visit needs to solve, and what would make the clean feel successful when you walk back in.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">

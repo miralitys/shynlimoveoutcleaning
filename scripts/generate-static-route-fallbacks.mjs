@@ -104,7 +104,7 @@ const getShellCopy = (path) => {
       description: "Move-out cleaning for empty homes, lease handoffs, listing prep, final walkthroughs, and move-day timing.",
       kicker: "Apartment empty, keys due, inspection coming",
       h1: "Ready for the final walkthrough.",
-      copy: "Move-out cleaning built around empty rooms, inspection checklists, handoff timing, and after-clean proof the customer can actually use.",
+      copy: "Move-out cleaning for empty rooms, final walkthroughs, key handoffs, and the last details people notice after the furniture is gone.",
       sourcePage: "/",
     }
   }
@@ -120,7 +120,7 @@ const getShellCopy = (path) => {
       description: `Move-out cleaning in ${cityName}, IL with empty-home checklist, access notes, after-clean photos, and final walkthrough-ready scope.`,
       kicker: `${cityName} apartment empty, keys due, inspection coming`,
       h1: `${cityName} move-out cleaning.`,
-      copy: `Move-out cleaning in ${cityName} built around empty rooms, inspection checklists, handoff timing, and after-clean proof.`,
+      copy: `Move-out cleaning in ${cityName} for empty rooms, key returns, listing prep, and final walkthroughs after the furniture is gone.`,
       cityName,
       sourcePage: path,
     }
@@ -131,8 +131,8 @@ const getShellCopy = (path) => {
       title: `${cityName} ${intentLabel} | Shynli Move-Out Cleaning`,
       description: `${cityName} ${intentLabel.toLowerCase()} with move-out scope, access notes, add-on clarity, after-clean photos, and a fast quote path.`,
       kicker: `${cityName} service`,
-      h1: `${cityName} ${intentLabel} for a cleaner handoff.`,
-      copy: `Plan ${intentLabel.toLowerCase()} in ${cityName} around timing, access, condition, selected add-ons, and final walkthrough expectations.`,
+      h1: `${cityName} ${intentLabel} before keys change hands.`,
+      copy: `Tell us the date, access details, home condition, and any add-ons so the clean fits the move-out deadline in ${cityName}.`,
       cityName,
       sourcePage: path,
     }
@@ -142,8 +142,8 @@ const getShellCopy = (path) => {
     title: `${intentLabel} | Shynli Move-Out Cleaning`,
     description: `${intentLabel} with move-out scope, access notes, add-on clarity, after-clean photos, and a fast quote path.`,
     kicker: intentLabel,
-    h1: `${intentLabel} built for a clean handoff.`,
-    copy: `${intentLabel} should make the move easier, not add another vague appointment to an already tight week. Start with the property type, timing, condition, access notes, and add-ons.`,
+    h1: `${intentLabel} for the last walkthrough.`,
+    copy: `Start with the property type, timing, condition, access notes, and add-ons so the cleaner can focus on the rooms people will inspect next.`,
     sourcePage: path,
   }
 }
