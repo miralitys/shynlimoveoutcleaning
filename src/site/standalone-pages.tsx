@@ -2598,7 +2598,22 @@ export function ShynliApartmentPage() {
 
       <section className="grid md:grid-cols-2">
         <div className="min-h-[520px] bg-[#dff7ff]">
-          <img src="/clean-result.jpg" alt="Bright clean apartment living space" className="h-full w-full object-cover" />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/clean-result-480.webp 480w, /clean-result-640.webp 640w, /clean-result-960.webp 960w"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+            <img
+              src="/clean-result-640.jpg"
+              alt="Bright clean apartment living space"
+              className="h-full w-full object-cover"
+              width={640}
+              height={384}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div className="flex items-center bg-[#092332] px-4 py-16 text-white md:px-12">
           <div className="max-w-xl">
@@ -2937,7 +2952,22 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       <section className="bg-[#ffffff] px-4 py-14 md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="overflow-hidden border border-[#b9e5ee] bg-[#e9f7fb]">
-            <img src="/clean-result.jpg" alt="Clean empty room ready for move-out inspection" className="aspect-[4/3] w-full object-cover" />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/clean-result-480.webp 480w, /clean-result-640.webp 640w, /clean-result-960.webp 960w"
+                sizes="(min-width: 1024px) 46vw, 100vw"
+              />
+              <img
+                src="/clean-result-640.jpg"
+                alt="Clean empty room ready for move-out inspection"
+                className="aspect-[4/3] w-full object-cover"
+                width={640}
+                height={384}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Scope clarity</p>
