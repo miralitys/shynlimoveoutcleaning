@@ -2811,7 +2811,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
   )
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
+    <main className="move-out-page move-out-page-home min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[#0b2430]/10 bg-[#f6fbff]/90 px-4 backdrop-blur-xl md:px-8">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4">
           <a href={homeHref} className="flex min-h-11 items-center gap-3" aria-label="Shynli Move-Out Cleaning home">
@@ -3195,7 +3195,7 @@ export function ShynliMoveOutLegalPage({ page }: { page: LegalPageData }) {
   )
 
   return (
-    <main className="min-h-screen bg-[#f6fbff] text-[#0b2430]">
+    <main className="move-out-page move-out-page-legal min-h-screen bg-[#f6fbff] text-[#0b2430]">
       <header className="border-b border-[#0b2430]/10 bg-[#f6fbff] px-4 md:px-8">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4">
           <a href={homeHref} className="flex min-h-11 items-center gap-3" aria-label="Shynli Move-Out Cleaning home">

@@ -626,7 +626,7 @@ export function ShynliMoveOutSeoPage({ page }: { page: ShynliMoveOutSeoPageData 
   useMoveOutSeoMeta(page, canonicalPath)
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
+    <main className="move-out-page move-out-page-seo min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
       <MoveOutSeoHeader />
       <section className="bg-[#0b2430] px-4 py-14 text-[#f6fbff] md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -663,7 +663,7 @@ export function ShynliMoveOutCityIntentPage({ page }: { page: ShynliMoveOutCityI
   useMoveOutSeoMeta(page, canonicalPath, { "@type": "City", name: page.city.name })
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
+    <main className="move-out-page move-out-page-seo min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
       <MoveOutSeoHeader />
       <section className="bg-[#0b2430] px-4 py-14 text-[#f6fbff] md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">

@@ -99,3 +99,15 @@ input {
 .animate-rise-delayed {
   animation: rise 720ms 140ms ease-out both;
 }
+
+@media (min-width: 768px) {
+  .move-out-page-home > section:nth-of-type(n + 3),
+  .move-out-page-home > footer,
+  .move-out-page-seo > section:nth-of-type(n + 2),
+  .move-out-page-seo > footer,
+  .move-out-page-legal > section:nth-of-type(n + 2),
+  .move-out-page-legal > footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}
