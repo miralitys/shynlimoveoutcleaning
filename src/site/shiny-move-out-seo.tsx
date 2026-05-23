@@ -18,7 +18,7 @@ function isShynliMoveOutStandaloneHost() {
 
 function getShynliMoveOutPath(slug?: string) {
   if (isShynliMoveOutStandaloneHost()) {
-    return slug ? `/${slug}` : "/"
+    return slug ? `${shinyMoveOutCanonicalBase}/${slug}` : `${shinyMoveOutCanonicalBase}/`
   }
 
   return slug ? `/shiny-move-out-cleaning/${slug}` : "/shiny-move-out-cleaning"

@@ -63,8 +63,17 @@ const addHomepageShell = (html) => {
     /    <meta name="viewport"[^>]+>\n/,
     (match) => `${match}    <link rel="preload" as="image" href="/cleaner-hero.jpg" fetchpriority="high">\n`,
   )
+  const withMoveOutMeta = withPreload
+    .replace(
+      /<title>.*?<\/title>/,
+      "<title>Shynli Move-Out Cleaning | Final Walkthrough Cleaning</title>",
+    )
+    .replace(
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/>/s,
+      '<meta name="description" content="Move-out cleaning for empty homes, lease handoffs, listing prep, final walkthroughs, and move-day timing." />',
+    )
 
-  return withPreload.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
+  return withMoveOutMeta.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
 }
 
 const deferHomepageScripts = (html) => {
