@@ -23,9 +23,13 @@
             }, 0);
           });
         };
-        window.addEventListener("click", loadApp, { once: true });
+        const opts = { once: true, passive: true };
+        window.addEventListener("click", loadApp, opts);
         window.addEventListener("keydown", loadApp, { once: true });
-        window.setTimeout(loadApp, 1200);
+        window.addEventListener("pointerdown", loadApp, opts);
+        window.addEventListener("touchstart", loadApp, opts);
+        window.addEventListener("wheel", loadApp, opts);
+        window.addEventListener("scroll", loadApp, opts);
       })();
     </script>
   </head>
