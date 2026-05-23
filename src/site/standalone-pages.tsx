@@ -2841,7 +2841,22 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       </header>
 
       <section id="top" className="relative min-h-[92svh] bg-[#0b2430] text-[#f6fbff]">
-        <img src="/cleaner-hero.jpg" alt="Professional cleaner preparing a home for move-out inspection" className="absolute inset-0 size-full object-cover opacity-70" />
+        <picture className="absolute inset-0 size-full opacity-70">
+          <source
+            type="image/webp"
+            srcSet="/cleaner-hero-960.webp 960w, /cleaner-hero-1280.webp 1280w, /cleaner-hero-1366.webp 1366w, /cleaner-hero-1600.webp 1600w"
+            sizes="100vw"
+          />
+          <img
+            src="/cleaner-hero-1280.jpg"
+            srcSet="/cleaner-hero-960.jpg 960w, /cleaner-hero-1280.jpg 1280w, /cleaner-hero-1366.jpg 1366w, /cleaner-hero-1600.jpg 1600w"
+            sizes="100vw"
+            alt="Professional cleaner preparing a home for move-out inspection"
+            className="size-full object-cover"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,36,48,0.96)_0%,rgba(11,36,48,0.78)_45%,rgba(11,127,138,0.26)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(0deg,#f6fbff_0%,rgba(246,251,255,0)_100%)]" />
         <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-end px-4 pb-6 pt-28 md:px-8 md:pb-10">

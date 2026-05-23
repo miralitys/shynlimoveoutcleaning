@@ -58,7 +58,8 @@ const addHomepageShell = (html) => {
         #initial-home-hero .initial-nav a{color:#43525c;font-weight:900}
         #initial-home-hero .initial-check{display:inline-flex;min-height:3.75rem;align-items:center;justify-content:center;border-radius:.25rem;background:#0b2430;padding:0 1.4rem;color:#f6fbff;font-weight:900}
         #initial-home-hero .initial-hero{position:relative;min-height:calc(100svh - 5.75rem);overflow:hidden;background:#0b2430;color:#f6fbff}
-        #initial-home-hero .initial-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72}
+        #initial-home-hero .initial-hero-media{position:absolute;inset:0;width:100%;height:100%;opacity:.72}
+        #initial-home-hero .initial-hero-img{width:100%;height:100%;object-fit:cover}
         #initial-home-hero .initial-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,36,48,.96) 0%,rgba(11,36,48,.78) 45%,rgba(11,127,138,.28) 100%)}
         #initial-home-hero .initial-hero-inner{position:relative;z-index:1;margin:0 auto;max-width:86rem;padding:5.75rem 1.75rem 4rem}
         #initial-home-hero .initial-kicker{display:inline-flex;margin:0 0 1.55rem;border:1px solid rgba(32,199,216,.58);border-radius:.25rem;background:rgba(32,199,216,.14);padding:.55rem 1.15rem;color:#f6fbff;font-size:.86rem;font-weight:900;line-height:1.2}
@@ -99,7 +100,10 @@ const addHomepageShell = (html) => {
         </div>
       </header>
       <section class="initial-hero">
-        <img class="initial-hero-img" src="/cleaner-hero.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async" />
+        <picture class="initial-hero-media" aria-hidden="true">
+          <source type="image/webp" srcset="/cleaner-hero-960.webp 960w, /cleaner-hero-1280.webp 1280w, /cleaner-hero-1366.webp 1366w, /cleaner-hero-1600.webp 1600w" sizes="100vw" />
+          <img class="initial-hero-img" src="/cleaner-hero-1280.jpg" srcset="/cleaner-hero-960.jpg 960w, /cleaner-hero-1280.jpg 1280w, /cleaner-hero-1366.jpg 1366w, /cleaner-hero-1600.jpg 1600w" sizes="100vw" alt="" fetchpriority="high" decoding="async" />
+        </picture>
         <div class="initial-overlay"></div>
         <div class="initial-hero-inner">
           <p class="initial-kicker">Apartment empty, keys due, inspection coming</p>
@@ -133,7 +137,7 @@ const addHomepageShell = (html) => {
 
   const withPreload = html.replace(
     /    <meta name="viewport"[^>]+>\n/,
-    (match) => `${match}    <link rel="preload" as="image" href="/cleaner-hero.jpg" fetchpriority="high">\n`,
+    (match) => `${match}    <link rel="preload" as="image" href="/cleaner-hero-1280.webp" imagesrcset="/cleaner-hero-960.webp 960w, /cleaner-hero-1280.webp 1280w, /cleaner-hero-1366.webp 1366w, /cleaner-hero-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">\n`,
   )
   const withMoveOutMeta = withPreload
     .replace(
