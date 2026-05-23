@@ -92,10 +92,10 @@ function ShynliMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
             <span className="grid size-10 place-items-center rounded-sm bg-[#22c7a9] text-sm font-black text-[#0b2430]">SM</span>
             <span className="text-xl font-black">Shynli Move-Out Cleaning</span>
           </a>
-          <p className="mt-5 max-w-sm text-sm font-bold leading-6 text-[#f6fbff]/62">
+          <p className="mt-5 max-w-sm text-sm font-bold leading-6 text-[#f6fbff]/76">
             Move-out cleaning for empty homes, lease handoffs, listing prep, final walkthroughs, and move-day timing.
           </p>
-          <div className="mt-4 grid gap-1 text-sm font-bold text-[#f6fbff]/58">
+          <div className="mt-4 grid gap-1 text-sm font-bold text-[#f6fbff]/72">
             <a className="transition-colors hover:text-[#f6fbff]" href={businessPhoneHref}>{businessPhoneDisplay}</a>
             <a className="transition-colors hover:text-[#f6fbff]" href={`mailto:${businessEmail}`}>{businessEmail}</a>
           </div>
@@ -118,7 +118,7 @@ function ShynliMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
               <h3 className="text-sm font-black uppercase text-[#22c7a9]">{title as string}</h3>
               <div className="mt-4 grid gap-2">
                 {(links as [string, string][]).map(([label, slug]) => (
-                  <a key={label} href={getShynliMoveOutPath(slug || undefined)} className="flex min-h-10 items-center text-sm font-black text-[#f6fbff]/62 transition-colors hover:text-[#f6fbff]">
+                  <a key={label} href={getShynliMoveOutPath(slug || undefined)} className="flex min-h-10 items-center text-sm font-black text-[#f6fbff]/76 transition-colors hover:text-[#f6fbff]">
                     {label}
                   </a>
                 ))}
@@ -127,7 +127,7 @@ function ShynliMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
           ))}
         </div>
       </div>
-      <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-[#f6fbff]/10 pt-6 text-sm font-bold text-[#f6fbff]/42 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-[#f6fbff]/10 pt-6 text-sm font-bold text-[#f6fbff]/76 md:flex-row md:items-center md:justify-between">
         <p>ShynliMoveOutCleaning.com</p>
         <p>Empty-home scope. Access notes. Final walkthrough clarity.</p>
       </div>
@@ -2818,7 +2818,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             <span className="grid size-10 place-items-center rounded-sm bg-[#0b2430] text-sm font-black text-[#f6fbff]">SM</span>
             <span className="leading-none">
               <span className="block text-base font-black uppercase tracking-normal">Shynli Move-Out</span>
-              <span className="mt-1 block text-xs font-black uppercase text-[#0b7f8a]">Move-out cleaning</span>
+              <span className="mt-1 block text-xs font-black uppercase text-[#075f67]">Move-out cleaning</span>
             </span>
           </a>
           <nav className="hidden items-center gap-1 text-sm font-black text-[#0b2430]/68 md:flex" aria-label="Move-out navigation">
@@ -2862,23 +2862,23 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
           <div id="quote" className="animate-rise-delayed border border-[#b9e5ee] bg-[#f6fbff] p-3 text-[#0b2430] shadow-[0_26px_90px_rgba(0,0,0,0.28)] md:p-4">
             <form action={buildQuoteUrl({ service: "move-out-cleaning" })} method="get" className="grid gap-3 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] lg:items-end" onSubmit={(event) => submitQuoteForm(event, { service: "move-out-cleaning" })}>
               {cityName ? <input type="hidden" name="city" value={cityName} /> : null}
-              <label className="grid gap-2 text-xs font-black uppercase text-[#0b7f8a]">
+              <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
                 ZIP code
                 <Input name="zip" inputMode="numeric" placeholder="60540" className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
               </label>
-              <label className="grid gap-2 text-xs font-black uppercase text-[#0b7f8a]">
+              <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
                 Handoff date
                 <Input name="date" type="date" className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
               </label>
-              <label className="grid gap-2 text-xs font-black uppercase text-[#0b7f8a]">
+              <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
                 Place type
                 <Input name="property_type" placeholder="Apartment, condo, house" className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
               </label>
-              <label className="grid gap-2 text-xs font-black uppercase text-[#0b7f8a]">
+              <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
                 Scope
                 <Input name="condition" placeholder="Empty / mostly empty" className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
               </label>
-              <Button type="submit" className="h-12 rounded-sm bg-[#19b97f] px-7 font-black text-white hover:bg-[#14a66f]">
+              <Button type="submit" className="h-12 rounded-sm bg-[#19b97f] px-7 font-black text-[#06202a] hover:bg-[#16b879]">
                 Start quote
                 <ArrowRight className="size-4" />
               </Button>
@@ -2901,7 +2901,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       <section id="handoff" className="px-4 py-14 md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Four handoff moments</p>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Four handoff moments</p>
             <h2 className="text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">One page, four reasons to book.</h2>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -2910,7 +2910,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
                 <CardContent className="grid min-h-44 content-between p-5">
                   <div className="flex items-center justify-between gap-4">
                     <h3 className="text-3xl font-black leading-none">{title}</h3>
-                    <KeyRound className={`size-7 ${index === 0 ? "text-[#22c7a9]" : "text-[#0b7f8a]"}`} />
+                    <KeyRound className={`size-7 ${index === 0 ? "text-[#22c7a9]" : "text-[#075f67]"}`} />
                   </div>
                   <p className={`mt-8 text-base font-bold leading-7 ${index === 0 ? "text-[#f6fbff]/72" : "text-[#486573]"}`}>{copy}</p>
                 </CardContent>
@@ -2927,7 +2927,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             <h2 className="max-w-3xl text-4xl font-black leading-[0.96] sm:text-5xl md:text-6xl">
               Cleaning is invisible after you leave. Proof should not be.
             </h2>
-            <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#f6fbff]/68">
+            <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#f6fbff]/76">
               Every job ends with documentation: room notes, after photos, access confirmation, and a clear path if a covered item is missed.
             </p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -2975,12 +2975,12 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             </picture>
           </div>
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Scope clarity</p>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Scope clarity</p>
             <h2 className="max-w-2xl text-4xl font-black leading-[0.98] sm:text-5xl">Show what is included before the customer asks.</h2>
             <div className="mt-7 grid gap-2">
               {["Empty-room floors, surfaces, shelves, closets, switches, doors, and baseboards", "Kitchen and bathroom reset with quoted appliance and cabinet interiors", "Access notes for lockbox, elevator, parking, gate, pets, utilities, and lock-up", "Handoff photos and final notes when the customer cannot be on site"].map((item) => (
                 <div key={item} className="flex gap-3 border-b border-[#b9e5ee] py-4 last:border-b-0">
-                  <Check className="mt-1 size-5 shrink-0 text-[#0b7f8a]" />
+                  <Check className="mt-1 size-5 shrink-0 text-[#075f67]" />
                   <p className="text-lg font-bold leading-7 text-[#486573]">{item}</p>
                 </div>
               ))}
@@ -2993,7 +2993,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-end">
             <div>
-              <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Starting points</p>
+              <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Starting points</p>
               <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Price the handoff, then quote the real condition.</h2>
             </div>
             <p className="max-w-2xl text-lg font-bold leading-8 text-[#486573] md:justify-self-end">
@@ -3004,10 +3004,10 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             {moveOutPackages.map(([title, price, copy], index) => (
               <Card key={title} className={`rounded-sm border-[#b9e5ee] shadow-none ${index === 1 ? "bg-[#0b2430] text-[#f6fbff]" : "bg-[#ffffff]"}`}>
                 <CardContent className="p-6">
-                  <p className={`text-sm font-black uppercase ${index === 1 ? "text-[#22c7a9]" : "text-[#0b7f8a]"}`}>{title}</p>
+                  <p className={`text-sm font-black uppercase ${index === 1 ? "text-[#22c7a9]" : "text-[#075f67]"}`}>{title}</p>
                   <p className="mt-5 text-5xl font-black leading-none">{price}</p>
                   <p className={`mt-5 min-h-24 text-base font-bold leading-7 ${index === 1 ? "text-[#f6fbff]/72" : "text-[#486573]"}`}>{copy}</p>
-                  <Button asChild className={`mt-6 h-12 w-full rounded-sm font-black ${index === 1 ? "bg-[#19b97f] text-white hover:bg-[#14a66f]" : "bg-[#0b2430] text-[#f6fbff] hover:bg-[#123846]"}`}>
+                  <Button asChild className={`mt-6 h-12 w-full rounded-sm font-black ${index === 1 ? "bg-[#19b97f] text-[#06202a] hover:bg-[#16b879]" : "bg-[#0b2430] text-[#f6fbff] hover:bg-[#123846]"}`}>
                     <a href="#quote">Check this home</a>
                   </Button>
                 </CardContent>
@@ -3031,7 +3031,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
         <section className="bg-white px-4 py-14 md:px-8 md:py-20">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <div>
-              <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">{cityName} handoff plan</p>
+              <p className="mb-4 text-sm font-black uppercase text-[#075f67]">{cityName} handoff plan</p>
               <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">
                 Move-out cleaning shaped around local timing.
               </h2>
@@ -3060,7 +3060,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
         <section className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
             <div>
-              <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">{city.name} cleaning paths</p>
+              <p className="mb-4 text-sm font-black uppercase text-[#075f67]">{city.name} cleaning paths</p>
               <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">
                 Pick the page that matches the handoff.
               </h2>
@@ -3086,7 +3086,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       <section id="areas" className="bg-[#f6fbff] px-4 py-14 md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Service areas</p>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Service areas</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">
               Move-out cleaning across every Shynli service area.
             </h2>
@@ -3097,13 +3097,13 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
           <div className="grid gap-4 md:grid-cols-2">
             {serviceAreaGroups.map((group) => (
               <div key={group.label} className="border border-[#b9e5ee] bg-white p-5">
-                <h3 className="text-sm font-black uppercase text-[#0b7f8a]">{group.label}</h3>
+                <h3 className="text-sm font-black uppercase text-[#075f67]">{group.label}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {group.cities.map((name) => (
                     <a
                       key={name}
                       href={getShynliMoveOutPath(slugifyCity(name))}
-                      className="inline-flex min-h-11 items-center rounded-sm bg-[#e9f7fb] px-3 text-sm font-black text-[#0b2430] transition-colors hover:bg-[#d7f3f7] hover:text-[#0b7f8a]"
+                      className="inline-flex min-h-11 items-center rounded-sm bg-[#e9f7fb] px-3 text-sm font-black text-[#0b2430] transition-colors hover:bg-[#d7f3f7] hover:text-[#075f67]"
                     >
                       {name}
                     </a>
@@ -3118,7 +3118,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       <section className="bg-white px-4 py-14 md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Helpful move-out pages</p>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Helpful move-out pages</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">
               Get the exact page for your handoff.
             </h2>
@@ -3143,7 +3143,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       <section id="faq" className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#0b7f8a]">Honest answers</p>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Honest answers</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">Strong promise, clear limits.</h2>
             <p className="mt-6 max-w-xl text-lg font-bold leading-8 text-[#486573]">
               This keeps the page persuasive without making deposit, access, or add-on promises the business cannot control.
@@ -3202,7 +3202,7 @@ export function ShynliMoveOutLegalPage({ page }: { page: LegalPageData }) {
             <span className="grid size-10 place-items-center rounded-sm bg-[#0b2430] text-sm font-black text-[#f6fbff]">SM</span>
             <span className="leading-none">
               <span className="block text-base font-black uppercase tracking-normal">Shynli Move-Out</span>
-              <span className="mt-1 block text-xs font-black uppercase text-[#0b7f8a]">Move-out cleaning</span>
+              <span className="mt-1 block text-xs font-black uppercase text-[#075f67]">Move-out cleaning</span>
             </span>
           </a>
           <Button asChild className="h-11 rounded-sm bg-[#0b2430] px-5 font-black text-[#f6fbff] hover:bg-[#123846]">
@@ -3215,7 +3215,7 @@ export function ShynliMoveOutLegalPage({ page }: { page: LegalPageData }) {
         <div className="mx-auto max-w-7xl">
           <p className="mb-4 text-sm font-black uppercase text-[#22c7a9]">Shynli Move-Out Cleaning legal</p>
           <h1 className="max-w-4xl text-5xl font-black leading-[0.95] md:text-7xl">{page.title}</h1>
-          <p className="mt-6 max-w-3xl text-lg font-bold leading-8 text-[#f6fbff]/70">{page.description}</p>
+          <p className="mt-6 max-w-3xl text-lg font-bold leading-8 text-[#f6fbff]/78">{page.description}</p>
         </div>
       </section>
 
