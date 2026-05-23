@@ -47,6 +47,11 @@ export const moveOutFaqs = [
   ["Are fridge, oven, cabinets, and garage included?", "Some are included only when selected or quoted. The page should show these add-ons clearly before booking."],
 ]
 
+function splitIntoColumns<T>(items: T[], columnCount = 2) {
+  const columnSize = Math.ceil(items.length / columnCount)
+  return Array.from({ length: columnCount }, (_, index) => items.slice(index * columnSize, (index + 1) * columnSize)).filter((column) => column.length > 0)
+}
+
 const shinyMoveOutCanonicalBase = "https://shynlimoveoutcleaning.com"
 
 function isShynliMoveOutStandaloneHost() {
@@ -3064,11 +3069,14 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
               </p>
             </div>
             <div className="grid gap-3 md:grid-cols-2">
-              {[...shinyMoveOutAllCityIntentLinks, ...(shinyMoveOutPriorityCityIntentLinks.length && cityList.includes(city.name) && ["Naperville", "Aurora", "Plainfield", "Oswego", "Bolingbrook", "Lisle", "Warrenville", "Downers Grove", "North Aurora", "Sugar Grove", "Yorkville", "Montgomery"].includes(city.name) ? shinyMoveOutPriorityCityIntentLinks : [])].map(([label, slug]) => (
-                <a key={`${city.slug}-${slug}`} href={getShynliMoveOutPath(`${city.slug}/${slug}`)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-white p-5 transition-colors hover:bg-[#f6fbff]">
-                  <span className="text-lg font-black leading-tight text-[#0b2430]">{city.name} {label}</span>
-                  <ArrowRight className="size-5 shrink-0 text-[#0b7f8a] transition-transform group-hover:translate-x-1" />
-                </a>
+              {splitIntoColumns([...shinyMoveOutAllCityIntentLinks, ...(shinyMoveOutPriorityCityIntentLinks.length && cityList.includes(city.name) && ["Naperville", "Aurora", "Plainfield", "Oswego", "Bolingbrook", "Lisle", "Warrenville", "Downers Grove", "North Aurora", "Sugar Grove", "Yorkville", "Montgomery"].includes(city.name) ? shinyMoveOutPriorityCityIntentLinks : [])]).map((column, columnIndex) => (
+                <div key={`${city.slug}-cleaning-paths-${columnIndex}`} className="grid gap-3">
+                  {column.map(([label, slug]) => (
+                    <a key={`${city.slug}-${slug}`} href={getShynliMoveOutPath(`${city.slug}/${slug}`)} className="min-h-20 border border-[#b9e5ee] bg-white p-5 text-lg font-black leading-tight text-[#0b2430] transition-colors hover:bg-[#f6fbff]">
+                      {city.name} {label}
+                    </a>
+                  ))}
+                </div>
               ))}
             </div>
           </div>
@@ -3119,11 +3127,14 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
-            {shinyMoveOutFeaturedSeoLinks.map(([label, slug]) => (
-              <a key={slug} href={getShynliMoveOutPath(slug)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-[#f6fbff] p-5 transition-colors hover:bg-[#e9f7fb]">
-                <span className="text-lg font-black leading-tight text-[#0b2430]">{label}</span>
-                <ArrowRight className="size-5 shrink-0 text-[#0b7f8a] transition-transform group-hover:translate-x-1" />
-              </a>
+            {splitIntoColumns(shinyMoveOutFeaturedSeoLinks).map((column, columnIndex) => (
+              <div key={`featured-move-out-pages-${columnIndex}`} className="grid gap-3">
+                {column.map(([label, slug]) => (
+                  <a key={slug} href={getShynliMoveOutPath(slug)} className="min-h-20 border border-[#b9e5ee] bg-[#f6fbff] p-5 text-lg font-black leading-tight text-[#0b2430] transition-colors hover:bg-[#e9f7fb]">
+                    {label}
+                  </a>
+                ))}
+              </div>
             ))}
           </div>
         </div>
