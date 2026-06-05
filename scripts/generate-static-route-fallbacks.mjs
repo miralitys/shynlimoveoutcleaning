@@ -141,6 +141,122 @@ const guideShellPages = new Map([
   }],
 ])
 
+const guideFaqs = new Map([
+  ["/guides", [
+    ["What move-out cleaning questions should I answer before requesting a quote?", "Start with the inspection date, whether the home is empty, the property type, current condition, add-ons, access, and whether after-clean photos are needed."],
+    ["Which guide should I read first?", "If keys are due soon, start with timing and landlord inspection. If you are comparing cleaners, read the professional cleaning and cost guides next."],
+  ]],
+  ["/guides/landlord-move-out-cleaning-inspection", [
+    ["What do landlords usually notice during move-out inspections?", "Landlords often notice kitchens, bathrooms, floors, baseboards, cabinets, doors, closets, appliance interiors, and whether the home looks empty and ready for the next step."],
+    ["Can move-out cleaning guarantee my deposit back?", "No cleaning company can guarantee a deposit outcome because landlords also consider damage, lease terms, wear, timing, and inspection standards."],
+    ["Should I take photos after move-out cleaning?", "Yes. Photos help document the condition after cleaning, especially when you cannot be present for the final walkthrough."],
+  ]],
+  ["/guides/do-you-need-professional-move-out-cleaning", [
+    ["When is professional move-out cleaning worth it?", "It is usually worth it when the home is empty, time is tight, a walkthrough is scheduled, you need add-ons, or you cannot return to fix missed details."],
+    ["When is DIY move-out cleaning enough?", "DIY may be enough for a small, lightly used space when you have time, supplies, access, and no strict inspection or listing deadline."],
+    ["What should I prepare before professional cleaners arrive?", "Remove personal items, confirm access, share condition notes, choose add-ons, and make sure utilities are working if the clean needs water, power, or light."],
+  ]],
+  ["/guides/why-move-out-cleaning-costs-more", [
+    ["Why does move-out cleaning cost more than regular cleaning?", "Move-out cleaning usually exposes more detail because rooms are empty, cabinets and appliances are visible, and the clean is tied to a handoff or inspection."],
+    ["What affects a move-out cleaning quote?", "Size, bathrooms, condition, access, deadlines, utilities, pet hair, heavy buildup, and add-ons such as ovens, fridges, cabinets, and windows can affect the quote."],
+    ["Can I lower the move-out cleaning cost?", "You can often keep the scope tighter by removing items first, choosing only needed add-ons, sharing accurate photos, and giving cleaners clear access."],
+  ]],
+  ["/guides/how-long-move-out-cleaning-takes", [
+    ["How long does move-out cleaning take?", "Timing depends on home size, bathrooms, condition, add-ons, access, and whether the home is already empty."],
+    ["Should movers finish before cleaners arrive?", "Yes, when possible. Cleaning after furniture and boxes are gone reduces delays and lets cleaners reach floors, closets, baseboards, and corners."],
+    ["What can delay move-out cleaning?", "Remaining items, blocked access, no utilities, heavy buildup, late movers, locked rooms, and last-minute add-ons can all slow the job."],
+  ]],
+  ["/guides/move-out-cleaning-photos-before-keys", [
+    ["What photos should I take before turning in keys?", "Take wide photos of every room, close photos of kitchens and bathrooms, and specific photos of completed add-ons such as appliances or cabinets."],
+    ["Do photos replace a walkthrough?", "No. Photos are documentation, but the landlord, buyer, or property manager may still do their own walkthrough and apply their own standards."],
+    ["When should I take move-out cleaning photos?", "Take photos after cleaning is complete, after personal items are removed, and before keys are returned or access changes."],
+  ]],
+])
+
+const jsonForHtml = (value) => JSON.stringify(value).replace(/</g, "\\u003c")
+
+const buildGuideSchema = (path, page) => {
+  const absoluteUrl = `${domain}${path === "/" ? "" : path}`
+  const faqPairs = guideFaqs.get(path)
+  const graph = [
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${absoluteUrl}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: domain },
+        { "@type": "ListItem", position: 2, name: "Move-out guides", item: `${domain}/guides` },
+        ...(path === "/guides" ? [] : [{ "@type": "ListItem", position: 3, name: page.h1.replace(/\.$/, ""), item: absoluteUrl }]),
+      ],
+    },
+  ]
+
+  if (path === "/guides") {
+    graph.unshift({
+      "@type": "CollectionPage",
+      "@id": `${absoluteUrl}#webpage`,
+      name: page.title,
+      description: page.description,
+      url: absoluteUrl,
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: [...guideShellPages.keys()]
+          .filter((guidePath) => guidePath !== "/guides")
+          .map((guidePath, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            url: `${domain}${guidePath}`,
+            name: guideShellPages.get(guidePath).h1.replace(/\.$/, ""),
+          })),
+      },
+    })
+  } else {
+    graph.unshift({
+      "@type": "Article",
+      "@id": `${absoluteUrl}#article`,
+      headline: page.h1.replace(/\.$/, ""),
+      description: page.description,
+      mainEntityOfPage: absoluteUrl,
+      url: absoluteUrl,
+      inLanguage: "en-US",
+      author: { "@type": "Organization", name: "Shynli Move-Out Cleaning" },
+      publisher: { "@type": "Organization", name: "Shynli Move-Out Cleaning", url: domain },
+    })
+  }
+
+  if (faqPairs) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${absoluteUrl}#faq`,
+      mainEntity: faqPairs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    })
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  }
+}
+
+const buildStaticSeoHead = (page) => {
+  const sourcePath = page.sourcePage === "/" ? "" : page.sourcePage.replace(/\/+$/, "")
+  const canonicalHref = `${domain}${sourcePath}`
+  const schema = guideShellPages.has(page.sourcePage) ? buildGuideSchema(page.sourcePage, page) : null
+  const schemaTag = schema
+    ? `\n    <script id="page-schema" type="application/ld+json">${jsonForHtml(schema)}</script>`
+    : ""
+
+  return `<meta name="keywords" content="${page.keywords || "move-out cleaning, apartment move-out cleaning, final walkthrough cleaning"}" />
+    <link rel="canonical" href="${canonicalHref}" />
+    <meta name="robots" content="index,follow" />${schemaTag}`
+}
+
 const titleCaseSlug = (slug) =>
   slug
     .split("-")
@@ -330,7 +446,7 @@ const addMoveOutShell = (html, path = "/") => {
     )
     .replace(
       /<meta\s+name="description"\s+content="[^"]*"\s*\/>/s,
-      (match) => `${match}\n    <meta name="keywords" content="${page.keywords || "move-out cleaning, apartment move-out cleaning, final walkthrough cleaning"}" />`,
+      (match) => `${match}\n    ${buildStaticSeoHead(page)}`,
     )
 
   return withMoveOutMeta.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
