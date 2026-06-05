@@ -327,6 +327,7 @@ const getShellCopy = (path) => {
 const addMoveOutShell = (html, path = "/") => {
   const page = getShellCopy(path)
   const hiddenCityInput = page.cityName ? `<input type="hidden" name="city" value="${page.cityName}" />` : ""
+  const guideShellClass = guideShellPages.has(path) ? " initial-guide-shell" : ""
   const shell = `<main id="initial-home-hero" style="min-height:100svh;background:#e9f7fb;color:#0b2430;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;">
       <style>
         #initial-home-hero *{box-sizing:border-box}
@@ -348,6 +349,9 @@ const addMoveOutShell = (html, path = "/") => {
         #initial-home-hero .initial-kicker{display:inline-flex;margin:0 0 1.55rem;border:1px solid rgba(32,199,216,.58);border-radius:.25rem;background:rgba(32,199,216,.14);padding:.55rem 1.15rem;color:#f6fbff;font-size:.86rem;font-weight:900;line-height:1.2}
         #initial-home-hero h1{max-width:76rem;margin:0;color:#f6fbff;font-size:clamp(4.4rem,8.3vw,8.6rem);font-weight:900;line-height:.86;letter-spacing:0}
         #initial-home-hero .initial-copy{max-width:58rem;margin:2rem 0 0;color:rgba(246,251,255,.78);font-size:clamp(1.25rem,1.8vw,1.5rem);font-weight:800;line-height:1.5}
+        #initial-home-hero .initial-guide-shell{max-width:94rem}
+        #initial-home-hero .initial-guide-shell h1{max-width:92rem;font-size:clamp(3.15rem,5.45vw,7rem);line-height:.92}
+        #initial-home-hero .initial-guide-shell .initial-copy{max-width:78rem}
         #initial-home-hero .initial-form{margin-top:4.25rem;border:1px solid #b9e5ee;background:#f6fbff;padding:1rem;box-shadow:0 24px 45px rgba(11,36,48,.28)}
         #initial-home-hero .initial-form-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr auto;gap:.85rem;align-items:end}
         #initial-home-hero label{display:grid;gap:.55rem;color:#075f67;font-size:.82rem;font-weight:900;text-transform:uppercase}
@@ -392,7 +396,7 @@ const addMoveOutShell = (html, path = "/") => {
           <img class="initial-hero-img" src="/cleaner-hero-1280.jpg" srcset="/cleaner-hero-960.jpg 960w, /cleaner-hero-1280.jpg 1280w, /cleaner-hero-1366.jpg 1366w, /cleaner-hero-1600.jpg 1600w" sizes="100vw" alt="" fetchpriority="high" decoding="async" />
         </picture>
         <div class="initial-overlay"></div>
-        <div class="initial-hero-inner">
+        <div class="initial-hero-inner${guideShellClass}">
           <p class="initial-kicker">${page.kicker}</p>
           <h1>${page.h1}</h1>
           <p class="initial-copy">${page.copy}</p>

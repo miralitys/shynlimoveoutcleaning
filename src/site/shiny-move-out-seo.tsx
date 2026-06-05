@@ -1065,34 +1065,38 @@ export function ShynliMoveOutGuidePage({ page }: { page: ShynliMoveOutGuidePageD
     <main className="move-out-page move-out-page-guide min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
       <MoveOutSeoHeader ctaLabel="Start quote" />
       <section className="bg-[#0b2430] px-4 py-14 text-[#f6fbff] md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div>
+        <div className="mx-auto max-w-[94rem]">
+          <div className="max-w-[92rem]">
             <Badge className="mb-5 rounded-sm border border-[#20c7d8]/55 bg-[#20c7d8]/16 px-4 py-1.5 text-[#f6fbff] shadow-none hover:bg-[#20c7d8]/16">{page.eyebrow}</Badge>
-            <h1 className="max-w-5xl text-[clamp(3rem,7vw,7.2rem)] font-black leading-[0.88] tracking-normal">{page.h1}</h1>
-            <p className="mt-6 max-w-3xl text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+            <h1 className="text-[clamp(3.15rem,5.45vw,7rem)] font-black leading-[0.92] tracking-normal">{page.h1}</h1>
           </div>
-          <div className="border border-[#f6fbff]/14 bg-white/6 p-5">
-            <p className="text-sm font-black uppercase text-[#22c7a9]">Short answer</p>
-            <p className="mt-3 text-2xl font-black leading-tight text-[#f6fbff]">{page.summary}</p>
+          <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,1.12fr)_minmax(27rem,0.88fr)] xl:items-stretch">
+            <p className="max-w-[78rem] text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+            <div className="border border-[#f6fbff]/14 bg-white/6 p-5 md:p-6">
+              <p className="text-sm font-black uppercase text-[#22c7a9]">Short answer</p>
+              <p className="mt-3 text-2xl font-black leading-tight text-[#f6fbff]">{page.summary}</p>
+            </div>
           </div>
-        </div>
-        <div className="mx-auto mt-10 max-w-7xl">
-          <MoveOutGuideQuoteStrip page={page} />
+          <div className="mt-10">
+            <MoveOutGuideQuoteStrip page={page} />
+          </div>
         </div>
       </section>
 
       <section id="scope" className="bg-white px-4 py-14 md:px-8 md:py-20">
-        <article className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
-          <div>
-            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Practical answer</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">What to know before the handoff.</h2>
+        <article className="mx-auto max-w-[94rem]">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-end">
+            <div>
+              <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Practical answer</p>
+              <h2 className="max-w-4xl text-4xl font-black leading-[0.98] sm:text-5xl">What to know before the handoff.</h2>
+            </div>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
               These notes are written for people preparing for keys, walkthroughs, quotes, or remote handoffs. They keep the cleaning scope honest and the next step close.
             </p>
           </div>
-          <div className="grid gap-4">
+          <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,23rem),1fr))] gap-4">
             {page.sections.map((section, index) => (
-              <section key={section.title} className={`border border-[#b9e5ee] p-5 ${index === 0 ? "bg-[#0b2430] text-[#f6fbff]" : "bg-[#f6fbff]"}`}>
+              <section key={section.title} className={`border border-[#b9e5ee] p-5 md:p-6 ${index === 0 ? "bg-[#0b2430] text-[#f6fbff]" : "bg-[#f6fbff]"}`}>
                 <h3 className="text-2xl font-black leading-tight">{section.title}</h3>
                 <p className={`mt-4 text-base font-bold leading-7 ${index === 0 ? "text-[#f6fbff]/76" : "text-[#486573]"}`}>{section.answer}</p>
                 <div className="mt-5 grid gap-2">
@@ -1110,10 +1114,10 @@ export function ShynliMoveOutGuidePage({ page }: { page: ShynliMoveOutGuidePageD
       </section>
 
       <section id="pricing" className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-start">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Turn reading into a quote</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Ready to price the real home?</h2>
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] sm:text-5xl">Ready to price the real home?</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
               Share the ZIP, date, home condition, access details, and add-ons so the appointment can match the actual move-out window.
             </p>
@@ -1123,10 +1127,10 @@ export function ShynliMoveOutGuidePage({ page }: { page: ShynliMoveOutGuidePageD
       </section>
 
       <section id="related" className="bg-[#f6fbff] px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Related pages</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Keep the next click useful.</h2>
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] sm:text-5xl">Keep the next click useful.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
               Move between guides, service pages, cost details, checklists, and deposit-focused questions without losing the quote path.
             </p>
@@ -1143,10 +1147,10 @@ export function ShynliMoveOutGuidePage({ page }: { page: ShynliMoveOutGuidePageD
       </section>
 
       <section id="areas" className="bg-white px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Service areas</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Use the guide, then pick the local page.</h2>
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] sm:text-5xl">Use the guide, then pick the local page.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
               Local pages connect move-out cleaning questions to the city, route, access notes, and nearby service area.
             </p>
@@ -1163,10 +1167,10 @@ export function ShynliMoveOutGuidePage({ page }: { page: ShynliMoveOutGuidePageD
       </section>
 
       <section className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">FAQ</p>
-            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Straight answers, clear limits.</h2>
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.98] sm:text-5xl">Straight answers, clear limits.</h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
               The guides are practical, but they do not turn cleaning into a guarantee for deposits, repairs, buyer opinions, or lease decisions.
             </p>
