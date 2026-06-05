@@ -2,7 +2,7 @@ import { cityPages, cityServicePageCities, genericSeoPages, getCityServiceSeoSer
 import { legalPages } from "@/site/legal-data"
 import { LegalPage } from "@/site/legal-pages"
 import { CityPage, GenericSeoPage, HomePage, NotFoundPage, ServiceAreasPage, ServicesIndexPage, ServiceSeoPage } from "@/site/pages"
-import { ShynliMoveOutCityIntentPage, ShynliMoveOutSeoPage, shinyMoveOutCityIntentPages, shinyMoveOutSeoPages } from "@/site/shiny-move-out-seo"
+import { ShynliMoveOutCityIntentPage, ShynliMoveOutGuidePage, ShynliMoveOutSeoPage, shinyMoveOutCityIntentPages, shinyMoveOutGuidePages, shinyMoveOutSeoPages } from "@/site/shiny-move-out-seo"
 import { ShynliAirbnbPage, ShynliApartmentPage, ShynliDeepCityIntentPage, ShynliDeepCleaningPage, ShynliDeepSeoPage, ShynliMoveOutLegalPage, ShynliMoveOutPage, shinyDeepCityIntentPages, shinyDeepSeoPages } from "@/site/standalone-pages"
 
 function App() {
@@ -20,8 +20,10 @@ function App() {
   const moveOutDomainCityMatch = cityPages.find((city) => currentPath === `/${city.slug}`)
   const shinyMoveOutCityMatch = cityPages.find((city) => currentPath === `/shiny-move-out-cleaning/${city.slug}`)
   const moveOutDomainSeoMatch = shinyMoveOutSeoPages.find((page) => currentPath === `/${page.slug}`)
+  const moveOutDomainGuideMatch = shinyMoveOutGuidePages.find((page) => currentPath === `/${page.slug}`)
   const moveOutDomainCityIntentMatch = shinyMoveOutCityIntentPages.find((page) => currentPath === `/${page.slug}`)
   const shinyMoveOutSeoMatch = shinyMoveOutSeoPages.find((page) => currentPath === `/shiny-move-out-cleaning/${page.slug}`)
+  const shinyMoveOutGuideMatch = shinyMoveOutGuidePages.find((page) => currentPath === `/shiny-move-out-cleaning/${page.slug}`)
   const shinyMoveOutCityIntentMatch = shinyMoveOutCityIntentPages.find((page) => currentPath === `/shiny-move-out-cleaning/${page.slug}`)
   const deepDomainSeoMatch = shinyDeepSeoPages.find((page) => currentPath === `/${page.slug}`)
   const deepDomainCityIntentMatch = shinyDeepCityIntentPages.find((page) => currentPath === `/${page.slug}`)
@@ -65,6 +67,10 @@ function App() {
 
   if (isMoveOutCleaningSite && moveOutDomainSeoMatch) {
     return <ShynliMoveOutSeoPage page={moveOutDomainSeoMatch} />
+  }
+
+  if (isMoveOutCleaningSite && moveOutDomainGuideMatch) {
+    return <ShynliMoveOutGuidePage page={moveOutDomainGuideMatch} />
   }
 
   if (isMoveOutCleaningSite && moveOutDomainCityIntentMatch) {
@@ -113,6 +119,10 @@ function App() {
 
   if (shinyMoveOutSeoMatch) {
     return <ShynliMoveOutSeoPage page={shinyMoveOutSeoMatch} />
+  }
+
+  if (shinyMoveOutGuideMatch) {
+    return <ShynliMoveOutGuidePage page={shinyMoveOutGuideMatch} />
   }
 
   if (shinyMoveOutCityIntentMatch) {

@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { businessEmail, businessPhoneDisplay, businessPhoneHref, cityHeroImages, cityList, cityPages, cityRouteNotes, featuredServiceAreaCities, serviceAreaGroups, slugifyCity } from "@/site/data"
 import { type LegalPageData, LegalLine } from "@/site/legal-pages"
-import { shinyMoveOutAllCityIntentLinks, shinyMoveOutFeaturedSeoLinks, shinyMoveOutPriorityCityIntentLinks } from "@/site/shiny-move-out-seo"
+import { shinyMoveOutAllCityIntentLinks, shinyMoveOutFeaturedSeoLinks, shinyMoveOutGuideLinks, shinyMoveOutPriorityCityIntentLinks } from "@/site/shiny-move-out-seo"
 import { buildQuoteUrl, submitQuoteForm, useSeoMeta } from "@/site/shared"
 
 export const moveOutProof = [
@@ -108,9 +108,10 @@ function ShynliMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
             </Button>
           </div>
         </div>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ["Move-out pages", [["Cost guide", "move-out-cleaning-cost"], ["Checklist", "move-out-cleaning-checklist"], ["Apartment move-out", "apartment-move-out-cleaning"], ["Empty apartment", "empty-apartment-cleaning"]] as [string, string][]],
+            ["Guides", [["Move-out guides", "guides"], ["Landlord inspection", "guides/landlord-move-out-cleaning-inspection"], ["Cleaning timing", "guides/how-long-move-out-cleaning-takes"], ["Photo handoff", "guides/move-out-cleaning-photos-before-keys"]] as [string, string][]],
             ["Local pages", cityLinks],
             ["Support", [["Privacy", "privacy"], ["Terms", "terms"], ["Cancellation", "cancellation"], ["Home", ""]] as [string, string][]],
           ].map(([title, links]) => (
@@ -2826,6 +2827,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
               ["Handoff", "#handoff"],
               ["Report", "#report"],
               ["Pricing", "#pricing"],
+              ["Guides", getShynliMoveOutPath("guides")],
               ["Areas", "#areas"],
               ["FAQ", "#faq"],
             ].map(([label, href]) => (
@@ -3138,11 +3140,11 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
               Find the move-out answer you actually need.
             </h2>
             <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
-              Compare cost, checklist, apartment, rental, landlord, and same-week cleaning details before you request a date. Each guide helps you name the rooms, extras, and access notes that matter most.
+              Compare cost, checklist, apartment, rental, landlord, same-week, and practical guide details before you request a date. Each page helps you name the rooms, extras, and access notes that matter most.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
-            {splitIntoColumns(shinyMoveOutFeaturedSeoLinks).map((column, columnIndex) => (
+            {splitIntoColumns([...shinyMoveOutFeaturedSeoLinks, ...shinyMoveOutGuideLinks]).map((column, columnIndex) => (
               <div key={`featured-move-out-pages-${columnIndex}`} className="grid gap-3">
                 {column.map(([label, slug]) => (
                   <a key={slug} href={getShynliMoveOutPath(slug)} className="min-h-20 border border-[#b9e5ee] bg-[#f6fbff] p-5 text-lg font-black leading-tight text-[#0b2430] transition-colors hover:bg-[#e9f7fb]">

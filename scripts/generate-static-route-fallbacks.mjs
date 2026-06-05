@@ -90,6 +90,57 @@ const serviceAreaCities = [
 
 const cityBySlug = new Map(serviceAreaCities.map((city) => [city.toLowerCase().replace(/\./g, "").replace(/\s+/g, "-"), city]))
 
+const guideShellPages = new Map([
+  ["/guides", {
+    title: "Move-Out Cleaning Guides | Shynli Move-Out Cleaning",
+    description: "Practical move-out cleaning guides for renters, landlords, sellers, property managers, and homeowners preparing for keys, walkthroughs, and quotes.",
+    keywords: "move-out cleaning guides, move-out cleaning questions, apartment move-out cleaning tips, final walkthrough cleaning, cleaning before turning in keys",
+    kicker: "Move-out guides",
+    h1: "Move-out cleaning guides for the questions people ask before keys are due.",
+    copy: "Compare practical answers about cost, timing, landlord walkthroughs, professional cleaning, and photos before you start a move-out quote.",
+  }],
+  ["/guides/landlord-move-out-cleaning-inspection", {
+    title: "What Landlords Notice During Move-Out Cleaning | Shynli",
+    description: "See the rooms and details landlords often notice during a move-out walkthrough, from kitchens and bathrooms to floors, doors, cabinets, and photos.",
+    keywords: "move-out cleaning inspection, landlord walkthrough cleaning, apartment move-out cleaning, final walkthrough cleaning, security deposit cleaning",
+    kicker: "Landlord walkthrough",
+    h1: "What landlords actually notice during a move-out cleaning inspection.",
+    copy: "Plan the clean around kitchens, bathrooms, floors, baseboards, doors, closets, appliance add-ons, and after-clean photos before keys are due.",
+  }],
+  ["/guides/do-you-need-professional-move-out-cleaning", {
+    title: "Do You Need Professional Move-Out Cleaning? | Shynli",
+    description: "Learn when a professional move-out clean is worth it, when DIY may be enough, and what to prepare before keys, walkthroughs, or listing photos.",
+    keywords: "professional move-out cleaning, hire move-out cleaner, move-out cleaning service, apartment move-out cleaning, cleaning after moving out",
+    kicker: "Professional or DIY",
+    h1: "Do you need professional move-out cleaning before turning in keys?",
+    copy: "Compare DIY and professional move-out cleaning based on time, condition, inspection expectations, add-ons, and remote handoff needs.",
+  }],
+  ["/guides/why-move-out-cleaning-costs-more", {
+    title: "Why Move-Out Cleaning Costs More | Shynli",
+    description: "Move-out cleaning often costs more than regular cleaning because the home is empty, details are exposed, and add-ons like ovens, cabinets, and windows take time.",
+    keywords: "why move-out cleaning costs more, move-out cleaning cost, regular cleaning vs move-out cleaning, empty home cleaning cost, cleaning quote factors",
+    kicker: "Cost factors",
+    h1: "Why move-out cleaning usually costs more than regular cleaning.",
+    copy: "Move-out cleaning prices change with empty-room detail, condition, bathrooms, access, deadlines, and selected add-ons like ovens, fridges, and cabinets.",
+  }],
+  ["/guides/how-long-move-out-cleaning-takes", {
+    title: "How Long Does Move-Out Cleaning Take? | Shynli",
+    description: "Understand how long move-out cleaning can take based on home size, condition, bathrooms, add-ons, access, and whether the home is empty.",
+    keywords: "how long does move-out cleaning take, move-out cleaning time, apartment move-out cleaning time, house move-out cleaning, cleaning after movers",
+    kicker: "Timing",
+    h1: "How long does move-out cleaning take after the home is empty?",
+    copy: "Move-out cleaning time depends on size, bathrooms, condition, access, add-ons, and whether movers and personal items are already gone.",
+  }],
+  ["/guides/move-out-cleaning-photos-before-keys", {
+    title: "Move-Out Cleaning Photos Before Turning In Keys | Shynli",
+    description: "Know which photos to take after move-out cleaning, how to document rooms and add-ons, and why photos help when you cannot stay for the walkthrough.",
+    keywords: "move-out cleaning photos, document apartment cleaning, turning in keys cleaning, move-out walkthrough photos, security deposit cleaning photos",
+    kicker: "Photo handoff",
+    h1: "Move-out cleaning photos to take before turning in keys.",
+    copy: "Use wide room photos, kitchen and bathroom photos, and selected add-on photos to document the cleaning finish before a remote handoff.",
+  }],
+])
+
 const titleCaseSlug = (slug) =>
   slug
     .split("-")
@@ -98,6 +149,14 @@ const titleCaseSlug = (slug) =>
     .join(" ")
 
 const getShellCopy = (path) => {
+  const guidePage = guideShellPages.get(path)
+  if (guidePage) {
+    return {
+      ...guidePage,
+      sourcePage: path,
+    }
+  }
+
   if (path === "/") {
     return {
       title: "Shynli Move-Out Cleaning | Final Walkthrough Cleaning",
@@ -105,6 +164,7 @@ const getShellCopy = (path) => {
       kicker: "Apartment empty, keys due, inspection coming",
       h1: "Ready for the final walkthrough.",
       copy: "Move-out cleaning for empty rooms, final walkthroughs, key handoffs, and the last details people notice after the furniture is gone.",
+      keywords: "move-out cleaning, final walkthrough cleaning, apartment move-out cleaning, move-out cleaning service, cleaning before turning in keys",
       sourcePage: "/",
     }
   }
@@ -181,6 +241,8 @@ const addMoveOutShell = (html, path = "/") => {
         #initial-home-hero .initial-proof{min-height:7rem;background:#f6fbff;border-left:.25rem solid #22c7a9;padding:1.25rem;color:#0b2430}
         #initial-home-hero .initial-proof strong{display:block;font-size:1.65rem;font-weight:900}
         #initial-home-hero .initial-proof span{display:block;margin-top:.25rem;color:#43525c;font-weight:800}
+        #initial-home-hero .initial-guides{position:relative;z-index:1;margin:1.25rem auto 0;display:flex;max-width:86rem;flex-wrap:wrap;gap:.65rem;padding:0 1.75rem 2rem}
+        #initial-home-hero .initial-guides a{display:inline-flex;min-height:2.75rem;align-items:center;border:1px solid rgba(246,251,255,.24);border-radius:.25rem;background:rgba(246,251,255,.1);padding:0 .9rem;color:#f6fbff;font-size:.88rem;font-weight:900}
         @media (max-width:900px){
           #initial-home-hero .initial-nav{display:none}
           #initial-home-hero .initial-check{min-height:3rem}
@@ -188,6 +250,7 @@ const addMoveOutShell = (html, path = "/") => {
           #initial-home-hero h1{font-size:clamp(3.25rem,15vw,5.6rem)}
           #initial-home-hero .initial-form-grid{grid-template-columns:1fr}
           #initial-home-hero .initial-proof-row{grid-template-columns:1fr;padding:0 1rem 2rem}
+          #initial-home-hero .initial-guides{padding:0 1rem 2rem}
         }
       </style>
       <header class="initial-header">
@@ -200,6 +263,7 @@ const addMoveOutShell = (html, path = "/") => {
             <a href="#handoff">Handoff</a>
             <a href="#report">Report</a>
             <a href="#pricing">Pricing</a>
+            <a href="https://shynlimoveoutcleaning.com/guides">Guides</a>
             <a href="#areas">Areas</a>
             <a href="#faq">FAQ</a>
           </nav>
@@ -235,6 +299,14 @@ const addMoveOutShell = (html, path = "/") => {
           <div class="initial-proof"><strong>No card</strong><span>to check timing</span></div>
           <div class="initial-proof"><strong>Re-clean</strong><span>for covered missed items</span></div>
         </div>
+        <nav class="initial-guides" aria-label="Move-out cleaning guides">
+          <a href="https://shynlimoveoutcleaning.com/guides">Move-out guides</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/landlord-move-out-cleaning-inspection">Landlord inspection</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/do-you-need-professional-move-out-cleaning">Professional or DIY</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/why-move-out-cleaning-costs-more">Cost factors</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/how-long-move-out-cleaning-takes">Cleaning timing</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/move-out-cleaning-photos-before-keys">Photo handoff</a>
+        </nav>
         <span id="handoff" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
         <span id="report" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
         <span id="pricing" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
@@ -255,6 +327,10 @@ const addMoveOutShell = (html, path = "/") => {
     .replace(
       /<meta\s+name="description"\s+content="[^"]*"\s*\/>/s,
       `<meta name="description" content="${page.description}" />`,
+    )
+    .replace(
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/>/s,
+      (match) => `${match}\n    <meta name="keywords" content="${page.keywords || "move-out cleaning, apartment move-out cleaning, final walkthrough cleaning"}" />`,
     )
 
   return withMoveOutMeta.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
@@ -309,7 +385,8 @@ const paths = urls
 for (const path of paths) {
   const routeIndex = join(distDir, path, "index.html")
   mkdirSync(dirname(routeIndex), { recursive: true })
-  writeFileSync(routeIndex, addMoveOutShell(deferHomepageScripts(indexHtml), path))
+  const routeHtml = path.startsWith("/guides") ? indexHtml : deferHomepageScripts(indexHtml)
+  writeFileSync(routeIndex, addMoveOutShell(routeHtml, path))
 }
 
 writeFileSync(indexFile, addMoveOutShell(deferHomepageScripts(indexHtml)))

@@ -54,4 +54,4 @@ After Render deploys, verify:
 - a deep URL, for example `/naperville/move-out-cleaning-cost`
 - quote links and quote form handoff to `https://shynlicleaningservice.com/quote`
 
-The production sitemap for this standalone move-out site contains exactly `350` unique URLs on `https://shynlimoveoutcleaning.com`.
+The production sitemap for this standalone move-out site contains exactly `356` unique URLs on `https://shynlimoveoutcleaning.com`.

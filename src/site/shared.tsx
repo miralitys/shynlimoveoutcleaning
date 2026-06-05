@@ -568,6 +568,7 @@ type SeoMetaOptions = {
   canonicalBaseUrl?: string
   canonicalPath?: string
   robots?: "index,follow" | "noindex,follow"
+  keywords?: string[] | string
 }
 
 function normalizeSeoDescription(description: string) {
@@ -610,6 +611,19 @@ export function useSeoMeta(title: string, description: string, schema?: object, 
     }
     descriptionTag.content = normalizeSeoDescription(description)
 
+    const normalizedKeywords = Array.isArray(options.keywords) ? options.keywords.join(", ") : options.keywords?.trim()
+    let keywordsTag = document.querySelector<HTMLMetaElement>('meta[name="keywords"]')
+    if (normalizedKeywords) {
+      if (!keywordsTag) {
+        keywordsTag = document.createElement("meta")
+        keywordsTag.name = "keywords"
+        document.head.appendChild(keywordsTag)
+      }
+      keywordsTag.content = normalizedKeywords
+    } else if (keywordsTag) {
+      keywordsTag.remove()
+    }
+
     let canonicalTag = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonicalTag) {
       canonicalTag = document.createElement("link")
@@ -643,7 +657,7 @@ export function useSeoMeta(title: string, description: string, schema?: object, 
     } else if (schemaTag) {
       schemaTag.remove()
     }
-  }, [title, description, schema, options.canonicalBaseUrl, options.canonicalPath, options.robots])
+  }, [title, description, schema, options.canonicalBaseUrl, options.canonicalPath, options.robots, options.keywords])
 }
 
 export function BrandLink() {

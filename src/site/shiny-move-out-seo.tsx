@@ -58,6 +58,26 @@ export type ShynliMoveOutCityIntentPageData = ShynliMoveOutSeoPageData & {
   intentSlug: string
 }
 
+type MoveOutGuideSection = {
+  title: string
+  answer: string
+  bullets: string[]
+}
+
+export type ShynliMoveOutGuidePageData = {
+  slug: string
+  title: string
+  meta: string
+  keywords: string[]
+  eyebrow: string
+  h1: string
+  intro: string
+  summary: string
+  sections: MoveOutGuideSection[]
+  faqs: [string, string][]
+  relatedLinks: [string, string][]
+}
+
 const hubSeeds: MoveOutIntentSeed[] = [
   { slug: "move-out-cleaning", label: "Move-out cleaning", keyword: "move-out cleaning", audience: "renters, homeowners, landlords, and realtors", promise: "final walkthrough cleaning with clear scope, access notes, and after-clean photos", situation: "keys are due, furniture is gone, and every missed detail feels expensive", proof: "room notes, photos, and a covered follow-up path for included checklist items" },
   { slug: "move-in-cleaning", label: "Move-in cleaning", keyword: "move-in cleaning", audience: "buyers, renters, and families getting new keys", promise: "a cleaner start before boxes, furniture, and daily routines take over", situation: "the home is empty, dusty, or touched by the last occupant", proof: "arrival notes, room-by-room priorities, and visible cleaning scope before the visit" },
@@ -86,6 +106,333 @@ const hubSeeds: MoveOutIntentSeed[] = [
 const hubLinkSeeds: [string, string][] = hubSeeds.slice(0, 12).map((seed) => [seed.label, seed.slug])
 
 export const shinyMoveOutFeaturedSeoLinks = hubSeeds.map((seed) => [seed.label, seed.slug] as [string, string])
+
+const articleDate = "2026-06-05"
+
+export const shinyMoveOutGuideLinks: [string, string][] = [
+  ["Move-out guides", "guides"],
+  ["Landlord inspection details", "guides/landlord-move-out-cleaning-inspection"],
+  ["Professional vs DIY move-out cleaning", "guides/do-you-need-professional-move-out-cleaning"],
+  ["Why move-out cleaning costs more", "guides/why-move-out-cleaning-costs-more"],
+  ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+  ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
+]
+
+const guideArticleLinks = shinyMoveOutGuideLinks.slice(1)
+
+function relatedGuideLinksForSlug(slug: string): [string, string][] {
+  const intentSlug = slug.split("/").pop() ?? slug
+
+  if (["landlord-cleaning", "deposit-cleaning", "end-of-lease-cleaning", "rental-turnover-cleaning", "property-manager-cleaning"].includes(intentSlug)) {
+    return [
+      ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
+      ["Photos before keys", "guides/move-out-cleaning-photos-before-keys"],
+    ]
+  }
+
+  if (["move-out-cleaning-cost", "move-in-move-out-cleaning", "vacant-home-cleaning"].includes(intentSlug)) {
+    return [
+      ["Why move-out cleaning costs more", "guides/why-move-out-cleaning-costs-more"],
+      ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+    ]
+  }
+
+  if (["move-out-cleaning-checklist", "cleaning-after-moving-out"].includes(intentSlug)) {
+    return [
+      ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
+      ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
+    ]
+  }
+
+  if (["move-out-cleaning", "apartment-move-out-cleaning", "move-out-cleaning-faq", "same-week-move-out-cleaning"].includes(intentSlug)) {
+    return [
+      ["Do you need professional cleaning?", "guides/do-you-need-professional-move-out-cleaning"],
+      ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+    ]
+  }
+
+  return [["Move-out cleaning guides", "guides"]]
+}
+
+function uniqueRelatedLinks(links: [string, string][]) {
+  const seen = new Set<string>()
+  return links.filter(([, slug]) => {
+    if (seen.has(slug)) {
+      return false
+    }
+
+    seen.add(slug)
+    return true
+  })
+}
+
+export const shinyMoveOutGuidePages: ShynliMoveOutGuidePageData[] = [
+  {
+    slug: "guides",
+    title: "Move-Out Cleaning Guides | Shynli Move-Out Cleaning",
+    meta: "Practical move-out cleaning guides for renters, landlords, sellers, property managers, and homeowners preparing for keys, walkthroughs, and quotes.",
+    keywords: ["move-out cleaning guides", "move-out cleaning questions", "apartment move-out cleaning tips", "final walkthrough cleaning", "cleaning before turning in keys"],
+    eyebrow: "Move-out guides",
+    h1: "Move-out cleaning guides for the questions people ask before keys are due.",
+    intro: "Move-out cleaning decisions usually happen when the apartment is empty, the clock is tight, and someone else will inspect the result. These guides answer the practical questions people ask before they book, clean, document the finish, or hand over keys.",
+    summary: "Use this guide hub to compare cost, timing, landlord walkthrough details, professional cleaning decisions, and after-clean photos before starting a quote.",
+    sections: [
+      {
+        title: "Start with the walkthrough question",
+        answer: "If a landlord, buyer, realtor, or property manager will see the home after you leave, focus first on the details that are visible in an empty space: kitchens, bathrooms, floors, baseboards, doors, switches, shelves, closets, and appliance or cabinet interiors when selected.",
+        bullets: ["Inspection details matter more when furniture is gone.", "Photos help when you cannot stay for the finish.", "Add-ons should be named before the cleaning window is held."],
+      },
+      {
+        title: "Use the cost and timing guides before you compare quotes",
+        answer: "Move-out cleaning is not priced like weekly maintenance because the home is empty, the deadline is real, and add-ons can change the appointment length quickly. Compare timing and cost factors before assuming two quotes cover the same work.",
+        bullets: ["Size, bathrooms, condition, and access affect time.", "Ovens, fridges, cabinets, blinds, windows, and garages should be quoted clearly.", "Same-week jobs need cleaner access notes early."],
+      },
+      {
+        title: "Keep the booking path close",
+        answer: "Each article links back to the move-out service, cost, checklist, FAQ, deposit cleaning, and quote path so reading does not become a dead end. The goal is a clearer decision before a customer asks for a date.",
+        bullets: ["Read the question.", "Confirm the scope.", "Start the move-out quote when the details are ready."],
+      },
+    ],
+    faqs: [
+      ["Are these guides a replacement for a quote?", "No. They explain the decisions that affect scope, timing, and price. A quote still needs property size, condition, access, date, and add-ons."],
+      ["Can cleaning guarantee a deposit outcome?", "No. Cleaning can help the home look cared for and document covered work, but deposit decisions belong to landlords or property managers."],
+      ["Which guide should I read first?", "If keys are due soon, start with the landlord inspection guide. If you are comparing prices, start with the cost and timing guides."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning", "move-out-cleaning"],
+      ["Move-out cleaning cost", "move-out-cleaning-cost"],
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+      ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
+      ["Deposit cleaning", "deposit-cleaning"],
+      ...guideArticleLinks,
+    ],
+  },
+  {
+    slug: "guides/landlord-move-out-cleaning-inspection",
+    title: "What Landlords Notice During Move-Out Cleaning | Shynli",
+    meta: "See the rooms and details landlords often notice during a move-out walkthrough, from kitchens and bathrooms to floors, doors, cabinets, and photos.",
+    keywords: ["move-out cleaning inspection", "landlord walkthrough cleaning", "apartment move-out cleaning", "final walkthrough cleaning", "security deposit cleaning"],
+    eyebrow: "Landlord walkthrough",
+    h1: "What landlords actually notice during a move-out cleaning inspection.",
+    intro: "A landlord walkthrough usually happens after the home is empty, which means small details become easier to see. The goal is not to make promises about a deposit. The goal is to understand what people tend to notice so the clean, add-ons, and photos are planned before keys are due.",
+    summary: "Landlords often notice kitchens, bathrooms, floors, baseboards, doors, switches, shelves, closets, and appliance or cabinet interiors when those extras were expected.",
+    sections: [
+      {
+        title: "Kitchens show the most obvious handoff details",
+        answer: "Kitchens get inspected closely because they hold grease, crumbs, fingerprints, cabinet marks, sink buildup, and appliance questions in one place. A surface wipe is often not enough if the renter or owner also expects the inside of the oven, fridge, or cabinets to look move-out ready.",
+        bullets: ["Countertops, sink, faucet, backsplash, and exterior appliances", "Cabinet fronts, handles, shelves, and drawers when selected", "Oven, fridge, microwave, and dishwasher edges when quoted as add-ons"],
+      },
+      {
+        title: "Bathrooms make condition feel personal",
+        answer: "Bathrooms are small, bright, and easy to judge quickly. Sinks, mirrors, toilets, tubs, showers, floor edges, baseboards, and cabinet areas can make the difference between a home feeling cared for or rushed.",
+        bullets: ["Toilet, tub, shower, sink, mirror, fixtures, and floor edges", "Hair, soap residue, dust, and fingerprints around high-touch areas", "Vanity fronts and interiors when cabinet interiors are part of the scope"],
+      },
+      {
+        title: "Empty rooms expose floors, baseboards, and doors",
+        answer: "Furniture hides a lot during a lease. Once the room is empty, dust lines, baseboards, door marks, switch plates, closet shelves, and floor edges are easier to notice. This is why move-out cleaning should happen after boxes and large items are gone whenever possible.",
+        bullets: ["Baseboards, corners, doors, switches, vents, and closet shelves", "Vacuuming and mopping after movers are finished", "Photos of finished rooms when the customer cannot stay on site"],
+      },
+      {
+        title: "Photos help document what cleaning can control",
+        answer: "Photos do not decide a deposit, but they can show the condition after included cleaning tasks are finished. They are especially useful when the renter has already left, the landlord is remote, or a property manager reviews the unit later.",
+        bullets: ["Wide photos of each room after the clean", "Close photos of selected add-ons like appliances or cabinets", "A clear note that cleaning does not control damage, repairs, or landlord judgment"],
+      },
+    ],
+    faqs: [
+      ["Can move-out cleaning guarantee my deposit?", "No. Cleaning can address covered scope and document the finish, but a deposit decision may include damage, repairs, lease terms, paint, carpet, or landlord judgment."],
+      ["Should I book before or after movers leave?", "After movers leave is best. Empty rooms expose the surfaces, floors, shelves, and baseboards that matter during a walkthrough."],
+      ["Do landlords check inside appliances and cabinets?", "Many do when those areas are part of the lease expectations. Tell the cleaner before booking if you want fridge, oven, or cabinet interiors included."],
+    ],
+    relatedLinks: [
+      ["Landlord cleaning", "landlord-cleaning"],
+      ["Deposit cleaning", "deposit-cleaning"],
+      ["End-of-lease cleaning", "end-of-lease-cleaning"],
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+      ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
+      ["Move-out cleaning", "move-out-cleaning"],
+    ],
+  },
+  {
+    slug: "guides/do-you-need-professional-move-out-cleaning",
+    title: "Do You Need Professional Move-Out Cleaning? | Shynli",
+    meta: "Learn when a professional move-out clean is worth it, when DIY may be enough, and what to prepare before keys, walkthroughs, or listing photos.",
+    keywords: ["professional move-out cleaning", "hire move-out cleaner", "move-out cleaning service", "apartment move-out cleaning", "cleaning after moving out"],
+    eyebrow: "Professional or DIY",
+    h1: "Do you need professional move-out cleaning before turning in keys?",
+    intro: "Professional move-out cleaning is most useful when the home is empty, the deadline is close, and someone else will judge the result after you leave. DIY can work for a light apartment with enough time. The decision depends on condition, expectations, access, and how much risk you want to carry during move week.",
+    summary: "Hire professional move-out cleaning when time is tight, the home is empty, inspection matters, or add-ons like ovens, fridges, cabinets, and detailed bathrooms need more time than you have.",
+    sections: [
+      {
+        title: "DIY can be enough for a light, simple move-out",
+        answer: "If the apartment is small, lightly used, already empty, and you have time after movers leave, DIY cleaning may be enough. It works best when the landlord expectations are simple and you are comfortable handling kitchens, bathrooms, floors, shelves, closets, and final trash yourself.",
+        bullets: ["Small space with light condition", "No heavy grease, buildup, pet hair, or appliance interiors", "Enough time to clean after furniture and boxes are gone"],
+      },
+      {
+        title: "Professional cleaning helps when timing is the problem",
+        answer: "Most people hire a move-out cleaner because the cleaning window is squeezed between movers, work, closing dates, lease deadlines, and key return. A professional visit gives the clean a defined scope and helps prevent a rushed finish when you are already focused on the next address.",
+        bullets: ["Keys are due soon", "You cannot stay until the final walkthrough", "You need after-clean notes or photos for peace of mind"],
+      },
+      {
+        title: "Add-ons change the decision",
+        answer: "Inside ovens, fridges, cabinets, interior windows, blinds, and garages take time. If those areas matter for your lease, sale, or handoff, they should be quoted before the appointment. That is where professional cleaning often becomes more practical than hoping there is enough energy left after moving.",
+        bullets: ["Oven, fridge, and cabinet interiors", "Heavy bathrooms or kitchen buildup", "Large houses, multiple bathrooms, stairs, and long floor work"],
+      },
+      {
+        title: "Prepare the home before the cleaner arrives",
+        answer: "Professional cleaning works best when personal items, trash, and large furniture are gone. Access, parking, gate codes, elevators, pets, utilities, and lock-up instructions should be clear before the visit so the cleaning time goes to the home instead of logistics.",
+        bullets: ["Remove belongings and trash", "Confirm utilities and access", "List add-ons and walkthrough priorities before booking"],
+      },
+    ],
+    faqs: [
+      ["Is professional move-out cleaning required?", "Not always. It depends on the lease, property condition, time available, and expectations for the final walkthrough."],
+      ["Can I clean before movers finish?", "You can start some areas, but the final clean is strongest after movers leave because floors, baseboards, closets, and shelves are fully visible."],
+      ["What if I only need help with bathrooms and kitchen?", "Say that before the quote. A focused scope can be easier to price than a vague whole-home request."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning", "move-out-cleaning"],
+      ["Apartment move-out cleaning", "apartment-move-out-cleaning"],
+      ["Cleaning after moving out", "cleaning-after-moving-out"],
+      ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
+      ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+      ["Move-out cleaning cost", "move-out-cleaning-cost"],
+    ],
+  },
+  {
+    slug: "guides/why-move-out-cleaning-costs-more",
+    title: "Why Move-Out Cleaning Costs More | Shynli",
+    meta: "Move-out cleaning often costs more than regular cleaning because the home is empty, details are exposed, and add-ons like ovens, cabinets, and windows take time.",
+    keywords: ["why move-out cleaning costs more", "move-out cleaning cost", "regular cleaning vs move-out cleaning", "empty home cleaning cost", "cleaning quote factors"],
+    eyebrow: "Cost factors",
+    h1: "Why move-out cleaning usually costs more than regular cleaning.",
+    intro: "Move-out cleaning can look simple because the home is empty. In practice, empty rooms reveal more detail, the deadline is tighter, and the scope often includes areas that regular cleaning skips. A fair quote should explain those differences before the appointment is held.",
+    summary: "Move-out cleaning costs more when the home needs detailed empty-room work, heavier bathrooms or kitchens, appliance interiors, cabinet interiors, access planning, and a tighter handoff window.",
+    sections: [
+      {
+        title: "Regular cleaning maintains a lived-in home",
+        answer: "Regular cleaning usually works around furniture, personal items, and a familiar routine. It focuses on keeping the home comfortable week to week. Move-out cleaning is different because the home is being prepared for someone else to inspect, rent, buy, or enter for the first time.",
+        bullets: ["Regular cleaning works around belongings", "Move-out cleaning works after belongings are removed", "The finish is judged by a landlord, buyer, manager, or next occupant"],
+      },
+      {
+        title: "Empty rooms expose hidden detail",
+        answer: "Once furniture is gone, dust lines, baseboards, door marks, closet shelves, cabinet edges, vents, and floor corners become obvious. The cleaner may need to cover more visible surface area than in a normal maintenance visit.",
+        bullets: ["Baseboards, closet shelves, and floor edges", "Doors, switches, vents, and cabinet fronts", "Vacuuming and mopping after movers leave"],
+      },
+      {
+        title: "Add-ons can be the real price driver",
+        answer: "Fridge interiors, oven interiors, cabinet interiors, interior windows, blinds, garages, and heavy buildup can add meaningful time. Two homes with the same number of bedrooms can need very different quotes if one has a clean kitchen and the other needs detailed appliance work.",
+        bullets: ["Inside fridge, oven, and cabinets", "Interior windows, blinds, garage, or extra detail work", "Heavy grease, dust, pet hair, or soap buildup"],
+      },
+      {
+        title: "Access and deadline also matter",
+        answer: "Parking, lockboxes, elevators, gate codes, utilities, pets, remote lock-up, and same-week timing can affect the appointment. Clear access notes reduce wasted time and help the quote match the real handoff window.",
+        bullets: ["Apartment buildings need parking and entry instructions", "Remote customers need lock-up and photo expectations", "Same-week dates should be confirmed before relying on the slot"],
+      },
+    ],
+    faqs: [
+      ["Is move-out cleaning always more expensive?", "Not always. A small, lightly used apartment may be straightforward. The price rises when condition, size, add-ons, or timing require more work."],
+      ["Why does an empty home take longer?", "Empty rooms make shelves, closets, baseboards, floors, and corners more visible. Those details are often not part of a quick regular clean."],
+      ["Can I lower the price?", "You can help by removing belongings and trash, confirming access, naming add-ons clearly, and sharing honest condition notes before the quote."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning cost", "move-out-cleaning-cost"],
+      ["Move-out cleaning", "move-out-cleaning"],
+      ["Move-in / move-out cleaning", "move-in-move-out-cleaning"],
+      ["Vacant home cleaning", "vacant-home-cleaning"],
+      ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+    ],
+  },
+  {
+    slug: "guides/how-long-move-out-cleaning-takes",
+    title: "How Long Does Move-Out Cleaning Take? | Shynli",
+    meta: "Understand how long move-out cleaning can take based on home size, condition, bathrooms, add-ons, access, and whether the home is empty.",
+    keywords: ["how long does move-out cleaning take", "move-out cleaning time", "apartment move-out cleaning time", "house move-out cleaning", "cleaning after movers"],
+    eyebrow: "Timing",
+    h1: "How long does move-out cleaning take after the home is empty?",
+    intro: "Move-out cleaning time depends less on the label and more on what the cleaner can actually access. Size, bathrooms, condition, appliances, cabinets, floors, parking, building access, and whether movers are finished all affect the cleaning window.",
+    summary: "A small, light apartment can be much faster than a large house or heavy rental turnover, especially when appliance interiors, cabinets, blinds, windows, or garage areas are included.",
+    sections: [
+      {
+        title: "The home should be empty or mostly empty",
+        answer: "Cleaning goes faster and looks better when large items, boxes, trash, and personal belongings are removed before the visit. If movers are still working, floors, shelves, closets, and baseboards may need to wait or be repeated.",
+        bullets: ["Remove trash and personal items first", "Schedule after movers when possible", "Confirm utilities are still on"],
+      },
+      {
+        title: "Bathrooms and kitchens shape the schedule",
+        answer: "Bathrooms and kitchens usually take the most focused time because they collect grease, soap residue, hair, fingerprints, and buildup. A home with three bathrooms and appliance interiors will not fit the same window as a light studio apartment.",
+        bullets: ["Number of bathrooms", "Kitchen condition and appliance interiors", "Cabinet interiors, shelves, and detailed surfaces"],
+      },
+      {
+        title: "Access can save or waste time",
+        answer: "Parking, elevator reservations, gate codes, lockboxes, pets, and lock-up instructions can quietly change the appointment. The smoother the access, the more time stays focused on cleaning instead of coordination.",
+        bullets: ["Parking and building entry", "Elevator or stair instructions", "Lockbox, gate, pets, and final lock-up notes"],
+      },
+      {
+        title: "Photos and final notes need a few extra minutes",
+        answer: "If you want after-clean photos, room notes, or remote handoff confirmation, include that in the request. It is worth planning because many move-out customers cannot be there when the cleaner finishes.",
+        bullets: ["Wide photos of finished rooms", "Close photos for selected add-ons", "Lock-up confirmation for remote handoffs"],
+      },
+    ],
+    faqs: [
+      ["Can you clean while movers are still there?", "It is possible in some cases, but the best finish usually happens after movers leave and the rooms are accessible."],
+      ["What makes a move-out clean take longer?", "Heavy condition, multiple bathrooms, appliance interiors, cabinet interiors, blinds, interior windows, pet hair, stairs, parking issues, and unclear access can all add time."],
+      ["Do I need to stay during the cleaning?", "Usually no, if access, utilities, parking, lock-up instructions, and contact details are clear before the visit."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning", "move-out-cleaning"],
+      ["Same-week move-out cleaning", "same-week-move-out-cleaning"],
+      ["Apartment move-out cleaning", "apartment-move-out-cleaning"],
+      ["Why move-out cleaning costs more", "guides/why-move-out-cleaning-costs-more"],
+      ["Do you need professional cleaning?", "guides/do-you-need-professional-move-out-cleaning"],
+      ["Move-out cleaning cost", "move-out-cleaning-cost"],
+    ],
+  },
+  {
+    slug: "guides/move-out-cleaning-photos-before-keys",
+    title: "Move-Out Cleaning Photos Before Turning In Keys | Shynli",
+    meta: "Know which photos to take after move-out cleaning, how to document rooms and add-ons, and why photos help when you cannot stay for the walkthrough.",
+    keywords: ["move-out cleaning photos", "document apartment cleaning", "turning in keys cleaning", "move-out walkthrough photos", "security deposit cleaning photos"],
+    eyebrow: "Photo handoff",
+    h1: "Move-out cleaning photos to take before turning in keys.",
+    intro: "Photos are not a legal guarantee and they do not decide a deposit. They are still useful because they show the condition after cleaning, especially when the customer cannot stay for the final walkthrough or the landlord reviews the home later.",
+    summary: "Take wide photos of every finished room, close photos of selected add-ons, and clear photos of kitchens, bathrooms, floors, closets, doors, and any areas that were discussed before the clean.",
+    sections: [
+      {
+        title: "Start with wide room photos",
+        answer: "Wide photos show that the room was empty, cleaned, and ready for handoff. Stand near the doorway or corner and capture the main floor, walls, windows, closets, and entry points without zooming too tightly.",
+        bullets: ["Living areas, bedrooms, hallways, and closets", "Kitchen and bathroom from the doorway", "Entry, stairs, laundry area, and any high-traffic rooms"],
+      },
+      {
+        title: "Document kitchens and bathrooms carefully",
+        answer: "Kitchens and bathrooms are the rooms people tend to judge fastest. Take clear photos of counters, sinks, fixtures, toilets, tubs, showers, floors, mirrors, appliance exteriors, and any selected interior add-ons.",
+        bullets: ["Sink, counters, fixtures, mirrors, toilet, tub, and shower", "Oven, fridge, and cabinet interiors when included", "Floor edges, baseboards, and high-touch areas"],
+      },
+      {
+        title: "Photograph add-ons separately",
+        answer: "If the quote included appliance interiors, cabinet interiors, blinds, interior windows, garage areas, or other extras, photograph those areas separately. A wide room photo usually will not show whether a selected add-on was finished.",
+        bullets: ["Inside fridge and oven", "Cabinet shelves and drawers", "Interior windows, blinds, garage, or special request areas"],
+      },
+      {
+        title: "Keep the photos organized by room",
+        answer: "Photos are easier to use when they are grouped by room and taken right after cleaning. If there is a question later, organized photos make it simpler to show what was cleaned and what was outside the cleaning scope.",
+        bullets: ["Take photos before returning keys", "Save them in room order", "Do not use photos to hide damage, repairs, or lease issues"],
+      },
+    ],
+    faqs: [
+      ["Do photos guarantee my deposit?", "No. Photos can document cleaning condition, but deposit decisions may include damage, repairs, lease rules, and landlord judgment."],
+      ["Should I photograph every room?", "Yes, if the home is empty. Wide photos of each room plus close photos of selected add-ons create the clearest record."],
+      ["Can Shynli provide after-clean photos?", "Photos can be requested as part of the handoff. Mention that before the visit so the cleaner knows what you need documented."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+      ["Deposit cleaning", "deposit-cleaning"],
+      ["Cleaning after moving out", "cleaning-after-moving-out"],
+      ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
+      ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
+      ["Move-out cleaning", "move-out-cleaning"],
+    ],
+  },
+]
 
 function sentenceStart(value: string) {
   return `${value.charAt(0).toUpperCase()}${value.slice(1)}`
@@ -341,6 +688,7 @@ function MoveOutSeoHeader({ ctaLabel = "Start quote" }: { ctaLabel?: string }) {
         <nav className="hidden items-center gap-1 text-sm font-black text-[#0b2430]/68 md:flex" aria-label="Move-out page navigation">
           <a href="#scope" className="flex min-h-11 items-center rounded-sm px-4 hover:bg-[#d7f3f7] hover:text-[#0b2430]">Scope</a>
           <a href="#pricing" className="flex min-h-11 items-center rounded-sm px-4 hover:bg-[#d7f3f7] hover:text-[#0b2430]">Pricing</a>
+          <a href={getShynliMoveOutPath("guides")} className="flex min-h-11 items-center rounded-sm px-4 hover:bg-[#d7f3f7] hover:text-[#0b2430]">Guides</a>
           <a href="#related" className="flex min-h-11 items-center rounded-sm px-4 hover:bg-[#d7f3f7] hover:text-[#0b2430]">Related</a>
           <a href="#areas" className="flex min-h-11 items-center rounded-sm px-4 hover:bg-[#d7f3f7] hover:text-[#0b2430]">Areas</a>
         </nav>
@@ -392,6 +740,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
     : [["Naperville", "naperville"], ["Aurora", "aurora"], ["Plainfield", "plainfield"], ["Oswego", "oswego"]]
   const linkGroups: [string, [string, string][]][] = [
     ["Move-out pages", [["Cost guide", "move-out-cleaning-cost"], ["Checklist", "move-out-cleaning-checklist"], ["Empty apartment", "empty-apartment-cleaning"], ["Deposit cleaning", "deposit-cleaning"]]],
+    ["Guides", [["Move-out guides", "guides"], ["Landlord inspection", "guides/landlord-move-out-cleaning-inspection"], ["Cleaning timing", "guides/how-long-move-out-cleaning-takes"], ["Photo handoff", "guides/move-out-cleaning-photos-before-keys"]]],
     ["Local pages", localLinks],
     ["Support", [["Privacy", "privacy"], ["Terms", "terms"], ["Cancellation", "cancellation"], ["Home", ""]]],
   ]
@@ -420,7 +769,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
             </Button>
           </div>
         </div>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {linkGroups.map(([title, links]) => (
             <div key={title}>
               <h3 className="text-sm font-black uppercase text-[#22c7a9]">{title}</h3>
@@ -444,7 +793,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
 }
 
 function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; cityName?: string }) {
-  const related = page.relatedLinks.length > 0 ? page.relatedLinks : hubLinkSeeds.slice(0, 8)
+  const related = uniqueRelatedLinks([...relatedGuideLinksForSlug(page.slug), ...(page.relatedLinks.length > 0 ? page.relatedLinks : hubLinkSeeds.slice(0, 8))]).slice(0, 10)
   const cityLinks = cityPages.slice(0, 12)
 
   return (
@@ -618,6 +967,223 @@ function useMoveOutSeoMeta(page: ShynliMoveOutSeoPageData, canonicalPath: string
       canonicalBaseUrl: shinyMoveOutCanonicalBase,
       canonicalPath,
     },
+  )
+}
+
+function MoveOutGuideQuoteStrip({ page }: { page: ShynliMoveOutGuidePageData }) {
+  return (
+    <div id="quote" className="border border-[#b9e5ee] bg-[#f6fbff] p-3 text-[#0b2430] shadow-[0_26px_90px_rgba(0,0,0,0.18)] md:p-4">
+      <form action={buildQuoteUrl({ service: "move-out-cleaning" })} method="get" className="grid gap-3 lg:grid-cols-[1fr_1fr_1fr_auto] lg:items-end" onSubmit={(event) => submitQuoteForm(event, { service: "move-out-cleaning", notes: `Move-out guide quote from ${page.slug}.` })}>
+        <input type="hidden" name="source_page" value={`/${page.slug}`} />
+        <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
+          ZIP code
+          <Input name="zip" inputMode="numeric" placeholder="60540" className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
+        </label>
+        <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
+          Handoff date
+          <Input name="date" type="date" className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
+        </label>
+        <label className="grid gap-2 text-xs font-black uppercase text-[#075f67]">
+          Main question
+          <Input name="notes" defaultValue={page.eyebrow} className="h-12 rounded-sm border-[#b9e5ee] bg-white font-bold" />
+        </label>
+        <Button type="submit" className="h-12 rounded-sm bg-[#19b97f] px-7 font-black text-[#06202a] hover:bg-[#16b879]">
+          Start quote
+          <ArrowRight className="size-4" />
+        </Button>
+      </form>
+    </div>
+  )
+}
+
+function useMoveOutGuideMeta(page: ShynliMoveOutGuidePageData) {
+  const canonicalPath = `/${page.slug}`
+
+  useSeoMeta(
+    page.title,
+    page.meta,
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": page.slug === "guides" ? "CollectionPage" : "Article",
+          headline: page.h1,
+          name: page.h1,
+          description: page.meta,
+          url: `${shinyMoveOutCanonicalBase}${canonicalPath}`,
+          datePublished: articleDate,
+          dateModified: articleDate,
+          author: {
+            "@type": "Organization",
+            name: "Shynli Move-Out Cleaning",
+            url: shinyMoveOutCanonicalBase,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Shynli Move-Out Cleaning",
+            url: shinyMoveOutCanonicalBase,
+          },
+          isPartOf: {
+            "@type": "WebSite",
+            name: "Shynli Move-Out Cleaning",
+            url: shinyMoveOutCanonicalBase,
+          },
+          about: page.keywords.map((keyword) => ({ "@type": "Thing", name: keyword })),
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: shinyMoveOutCanonicalBase },
+            { "@type": "ListItem", position: 2, name: "Guides", item: `${shinyMoveOutCanonicalBase}/guides` },
+            ...(page.slug === "guides" ? [] : [{ "@type": "ListItem", position: 3, name: page.eyebrow, item: `${shinyMoveOutCanonicalBase}${canonicalPath}` }]),
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: page.faqs.map(([question, answer]) => ({
+            "@type": "Question",
+            name: question,
+            acceptedAnswer: { "@type": "Answer", text: answer },
+          })),
+        },
+      ],
+    },
+    {
+      canonicalBaseUrl: shinyMoveOutCanonicalBase,
+      canonicalPath,
+      keywords: page.keywords,
+    },
+  )
+}
+
+export function ShynliMoveOutGuidePage({ page }: { page: ShynliMoveOutGuidePageData }) {
+  useMoveOutGuideMeta(page)
+  const related = uniqueRelatedLinks(page.relatedLinks)
+  const cityLinks = cityPages.slice(0, 8)
+
+  return (
+    <main className="move-out-page move-out-page-guide min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
+      <MoveOutSeoHeader ctaLabel="Start quote" />
+      <section className="bg-[#0b2430] px-4 py-14 text-[#f6fbff] md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div>
+            <Badge className="mb-5 rounded-sm border border-[#20c7d8]/55 bg-[#20c7d8]/16 px-4 py-1.5 text-[#f6fbff] shadow-none hover:bg-[#20c7d8]/16">{page.eyebrow}</Badge>
+            <h1 className="max-w-5xl text-[clamp(3rem,7vw,7.2rem)] font-black leading-[0.88] tracking-normal">{page.h1}</h1>
+            <p className="mt-6 max-w-3xl text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+          </div>
+          <div className="border border-[#f6fbff]/14 bg-white/6 p-5">
+            <p className="text-sm font-black uppercase text-[#22c7a9]">Short answer</p>
+            <p className="mt-3 text-2xl font-black leading-tight text-[#f6fbff]">{page.summary}</p>
+          </div>
+        </div>
+        <div className="mx-auto mt-10 max-w-7xl">
+          <MoveOutGuideQuoteStrip page={page} />
+        </div>
+      </section>
+
+      <section id="scope" className="bg-white px-4 py-14 md:px-8 md:py-20">
+        <article className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Practical answer</p>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">What to know before the handoff.</h2>
+            <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
+              These notes are written for people preparing for keys, walkthroughs, quotes, or remote handoffs. They keep the cleaning scope honest and the next step close.
+            </p>
+          </div>
+          <div className="grid gap-4">
+            {page.sections.map((section, index) => (
+              <section key={section.title} className={`border border-[#b9e5ee] p-5 ${index === 0 ? "bg-[#0b2430] text-[#f6fbff]" : "bg-[#f6fbff]"}`}>
+                <h3 className="text-2xl font-black leading-tight">{section.title}</h3>
+                <p className={`mt-4 text-base font-bold leading-7 ${index === 0 ? "text-[#f6fbff]/76" : "text-[#486573]"}`}>{section.answer}</p>
+                <div className="mt-5 grid gap-2">
+                  {section.bullets.map((item) => (
+                    <div key={item} className="flex gap-2">
+                      <Check className={`mt-1 size-4 shrink-0 ${index === 0 ? "text-[#22c7a9]" : "text-[#075f67]"}`} />
+                      <p className={`text-sm font-black leading-6 ${index === 0 ? "text-[#f6fbff]/86" : "text-[#0b2430]"}`}>{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <section id="pricing" className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Turn reading into a quote</p>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Ready to price the real home?</h2>
+            <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
+              Share the ZIP, date, home condition, access details, and add-ons so the appointment can match the actual move-out window.
+            </p>
+          </div>
+          <MoveOutGuideQuoteStrip page={page} />
+        </div>
+      </section>
+
+      <section id="related" className="bg-[#f6fbff] px-4 py-14 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Related pages</p>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Keep the next click useful.</h2>
+            <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
+              Move between guides, service pages, cost details, checklists, and deposit-focused questions without losing the quote path.
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {related.map(([label, slug]) => (
+              <a key={`${page.slug}-${slug}`} href={getShynliMoveOutPath(slug)} className="group flex min-h-20 items-center justify-between gap-4 border border-[#b9e5ee] bg-white p-5 transition-colors hover:bg-[#e9f7fb]">
+                <span className="text-lg font-black leading-tight text-[#0b2430]">{label}</span>
+                <ArrowRight className="size-5 shrink-0 text-[#075f67] transition-transform group-hover:translate-x-1" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="areas" className="bg-white px-4 py-14 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Service areas</p>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Use the guide, then pick the local page.</h2>
+            <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
+              Local pages connect move-out cleaning questions to the city, route, access notes, and nearby service area.
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {cityLinks.map((city) => (
+              <a key={city.slug} href={getShynliMoveOutPath(city.slug)} className="flex min-h-16 items-center justify-between border border-[#b9e5ee] bg-[#f6fbff] px-5 text-base font-black text-[#0b2430] hover:bg-[#e9f7fb]">
+                {city.name}
+                <MapPin className="size-5 text-[#075f67]" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <p className="mb-4 text-sm font-black uppercase text-[#075f67]">FAQ</p>
+            <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Straight answers, clear limits.</h2>
+            <p className="mt-6 text-lg font-bold leading-8 text-[#486573]">
+              The guides are practical, but they do not turn cleaning into a guarantee for deposits, repairs, buyer opinions, or lease decisions.
+            </p>
+          </div>
+          <div className="border border-[#b9e5ee] bg-white px-5 text-[#0b2430]">
+            {page.faqs.map(([question, answer]) => (
+              <section key={question} className="border-b border-[#d6edf3] py-4 last:border-b-0">
+                <h3 className="text-left text-sm font-black leading-6">{question}</h3>
+                <p className="mt-2 text-sm font-semibold leading-7 text-[#486573]">{answer}</p>
+              </section>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <MoveOutSeoFooter />
+    </main>
   )
 }
 
