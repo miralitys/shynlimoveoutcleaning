@@ -2861,15 +2861,15 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
         </picture>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,36,48,0.96)_0%,rgba(11,36,48,0.78)_45%,rgba(11,127,138,0.26)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(0deg,#f6fbff_0%,rgba(246,251,255,0)_100%)]" />
-        <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-end px-4 pb-6 pt-28 md:px-8 md:pb-10">
-          <div className="max-w-5xl animate-rise pb-8 md:pb-12">
+        <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-[94rem] flex-col justify-end px-4 pb-6 pt-28 md:px-8 md:pb-10">
+          <div className="max-w-[92rem] animate-rise pb-8 md:pb-12">
             <Badge className="mb-5 rounded-sm border border-[#20c7d8]/55 bg-[#20c7d8]/16 px-4 py-1.5 text-[#f6fbff] shadow-none hover:bg-[#20c7d8]/16">
               {cityName ? `${cityName} apartment empty, keys due, inspection coming` : "Apartment empty, keys due, inspection coming"}
             </Badge>
-            <h1 className="max-w-5xl text-[clamp(3.2rem,8.2vw,8.4rem)] font-black leading-[0.86] tracking-normal">
+            <h1 className="text-[clamp(3.2rem,6.7vw,8rem)] font-black leading-[0.9] tracking-normal">
               {cityName ? `${cityName} move-out cleaning.` : "Ready for the final walkthrough."}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg font-bold leading-8 text-[#f6fbff]/78 md:text-xl">
+            <p className="mt-6 max-w-[78rem] text-lg font-bold leading-8 text-[#f6fbff]/78 md:text-xl">
               {cityName
                 ? `Move-out cleaning in ${cityName} for empty rooms, final walkthroughs, key handoffs, and the last details people notice after the furniture is gone.`
                 : "Move-out cleaning for empty homes, final walkthroughs, key handoffs, and the last details people notice after the furniture is gone."}
@@ -2905,7 +2905,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
       </section>
 
       <section className="border-y border-[#0b2430]/10 bg-[#e9f7fb] px-4 py-5 md:px-8">
-        <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-[94rem] gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {moveOutProof.map(([title, copy]) => (
             <div key={title} className="flex min-h-20 items-center gap-4 border-l-4 border-[#22c7a9] bg-[#ffffff] px-4 py-3">
               <p className="whitespace-nowrap text-2xl font-black leading-none text-[#0b2430] lg:text-3xl">{title}</p>

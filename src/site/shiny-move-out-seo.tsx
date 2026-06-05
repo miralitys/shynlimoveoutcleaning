@@ -799,7 +799,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
   return (
     <>
       <section id="scope" className="bg-white px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[0.72fr_1.28fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Planned scope</p>
             <h2 className="text-4xl font-black leading-[0.98] sm:text-5xl md:text-6xl">A cleaner handoff starts before arrival.</h2>
@@ -832,7 +832,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
       </section>
 
       <section id="pricing" className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Quote factors</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Price should match the real move-out condition.</h2>
@@ -860,7 +860,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
       </section>
 
       <section id="related" className="bg-[#f6fbff] px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[0.72fr_1.28fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Related cleaning pages</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Compare the details before you choose a date.</h2>
@@ -880,7 +880,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
       </section>
 
       <section id="areas" className="bg-white px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[0.72fr_1.28fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">{cityName ? "Nearby cities" : "Service areas"}</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Find move-out cleaning near your address.</h2>
@@ -918,7 +918,7 @@ function MoveOutSeoBody({ page, cityName }: { page: ShynliMoveOutSeoPageData; ci
       </section>
 
       <section className="bg-[#e9f7fb] px-4 py-14 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="mx-auto grid max-w-[94rem] gap-8 lg:grid-cols-[0.72fr_1.28fr]">
           <div>
             <p className="mb-4 text-sm font-black uppercase text-[#075f67]">Booking questions</p>
             <h2 className="max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl">Clear answers before the quote.</h2>
@@ -1199,27 +1199,29 @@ export function ShynliMoveOutSeoPage({ page }: { page: ShynliMoveOutSeoPageData 
     <main className="move-out-page move-out-page-seo min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
       <MoveOutSeoHeader />
       <section className="bg-[#0b2430] px-4 py-14 text-[#f6fbff] md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div>
+        <div className="mx-auto max-w-[94rem]">
+          <div className="max-w-[92rem]">
             <Badge className="mb-5 rounded-sm border border-[#20c7d8]/55 bg-[#20c7d8]/16 px-4 py-1.5 text-[#f6fbff] shadow-none hover:bg-[#20c7d8]/16">{page.eyebrow}</Badge>
-            <h1 className="max-w-5xl text-[clamp(3rem,7vw,7.2rem)] font-black leading-[0.88] tracking-normal">{page.h1}</h1>
-            <p className="mt-6 max-w-3xl text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+            <h1 className="text-[clamp(3.15rem,5.45vw,7rem)] font-black leading-[0.92] tracking-normal">{page.h1}</h1>
           </div>
-          <div className="grid gap-3">
-            {[
-              ["Best for", page.audience],
-              ["Promise", page.promise],
-              ["Proof", page.proof],
-            ].map(([title, copy]) => (
-              <div key={title} className="border border-[#f6fbff]/14 bg-white/6 p-5">
-                <p className="text-sm font-black uppercase text-[#22c7a9]">{title}</p>
-                <p className="mt-2 text-xl font-black leading-tight text-[#f6fbff]">{copy}</p>
-              </div>
-            ))}
+          <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,1.12fr)_minmax(27rem,0.88fr)] xl:items-stretch">
+            <p className="max-w-[78rem] text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+            <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
+              {[
+                ["Best for", page.audience],
+                ["Promise", page.promise],
+                ["Proof", page.proof],
+              ].map(([title, copy]) => (
+                <div key={title} className="border border-[#f6fbff]/14 bg-white/6 p-5">
+                  <p className="text-sm font-black uppercase text-[#22c7a9]">{title}</p>
+                  <p className="mt-2 text-xl font-black leading-tight text-[#f6fbff]">{copy}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="mx-auto mt-10 max-w-7xl">
-          <MoveOutQuoteStrip page={page} />
+          <div className="mt-10">
+            <MoveOutQuoteStrip page={page} />
+          </div>
         </div>
       </section>
       <MoveOutSeoBody page={page} />
@@ -1236,31 +1238,33 @@ export function ShynliMoveOutCityIntentPage({ page }: { page: ShynliMoveOutCityI
     <main className="move-out-page move-out-page-seo min-h-screen overflow-hidden bg-[#f6fbff] text-[#0b2430]">
       <MoveOutSeoHeader />
       <section className="bg-[#0b2430] px-4 py-14 text-[#f6fbff] md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-          <div>
+        <div className="mx-auto max-w-[94rem]">
+          <div className="max-w-[92rem]">
             <Badge className="mb-5 rounded-sm border border-[#20c7d8]/55 bg-[#20c7d8]/16 px-4 py-1.5 text-[#f6fbff] shadow-none hover:bg-[#20c7d8]/16">{page.eyebrow}</Badge>
-            <h1 className="max-w-5xl text-[clamp(3rem,7vw,7.2rem)] font-black leading-[0.88] tracking-normal">{page.h1}</h1>
-            <p className="mt-6 max-w-3xl text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+            <h1 className="text-[clamp(3.15rem,5.45vw,7rem)] font-black leading-[0.92] tracking-normal">{page.h1}</h1>
           </div>
-          <div className="border border-[#f6fbff]/14 bg-white/6 p-5">
-            <p className="text-sm font-black uppercase text-[#22c7a9]">{page.city.name} handoff notes</p>
-            <div className="mt-5 grid gap-3">
-              {[
-                "Confirm access before the cleaner arrives.",
-                "Name appliance and cabinet interiors before booking.",
-                "Share parking, elevator, gate, pet, and utility notes.",
-                "Request photos when you cannot be on site.",
-              ].map((item) => (
-                <div key={item} className="flex gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                  <Check className="mt-1 size-4 shrink-0 text-[#22c7a9]" />
-                  <p className="text-base font-black leading-6 text-[#f6fbff]">{item}</p>
-                </div>
-              ))}
+          <div className="mt-8 grid gap-5 xl:grid-cols-[minmax(0,1.12fr)_minmax(27rem,0.88fr)] xl:items-stretch">
+            <p className="max-w-[78rem] text-lg font-bold leading-8 text-[#f6fbff]/76 md:text-xl">{page.intro}</p>
+            <div className="border border-[#f6fbff]/14 bg-white/6 p-5 md:p-6">
+              <p className="text-sm font-black uppercase text-[#22c7a9]">{page.city.name} handoff notes</p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+                {[
+                  "Confirm access before the cleaner arrives.",
+                  "Name appliance and cabinet interiors before booking.",
+                  "Share parking, elevator, gate, pet, and utility notes.",
+                  "Request photos when you cannot be on site.",
+                ].map((item) => (
+                  <div key={item} className="flex gap-3 border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
+                    <Check className="mt-1 size-4 shrink-0 text-[#22c7a9]" />
+                    <p className="text-base font-black leading-6 text-[#f6fbff]">{item}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="mx-auto mt-10 max-w-7xl">
-          <MoveOutQuoteStrip page={page} cityName={page.city.name} />
+          <div className="mt-10">
+            <MoveOutQuoteStrip page={page} cityName={page.city.name} />
+          </div>
         </div>
       </section>
       <MoveOutSeoBody page={page} cityName={page.city.name} />

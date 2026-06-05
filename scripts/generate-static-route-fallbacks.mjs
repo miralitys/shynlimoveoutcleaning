@@ -333,7 +333,7 @@ const addMoveOutShell = (html, path = "/") => {
         #initial-home-hero *{box-sizing:border-box}
         #initial-home-hero a{text-decoration:none}
         #initial-home-hero .initial-header{position:relative;z-index:2;background:#e9f7fb;padding:1rem 1.25rem}
-        #initial-home-hero .initial-header-inner{margin:0 auto;display:flex;max-width:86rem;align-items:center;justify-content:space-between;gap:1.5rem}
+        #initial-home-hero .initial-header-inner{margin:0 auto;display:flex;max-width:94rem;align-items:center;justify-content:space-between;gap:1.5rem}
         #initial-home-hero .initial-brand{display:flex;min-height:3.75rem;align-items:center;gap:.75rem;color:#0b2430}
         #initial-home-hero .initial-mark{display:grid;width:3.5rem;height:3.5rem;place-items:center;border-radius:.25rem;background:#0b2430;color:#f6fbff;font-weight:900}
         #initial-home-hero .initial-brand-name{display:block;font-size:1.15rem;font-weight:900;line-height:1.05;text-transform:uppercase}
@@ -345,10 +345,10 @@ const addMoveOutShell = (html, path = "/") => {
         #initial-home-hero .initial-hero-media{position:absolute;inset:0;width:100%;height:100%;opacity:.72}
         #initial-home-hero .initial-hero-img{width:100%;height:100%;object-fit:cover}
         #initial-home-hero .initial-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,36,48,.96) 0%,rgba(11,36,48,.78) 45%,rgba(11,127,138,.28) 100%)}
-        #initial-home-hero .initial-hero-inner{position:relative;z-index:1;margin:0 auto;max-width:86rem;padding:5.75rem 1.75rem 4rem}
+        #initial-home-hero .initial-hero-inner{position:relative;z-index:1;margin:0 auto;max-width:94rem;padding:5.75rem 1.75rem 4rem}
         #initial-home-hero .initial-kicker{display:inline-flex;margin:0 0 1.55rem;border:1px solid rgba(32,199,216,.58);border-radius:.25rem;background:rgba(32,199,216,.14);padding:.55rem 1.15rem;color:#f6fbff;font-size:.86rem;font-weight:900;line-height:1.2}
-        #initial-home-hero h1{max-width:76rem;margin:0;color:#f6fbff;font-size:clamp(4.4rem,8.3vw,8.6rem);font-weight:900;line-height:.86;letter-spacing:0}
-        #initial-home-hero .initial-copy{max-width:58rem;margin:2rem 0 0;color:rgba(246,251,255,.78);font-size:clamp(1.25rem,1.8vw,1.5rem);font-weight:800;line-height:1.5}
+        #initial-home-hero h1{max-width:92rem;margin:0;color:#f6fbff;font-size:clamp(3.15rem,5.45vw,7rem);font-weight:900;line-height:.92;letter-spacing:0}
+        #initial-home-hero .initial-copy{max-width:78rem;margin:2rem 0 0;color:rgba(246,251,255,.78);font-size:clamp(1.25rem,1.8vw,1.5rem);font-weight:800;line-height:1.5}
         #initial-home-hero .initial-guide-shell{max-width:94rem}
         #initial-home-hero .initial-guide-shell h1{max-width:92rem;font-size:clamp(3.15rem,5.45vw,7rem);line-height:.92}
         #initial-home-hero .initial-guide-shell .initial-copy{max-width:78rem}
@@ -357,11 +357,11 @@ const addMoveOutShell = (html, path = "/") => {
         #initial-home-hero label{display:grid;gap:.55rem;color:#075f67;font-size:.82rem;font-weight:900;text-transform:uppercase}
         #initial-home-hero input{min-height:3.35rem;border:1px solid #b9e5ee;border-radius:.25rem;background:white;padding:0 1rem;color:#43525c;font:inherit;font-weight:800}
         #initial-home-hero .initial-submit{min-height:3.35rem;border:0;border-radius:.25rem;background:#58b883;padding:0 1.35rem;color:#06202a;font:inherit;font-size:1.05rem;font-weight:500;white-space:nowrap;cursor:pointer}
-        #initial-home-hero .initial-proof-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2.25rem auto 0;max-width:86rem;padding:0 1.75rem;position:relative;z-index:1}
+        #initial-home-hero .initial-proof-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:2.25rem auto 0;max-width:94rem;padding:0 1.75rem;position:relative;z-index:1}
         #initial-home-hero .initial-proof{min-height:7rem;background:#f6fbff;border-left:.25rem solid #22c7a9;padding:1.25rem;color:#0b2430}
         #initial-home-hero .initial-proof strong{display:block;font-size:1.65rem;font-weight:900}
         #initial-home-hero .initial-proof span{display:block;margin-top:.25rem;color:#43525c;font-weight:800}
-        #initial-home-hero .initial-guides{position:relative;z-index:1;margin:1.25rem auto 0;display:flex;max-width:86rem;flex-wrap:wrap;gap:.65rem;padding:0 1.75rem 2rem}
+        #initial-home-hero .initial-guides{position:relative;z-index:1;margin:1.25rem auto 0;display:flex;max-width:94rem;flex-wrap:wrap;gap:.65rem;padding:0 1.75rem 2rem}
         #initial-home-hero .initial-guides a{display:inline-flex;min-height:2.75rem;align-items:center;border:1px solid rgba(246,251,255,.24);border-radius:.25rem;background:rgba(246,251,255,.1);padding:0 .9rem;color:#f6fbff;font-size:.88rem;font-weight:900}
         @media (max-width:900px){
           #initial-home-hero .initial-nav{display:none}
