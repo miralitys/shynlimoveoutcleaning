@@ -107,7 +107,19 @@ const hubLinkSeeds: [string, string][] = hubSeeds.slice(0, 12).map((seed) => [se
 
 export const shinyMoveOutFeaturedSeoLinks = hubSeeds.map((seed) => [seed.label, seed.slug] as [string, string])
 
-const articleDate = "2026-06-05"
+const legacyArticleDate = "2026-06-05"
+const currentArticleDate = "2026-06-16"
+const currentArticleSlugs = new Set([
+  "guides/broom-clean-vs-deep-clean-move-out",
+  "guides/prepare-for-move-out-cleaning-after-movers",
+  "guides/move-out-cleaning-with-pets",
+  "guides/what-move-out-cleaners-do-not-handle",
+  "guides/utilities-and-access-for-move-out-cleaning",
+])
+
+function articleDateForGuide(slug: string) {
+  return currentArticleSlugs.has(slug) ? currentArticleDate : legacyArticleDate
+}
 
 export const shinyMoveOutGuideLinks: [string, string][] = [
   ["Move-out guides", "guides"],
@@ -116,6 +128,11 @@ export const shinyMoveOutGuideLinks: [string, string][] = [
   ["Why move-out cleaning costs more", "guides/why-move-out-cleaning-costs-more"],
   ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
   ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
+  ["Broom clean vs deep clean", "guides/broom-clean-vs-deep-clean-move-out"],
+  ["Prepare after movers", "guides/prepare-for-move-out-cleaning-after-movers"],
+  ["Move-out cleaning with pets", "guides/move-out-cleaning-with-pets"],
+  ["What cleaners do not handle", "guides/what-move-out-cleaners-do-not-handle"],
+  ["Utilities and access", "guides/utilities-and-access-for-move-out-cleaning"],
 ]
 
 const guideArticleLinks = shinyMoveOutGuideLinks.slice(1)
@@ -127,6 +144,8 @@ function relatedGuideLinksForSlug(slug: string): [string, string][] {
     return [
       ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
       ["Photos before keys", "guides/move-out-cleaning-photos-before-keys"],
+      ["Broom clean vs deep clean", "guides/broom-clean-vs-deep-clean-move-out"],
+      ["Move-out cleaning with pets", "guides/move-out-cleaning-with-pets"],
     ]
   }
 
@@ -134,6 +153,7 @@ function relatedGuideLinksForSlug(slug: string): [string, string][] {
     return [
       ["Why move-out cleaning costs more", "guides/why-move-out-cleaning-costs-more"],
       ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+      ["Utilities and access", "guides/utilities-and-access-for-move-out-cleaning"],
     ]
   }
 
@@ -141,6 +161,8 @@ function relatedGuideLinksForSlug(slug: string): [string, string][] {
     return [
       ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
       ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
+      ["Prepare after movers", "guides/prepare-for-move-out-cleaning-after-movers"],
+      ["What cleaners do not handle", "guides/what-move-out-cleaners-do-not-handle"],
     ]
   }
 
@@ -148,6 +170,8 @@ function relatedGuideLinksForSlug(slug: string): [string, string][] {
     return [
       ["Do you need professional cleaning?", "guides/do-you-need-professional-move-out-cleaning"],
       ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+      ["Prepare after movers", "guides/prepare-for-move-out-cleaning-after-movers"],
+      ["Utilities and access", "guides/utilities-and-access-for-move-out-cleaning"],
     ]
   }
 
@@ -430,6 +454,231 @@ export const shinyMoveOutGuidePages: ShynliMoveOutGuidePageData[] = [
       ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
       ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
       ["Move-out cleaning", "move-out-cleaning"],
+    ],
+  },
+  {
+    slug: "guides/broom-clean-vs-deep-clean-move-out",
+    title: "Broom Clean vs Deep Clean Before Move-Out | Shynli",
+    meta: "Understand what broom clean, move-out cleaning, and deep cleaning usually mean before a lease handoff, final walkthrough, or home sale.",
+    keywords: ["broom clean move out", "broom clean vs deep clean", "move-out cleaning expectations", "final walkthrough cleaning", "seller broom clean"],
+    eyebrow: "Broom clean or deep clean",
+    h1: "Broom clean vs deep clean before a move-out walkthrough.",
+    intro: "People use the words broom clean, move-out clean, and deep clean as if they mean the same thing. They do not. Before keys, closing, or a landlord walkthrough, it helps to name the level of cleaning you actually need instead of relying on a phrase that different people interpret differently.",
+    summary: "Broom clean usually means empty, swept, and free of obvious trash. Move-out cleaning goes further into kitchens, bathrooms, floors, shelves, closets, baseboards, and visible handoff details. Deep cleaning adds heavier buildup or detailed add-ons.",
+    sections: [
+      {
+        title: "Broom clean is the lightest handoff standard",
+        answer: "Broom clean usually means belongings are gone, loose debris is removed, floors are swept, and the space is not left with obvious trash. It is a common real estate phrase, but it is not the same as a detailed move-out cleaning checklist.",
+        bullets: ["Empty rooms and no loose trash", "Basic sweeping or vacuuming", "No promise that ovens, fridges, cabinets, baseboards, or bathrooms are detailed"],
+      },
+      {
+        title: "Move-out cleaning covers the details people see after furniture leaves",
+        answer: "A move-out clean is built around the empty-home moment. Once furniture is gone, floors, baseboards, closet shelves, doors, switches, kitchen surfaces, bathrooms, and cabinet fronts are easier to judge. This is the level most renters, landlords, sellers, and property managers expect when the home should feel ready for the next person.",
+        bullets: ["Kitchen and bathroom reset", "Floors, baseboards, shelves, closets, doors, and high-touch areas", "Appliance and cabinet interiors when selected before the visit"],
+      },
+      {
+        title: "Deep cleaning is the right word when buildup changes the job",
+        answer: "Deep cleaning is not just a nicer phrase. It usually means heavier grease, soap residue, pet hair, dust buildup, neglected bathrooms, or detailed add-ons that require more time. If those conditions are present, the quote should say so before the cleaner arrives.",
+        bullets: ["Heavy kitchen or bathroom buildup", "Pet hair, odor source areas, or dust lines", "Fridge, oven, cabinet, blind, window, or garage add-ons"],
+      },
+      {
+        title: "Use the agreement, photos, and quote language together",
+        answer: "Cleaning does not decide lease terms, sale terms, or deposit decisions. The safest approach is to read the lease or contract, take photos after cleaning, and make sure the quote names the work you expect. That keeps the conversation practical instead of arguing over one vague phrase.",
+        bullets: ["Check whether the agreement says broom clean, professionally cleaned, or another standard", "Ask what is included and what is an add-on", "Take photos before returning keys or leaving the home"],
+      },
+    ],
+    faqs: [
+      ["Is broom clean enough for move-out?", "Sometimes, but not always. It depends on the lease, sale contract, landlord expectations, property condition, and whether the next person expects a detailed clean."],
+      ["Can Shynli decide what my landlord or buyer will accept?", "No. Shynli can clean the agreed scope and document the finish, but acceptance decisions belong to landlords, buyers, property managers, or the contract terms."],
+      ["What should I ask before booking?", "Ask whether the quote includes bathrooms, kitchens, floors, baseboards, shelves, closets, appliance interiors, cabinet interiors, photos, and access or lock-up details."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning", "move-out-cleaning"],
+      ["Cleaning before selling a house", "cleaning-before-selling-house"],
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+      ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
+      ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
+      ["What cleaners do not handle", "guides/what-move-out-cleaners-do-not-handle"],
+    ],
+  },
+  {
+    slug: "guides/prepare-for-move-out-cleaning-after-movers",
+    title: "How To Prepare For Move-Out Cleaning After Movers Leave | Shynli",
+    meta: "Prepare for move-out cleaning after movers by removing belongings, keeping utilities on, confirming access, choosing add-ons, and sharing walkthrough priorities.",
+    keywords: ["prepare for move-out cleaning", "move-out cleaning after movers", "cleaning after moving out", "move-out cleaning checklist", "empty home cleaning"],
+    eyebrow: "After movers",
+    h1: "How to prepare for move-out cleaning after the movers leave.",
+    intro: "Move-out cleaning works best after the movers are done because the real condition of the home is finally visible. The cleaner can reach floors, closets, shelves, baseboards, corners, and appliance areas without working around boxes or furniture.",
+    summary: "The best preparation is to make the home empty, remove trash, keep water and power on, confirm access, choose add-ons before the appointment, and share any walkthrough priorities in advance.",
+    sections: [
+      {
+        title: "Remove what cleaners cannot clean around",
+        answer: "Cleaners can do better work when personal items, bags, boxes, loose trash, donation piles, and large furniture are gone. A half-packed room usually slows the job and leaves hidden areas untouched until it is too late.",
+        bullets: ["Remove belongings, food, hangers, boxes, and loose trash", "Empty closets, shelves, cabinets, and drawers you want cleaned", "Leave only the items that are supposed to stay with the property"],
+      },
+      {
+        title: "Keep utilities and access working",
+        answer: "Move-out cleaning needs water, power, light, and working entry. If utilities are shut off too early, bathrooms, kitchens, floors, and appliance work can be limited. If the cleaner cannot enter, the deadline gets tighter fast.",
+        bullets: ["Keep water, power, and lighting on through the appointment", "Share lockbox, smart lock, gate, elevator, parking, and building instructions", "Confirm pets are gone or safely handled before arrival"],
+      },
+      {
+        title: "Choose add-ons before the cleaner arrives",
+        answer: "Oven interiors, fridge interiors, cabinet interiors, blinds, interior windows, garages, and heavy buildup can change the time needed. Naming add-ons in advance protects the schedule and keeps the quote honest.",
+        bullets: ["Fridge, oven, cabinet, and drawer interiors", "Blinds, windows, garage, basement, or laundry areas", "Pet hair, heavy kitchen grease, or bathroom buildup"],
+      },
+      {
+        title: "Share the handoff plan",
+        answer: "If keys are due, a landlord is coming, or a realtor needs the home ready for photos, say that before the appointment. The cleaner should know whether you need after-clean photos, lock-up confirmation, or special attention to a room that will be inspected first.",
+        bullets: ["Key return time or closing schedule", "Landlord, buyer, realtor, or property manager walkthrough priorities", "After-clean photos and final lock-up instructions"],
+      },
+    ],
+    faqs: [
+      ["Should I schedule cleaners before or after movers?", "After movers is best whenever possible. Empty rooms let cleaners reach floors, baseboards, closets, shelves, and corners without repeating work."],
+      ["Do I need to remove trash before move-out cleaning?", "Yes. Standard move-out cleaning is not junk hauling. Remove trash, leftover items, and donation piles before the appointment."],
+      ["Can I be off-site during the cleaning?", "Usually yes, if access, parking, utilities, pets, lock-up instructions, and a reachable contact number are confirmed before arrival."],
+    ],
+    relatedLinks: [
+      ["Cleaning after moving out", "cleaning-after-moving-out"],
+      ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+      ["Utilities and access", "guides/utilities-and-access-for-move-out-cleaning"],
+      ["What cleaners do not handle", "guides/what-move-out-cleaners-do-not-handle"],
+      ["Start a move-out quote", "move-out-cleaning"],
+    ],
+  },
+  {
+    slug: "guides/move-out-cleaning-with-pets",
+    title: "Move-Out Cleaning With Pets: Hair, Odor, And Litter Areas | Shynli",
+    meta: "Plan move-out cleaning with pets by focusing on hair, litter areas, pet odor, floors, baseboards, soft surfaces, and honest limits before inspection.",
+    keywords: ["move-out cleaning with pets", "pet hair move-out cleaning", "pet odor cleaning move out", "deposit cleaning pets", "apartment move-out cleaning pets"],
+    eyebrow: "Pets and move-out",
+    h1: "Move-out cleaning with pets: hair, odor, and the areas people notice first.",
+    intro: "Pet move-outs need a little more planning because hair, odor, litter dust, food areas, and floor edges can remain after furniture is gone. The goal is to clean the controllable areas well and be honest about what cleaning cannot repair.",
+    summary: "Pet move-out cleaning should focus on visible hair, litter zones, floor edges, baseboards, doors, kitchen or feeding areas, bathrooms, and odor source areas. Cleaning can help the home feel cared for, but it cannot repair damage or guarantee a deposit decision.",
+    sections: [
+      {
+        title: "Remove hair before wet cleaning",
+        answer: "Pet hair sticks to baseboards, vents, closet corners, stair edges, bathroom corners, and under furniture lines. Vacuuming and dry removal should happen before mopping or wiping so hair does not spread across damp surfaces.",
+        bullets: ["Baseboards, corners, stairs, vents, closets, and door edges", "Bathroom floors, laundry areas, and entry mats", "Visible hair lines after furniture is moved"],
+      },
+      {
+        title: "Treat odor as a source problem",
+        answer: "Air freshener does not solve a move-out odor problem. Cleaning should focus on litter areas, feeding stations, floor edges, bathroom corners, and any places where accidents or spills happened. Some odor issues may require carpet, upholstery, repair, or remediation outside normal cleaning.",
+        bullets: ["Litter box locations and nearby walls or floors", "Feeding areas, entry points, and favorite pet spots", "Clear limits when odor comes from carpet pad, damage, or hidden material"],
+      },
+      {
+        title: "Litter and feeding areas get judged quickly",
+        answer: "Small pet zones can make a whole apartment feel less clean. Litter dust, kibble crumbs, food residue, splashes, and marks near bowls are often visible during a walkthrough, especially in empty rooms.",
+        bullets: ["Remove litter boxes, food bowls, mats, toys, and pet supplies", "Clean nearby walls, baseboards, floors, and cabinet fronts", "Ask about cabinet, closet, or appliance add-ons if pet items were stored there"],
+      },
+      {
+        title: "Separate cleaning from damage",
+        answer: "Cleaning can remove dust, hair, residue, and many surface marks. It cannot replace scratched doors, torn screens, chewed trim, stained carpet pad, or damaged flooring. Naming that boundary early prevents a cleaning appointment from being asked to solve a repair problem.",
+        bullets: ["Surface cleaning is different from repairs", "Photos help document the cleaned condition", "Landlords and property managers still make their own deposit decisions"],
+      },
+    ],
+    faqs: [
+      ["Can move-out cleaning remove pet odor completely?", "Sometimes light odor improves with cleaning, but deeper odor in carpet pad, flooring, walls, or damage may need specialty treatment outside normal cleaning."],
+      ["Should pets be present during the appointment?", "No, whenever possible. Move-out cleaning is easier and safer when pets are already out of the home or secured away from the work area."],
+      ["Does pet cleaning guarantee my deposit?", "No. Cleaning can address visible hair, residue, and selected scope, but deposit decisions may include lease terms, damage, repairs, and landlord judgment."],
+    ],
+    relatedLinks: [
+      ["Apartment move-out cleaning", "apartment-move-out-cleaning"],
+      ["Deposit cleaning", "deposit-cleaning"],
+      ["What landlords notice", "guides/landlord-move-out-cleaning-inspection"],
+      ["Photos before turning in keys", "guides/move-out-cleaning-photos-before-keys"],
+      ["What cleaners do not handle", "guides/what-move-out-cleaners-do-not-handle"],
+      ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
+    ],
+  },
+  {
+    slug: "guides/what-move-out-cleaners-do-not-handle",
+    title: "What Move-Out Cleaners Do Not Handle | Shynli",
+    meta: "Know what move-out cleaners usually do not handle, including trash removal, junk hauling, repairs, paint touch-ups, pest issues, mold, damage, and blocked areas.",
+    keywords: ["what move-out cleaners do not handle", "move-out cleaning exclusions", "move-out cleaning trash removal", "move-out cleaning repairs", "junk hauling move out"],
+    eyebrow: "Scope boundaries",
+    h1: "What move-out cleaners usually do not handle.",
+    intro: "Move-out cleaning gets frustrating when the job is treated like cleaning, junk hauling, repair work, and damage correction all at once. A clear scope helps the cleaner do the right work and helps the customer avoid last-minute surprises.",
+    summary: "Move-out cleaners clean accessible surfaces in the agreed scope. They usually do not haul junk, remove large trash, repair damage, paint, treat pests, handle hazards, remediate mold, or guarantee landlord, buyer, or property manager decisions.",
+    sections: [
+      {
+        title: "Cleaning is not junk hauling",
+        answer: "A standard move-out clean assumes the home is empty or mostly empty. Cleaners can wipe, vacuum, mop, and detail agreed areas, but leftover furniture, bags, boxes, food, donation piles, mattresses, and large trash should be removed first.",
+        bullets: ["Remove personal items and large trash before the appointment", "Clear cabinets, drawers, closets, and shelves you want cleaned", "Book junk removal separately when the home still contains left-behind items"],
+      },
+      {
+        title: "Cleaning is not repair or paint work",
+        answer: "Surface marks and dust are cleaning issues. Holes, broken trim, scratched doors, stained carpet pad, damaged flooring, missing caulk, and paint touch-ups are repair issues. A cleaner can make the space look cared for, but cannot turn damage into normal wear.",
+        bullets: ["Repairs, painting, patching, and caulking are separate trades", "Damage should be photographed and handled before inspection when possible", "Cleaning cannot override lease, sale, or property manager standards"],
+      },
+      {
+        title: "Hazards and specialty problems need the right service",
+        answer: "Pest treatment, biohazards, heavy mold, sewage, strong smoke remediation, unsafe debris, and extreme contamination are outside normal move-out cleaning. These situations may need pest control, remediation, restoration, or another specialty provider before cleaning can happen safely.",
+        bullets: ["Pest, mold, smoke, biohazard, and remediation issues", "Unsafe materials or blocked rooms", "Conditions that require special equipment, licensing, or disposal"],
+      },
+      {
+        title: "Blocked areas and last-minute add-ons change the appointment",
+        answer: "Cleaners cannot properly finish areas they cannot reach. If movers are late, rooms are locked, utilities are off, or add-ons are requested at the end, the visit may need a revised scope or another appointment.",
+        bullets: ["Locked rooms, blocked closets, and furniture-covered floors", "No water, power, light, parking, or building access", "Add-ons that were not included in the original time window"],
+      },
+    ],
+    faqs: [
+      ["Will move-out cleaners remove trash?", "Small normal cleaning debris may be handled, but large trash, furniture, junk, and leftover belongings should be removed before the appointment."],
+      ["Can cleaners fix damage before inspection?", "No. Cleaning can improve visible surfaces, but repairs, painting, flooring, pest treatment, mold remediation, and damage correction are separate work."],
+      ["What if I am not sure whether something is cleaning or repair?", "Send photos before requesting a quote. Clear photos help separate normal cleaning scope from add-ons, repairs, or work that needs another provider."],
+    ],
+    relatedLinks: [
+      ["Move-out cleaning checklist", "move-out-cleaning-checklist"],
+      ["Prepare after movers", "guides/prepare-for-move-out-cleaning-after-movers"],
+      ["Move-out cleaning cost", "move-out-cleaning-cost"],
+      ["Broom clean vs deep clean", "guides/broom-clean-vs-deep-clean-move-out"],
+      ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
+      ["Start a move-out quote", "move-out-cleaning"],
+    ],
+  },
+  {
+    slug: "guides/utilities-and-access-for-move-out-cleaning",
+    title: "Utilities And Access For Move-Out Cleaning | Shynli",
+    meta: "Move-out cleaning goes smoother when water, power, parking, lockbox, elevator, gate codes, pets, and lock-up instructions are confirmed before arrival.",
+    keywords: ["move-out cleaning access", "utilities for move-out cleaning", "lockbox cleaning access", "apartment cleaning elevator parking", "move-out cleaning remote access"],
+    eyebrow: "Access planning",
+    h1: "Utilities and access to confirm before move-out cleaning.",
+    intro: "The clean can only be as smooth as the access plan. Move-out appointments often happen when the customer is already gone, the building has rules, and keys are due soon. A few details confirmed early can save the appointment from turning into a coordination problem.",
+    summary: "Before move-out cleaning, confirm water, power, lighting, parking, building entry, elevator or gate instructions, lockbox or smart lock access, pets, contact details, and final lock-up instructions.",
+    sections: [
+      {
+        title: "Keep water, power, and light on",
+        answer: "Bathrooms, kitchens, floors, appliance areas, and final checks need working utilities. If water or power is shut off too early, the cleaner may not be able to finish the agreed scope or inspect the result properly.",
+        bullets: ["Keep water available for bathrooms, kitchens, and mopping", "Keep power and lights on for vacuuming and visibility", "Tell the cleaner if any fixture, outlet, or room has a known issue"],
+      },
+      {
+        title: "Make entry and parking simple",
+        answer: "Parking and entry can quietly take a large bite out of the cleaning window. Share the exact address, unit number, door, lockbox code, smart lock instructions, garage code, gate code, or leasing office process before arrival.",
+        bullets: ["Street, driveway, garage, guest, or loading-zone parking", "Lockbox, smart lock, key pickup, front desk, or leasing office instructions", "Gate codes, call boxes, unit numbers, stairwells, and building names"],
+      },
+      {
+        title: "Plan apartments, condos, and shared buildings",
+        answer: "Shared buildings often need more detail than houses. Elevators, stairs, loading zones, parking permits, concierge desks, pet rules, and quiet hours can all affect timing. Give those notes before the visit so the cleaner is not solving them at the door.",
+        bullets: ["Elevator reservations or stair access", "Concierge, front desk, or property manager contact", "Parking permits, loading dock timing, and building rules"],
+      },
+      {
+        title: "Confirm the remote handoff",
+        answer: "Many move-out customers are not present at the end. If that is the plan, give lock-up instructions, where to leave keys, whether photos are needed, and who to contact if something blocks the clean.",
+        bullets: ["Final lock-up and key instructions", "After-clean photos when requested", "A reachable phone number during the appointment"],
+      },
+    ],
+    faqs: [
+      ["Can cleaners work if utilities are off?", "Sometimes only in a limited way, but water, power, and lighting are strongly recommended for a proper move-out clean."],
+      ["Do I need to be there for move-out cleaning?", "Usually no. Remote access can work when codes, keys, parking, utilities, pets, and lock-up instructions are clear before arrival."],
+      ["What access details should I send?", "Send parking, door, unit, lockbox, gate, elevator, stair, pet, utility, contact, and lock-up details, plus any building rule that could slow entry."],
+    ],
+    relatedLinks: [
+      ["Same-week move-out cleaning", "same-week-move-out-cleaning"],
+      ["How long move-out cleaning takes", "guides/how-long-move-out-cleaning-takes"],
+      ["Prepare after movers", "guides/prepare-for-move-out-cleaning-after-movers"],
+      ["Move-out cleaning cost", "move-out-cleaning-cost"],
+      ["Move-out cleaning FAQ", "move-out-cleaning-faq"],
+      ["Start a move-out quote", "move-out-cleaning"],
     ],
   },
 ]
@@ -740,7 +989,7 @@ function MoveOutSeoFooter({ city }: { city?: (typeof cityPages)[number] }) {
     : [["Naperville", "naperville"], ["Aurora", "aurora"], ["Plainfield", "plainfield"], ["Oswego", "oswego"]]
   const linkGroups: [string, [string, string][]][] = [
     ["Move-out pages", [["Cost guide", "move-out-cleaning-cost"], ["Checklist", "move-out-cleaning-checklist"], ["Empty apartment", "empty-apartment-cleaning"], ["Deposit cleaning", "deposit-cleaning"]]],
-    ["Guides", [["Move-out guides", "guides"], ["Landlord inspection", "guides/landlord-move-out-cleaning-inspection"], ["Cleaning timing", "guides/how-long-move-out-cleaning-takes"], ["Photo handoff", "guides/move-out-cleaning-photos-before-keys"]]],
+    ["Guides", [["Move-out guides", "guides"], ["Landlord inspection", "guides/landlord-move-out-cleaning-inspection"], ["Cleaning timing", "guides/how-long-move-out-cleaning-takes"], ["Broom clean vs deep clean", "guides/broom-clean-vs-deep-clean-move-out"], ["Utilities and access", "guides/utilities-and-access-for-move-out-cleaning"]]],
     ["Local pages", localLinks],
     ["Support", [["Privacy", "privacy"], ["Terms", "terms"], ["Cancellation", "cancellation"], ["Home", ""]]],
   ]
@@ -998,6 +1247,7 @@ function MoveOutGuideQuoteStrip({ page }: { page: ShynliMoveOutGuidePageData }) 
 
 function useMoveOutGuideMeta(page: ShynliMoveOutGuidePageData) {
   const canonicalPath = `/${page.slug}`
+  const guideDate = articleDateForGuide(page.slug)
 
   useSeoMeta(
     page.title,
@@ -1011,8 +1261,8 @@ function useMoveOutGuideMeta(page: ShynliMoveOutGuidePageData) {
           name: page.h1,
           description: page.meta,
           url: `${shinyMoveOutCanonicalBase}${canonicalPath}`,
-          datePublished: articleDate,
-          dateModified: articleDate,
+          datePublished: guideDate,
+          dateModified: guideDate,
           author: {
             "@type": "Organization",
             name: "Shynli Move-Out Cleaning",
