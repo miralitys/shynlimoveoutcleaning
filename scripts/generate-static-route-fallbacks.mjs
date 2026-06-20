@@ -179,6 +179,46 @@ const guideShellPages = new Map([
     h1: "Utilities and access to confirm before move-out cleaning.",
     copy: "Confirm water, power, lighting, parking, building entry, elevator or gate instructions, remote access, pets, contact details, and final lock-up instructions.",
   }],
+  ["/guides/last-minute-move-out-cleaning-plan", {
+    title: "Last-Minute Move-Out Cleaning Plan | Shynli",
+    description: "Use a practical last-minute move-out cleaning plan when keys are due soon: what to clean first, what to skip, and when to book help.",
+    keywords: "last-minute move-out cleaning, move-out cleaning plan, clean apartment before keys, same-day move-out cleaning, move-out cleaning priorities",
+    kicker: "Last-minute plan",
+    h1: "Last-minute move-out cleaning: what to do when keys are due soon.",
+    copy: "When time is short, remove trash first, clean kitchens and bathrooms next, handle floors last, document the finish, and book professional help if the deadline is too tight.",
+  }],
+  ["/guides/oven-and-refrigerator-move-out-cleaning", {
+    title: "Oven And Refrigerator Move-Out Cleaning | Shynli",
+    description: "Learn why ovens and refrigerators matter during move-out cleaning, what to empty first, and when appliance interiors should be quoted as add-ons.",
+    keywords: "oven move-out cleaning, refrigerator move-out cleaning, appliance cleaning before move out, clean fridge before moving out, clean oven before landlord inspection",
+    kicker: "Appliance interiors",
+    h1: "Oven and refrigerator move-out cleaning: why these two areas get noticed.",
+    copy: "Empty and defrost the refrigerator if needed, remove food and loose parts, name oven and fridge interiors as add-ons before booking, and keep expectations realistic.",
+  }],
+  ["/guides/carpet-stains-before-move-out", {
+    title: "Carpet Stains Before Move-Out | Shynli",
+    description: "Understand what to do about carpet stains before move-out, what standard cleaning can help with, and when carpet cleaning or repair is separate.",
+    keywords: "carpet stains before move out, move-out carpet cleaning, apartment carpet stains deposit, pet stains move out cleaning, carpet cleaning before landlord inspection",
+    kicker: "Carpet stains",
+    h1: "Carpet stains before move-out: what cleaning can help and what may need a separate service.",
+    copy: "Vacuum thoroughly, identify stains early, photograph the condition, and ask whether carpet shampooing or extraction is separate from the move-out cleaning quote.",
+  }],
+  ["/guides/move-out-cleaning-receipts-and-photos", {
+    title: "Move-Out Cleaning Receipts And Photos | Shynli",
+    description: "Use receipts, photos, room notes, and checklist details to document move-out cleaning without pretending cleaning can guarantee a deposit result.",
+    keywords: "move-out cleaning receipt, move-out cleaning photos, document move-out cleaning, security deposit cleaning proof, cleaning invoice before walkthrough",
+    kicker: "Cleaning proof",
+    h1: "Move-out cleaning receipts and photos: what to keep before the handoff.",
+    copy: "Keep the receipt, scope notes, after-clean photos, add-on details, date, address, and communication records so the finish is easier to explain after keys are returned.",
+  }],
+  ["/guides/landlord-cleaning-checklist-too-much", {
+    title: "When A Landlord Move-Out Cleaning Checklist Feels Excessive | Shynli",
+    description: "A practical way to handle a long landlord move-out cleaning checklist: separate cleaning, add-ons, repairs, proof, and quote questions before keys are due.",
+    keywords: "landlord move-out cleaning checklist, excessive move-out cleaning checklist, apartment cleaning checklist deposit, move-out cleaning requirements, landlord cleaning expectations",
+    kicker: "Long checklist",
+    h1: "What to do when a landlord move-out cleaning checklist feels excessive.",
+    copy: "Break the checklist into standard cleaning, quoted add-ons, carpet work, repairs, trash removal, and documentation before asking for a move-out cleaning quote.",
+  }],
 ])
 
 const currentGuidePaths = new Set([
@@ -187,9 +227,14 @@ const currentGuidePaths = new Set([
   "/guides/move-out-cleaning-with-pets",
   "/guides/what-move-out-cleaners-do-not-handle",
   "/guides/utilities-and-access-for-move-out-cleaning",
+  "/guides/last-minute-move-out-cleaning-plan",
+  "/guides/oven-and-refrigerator-move-out-cleaning",
+  "/guides/carpet-stains-before-move-out",
+  "/guides/move-out-cleaning-receipts-and-photos",
+  "/guides/landlord-cleaning-checklist-too-much",
 ])
 
-const guideDateForPath = (path) => currentGuidePaths.has(path) ? "2026-06-16" : "2026-06-05"
+const guideDateForPath = (path) => currentGuidePaths.has(path) ? "2026-06-20" : "2026-06-05"
 
 const guideFaqs = new Map([
   ["/guides", [
@@ -245,6 +290,31 @@ const guideFaqs = new Map([
     ["Can cleaners work if utilities are off?", "Sometimes only in a limited way, but water, power, and lighting are strongly recommended for a proper move-out clean."],
     ["Do I need to be there for move-out cleaning?", "Usually no. Remote access can work when codes, keys, parking, utilities, pets, and lock-up instructions are clear before arrival."],
     ["What access details should I send?", "Send parking, door, unit, lockbox, gate, elevator, stair, pet, utility, contact, and lock-up details, plus any building rule that could slow entry."],
+  ]],
+  ["/guides/last-minute-move-out-cleaning-plan", [
+    ["What should I clean first when moving out last minute?", "Remove trash and personal items first, then focus on kitchens, bathrooms, floors, visible dust lines, and the items named in your lease or checklist."],
+    ["Can a cleaner help the same week?", "Often yes if there is availability, but the quote needs the date, property size, condition, access, utilities, and add-ons quickly."],
+    ["What should I skip if I have only a few hours?", "Do not spend the whole window on low-visibility details while trash, bathrooms, kitchen surfaces, and floors still look unfinished."],
+  ]],
+  ["/guides/oven-and-refrigerator-move-out-cleaning", [
+    ["Are oven and refrigerator interiors included in move-out cleaning?", "Not always. They should be selected or quoted before the visit because they can add meaningful time."],
+    ["Should I leave the refrigerator on?", "Usually yes for visibility and odor control unless you have been told otherwise. If the freezer needs defrosting, plan that before cleaning time."],
+    ["Can cleaners remove all oven stains?", "Not always. Surface grease and residue can often improve, but burnt-in marks, damaged finishes, rust, and broken parts are not normal cleaning fixes."],
+  ]],
+  ["/guides/carpet-stains-before-move-out", [
+    ["Does move-out cleaning include carpet shampooing?", "Usually not unless it is specifically quoted. Standard cleaning may include vacuuming, while shampooing or extraction is a separate service."],
+    ["Can cleaning remove old carpet stains?", "Some surface stains can improve, but deep stains, dye loss, odor in padding, damage, and worn carpet may need carpet specialists or repair."],
+    ["Should I get carpet cleaning before turning in keys?", "Check your lease or move-out instructions and compare that with the carpet condition. If a receipt is required, plan it separately before the handoff."],
+  ]],
+  ["/guides/move-out-cleaning-receipts-and-photos", [
+    ["Do cleaning receipts guarantee my deposit?", "No. A receipt documents cleaning scope and payment, but deposit decisions can involve lease terms, damage, normal wear, timing, and property manager judgment."],
+    ["What photos should I keep after move-out cleaning?", "Keep wide room photos plus kitchen, bathroom, floor, closet, appliance, cabinet, and any important add-on photos."],
+    ["Should I send the receipt to my landlord?", "That depends on your lease and move-out instructions. The practical point is to keep the receipt and scope details available if the cleaning is questioned."],
+  ]],
+  ["/guides/landlord-cleaning-checklist-too-much", [
+    ["Can a cleaner tell me if a landlord checklist is legally required?", "No. A cleaner can explain cleaning scope and practical limits, but legal or lease questions should be handled through the lease, property manager, tenant resources, or qualified advice."],
+    ["Should I give the checklist to the cleaning company?", "Yes. It helps separate standard cleaning, add-ons, and non-cleaning work before the appointment is priced."],
+    ["What if the checklist includes carpet cleaning or repairs?", "Treat those as separate items unless the quote specifically includes them. Standard move-out cleaning usually does not include carpet extraction, repairs, painting, or junk hauling."],
   ]],
 ])
 
@@ -505,6 +575,9 @@ const addMoveOutShell = (html, path = "/") => {
           <a href="https://shynlimoveoutcleaning.com/guides/how-long-move-out-cleaning-takes">Cleaning timing</a>
           <a href="https://shynlimoveoutcleaning.com/guides/broom-clean-vs-deep-clean-move-out">Broom clean</a>
           <a href="https://shynlimoveoutcleaning.com/guides/utilities-and-access-for-move-out-cleaning">Access</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/last-minute-move-out-cleaning-plan">Last-minute plan</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/oven-and-refrigerator-move-out-cleaning">Appliances</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/move-out-cleaning-receipts-and-photos">Receipts</a>
         </nav>
         <span id="handoff" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
         <span id="report" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
