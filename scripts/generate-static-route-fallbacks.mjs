@@ -219,6 +219,46 @@ const guideShellPages = new Map([
     h1: "What to do when a landlord move-out cleaning checklist feels excessive.",
     copy: "Break the checklist into standard cleaning, quoted add-ons, carpet work, repairs, trash removal, and documentation before asking for a move-out cleaning quote.",
   }],
+  ["/guides/wall-scuffs-and-nail-holes-before-move-out", {
+    title: "Wall Scuffs And Nail Holes Before Move-Out | Shynli",
+    description: "Know what cleaning can and cannot do for wall scuffs, fingerprints, nail holes, tape marks, paint damage, and move-out walkthrough expectations.",
+    keywords: "wall scuffs before move out, nail holes move out cleaning, clean walls before moving out, move-out wall marks, apartment wall damage cleaning",
+    kicker: "Wall marks",
+    h1: "Wall scuffs and nail holes before move-out: cleaning, touch-ups, and repair boundaries.",
+    copy: "Separate light wall cleaning from nail holes, paint touch-ups, adhesive damage, drywall repair, and landlord or maintenance decisions before the final walkthrough.",
+  }],
+  ["/guides/window-tracks-blinds-and-fans-move-out-cleaning", {
+    title: "Window Tracks, Blinds, And Fans Before Move-Out | Shynli",
+    description: "A practical move-out cleaning guide for window tracks, sills, blinds, ceiling fans, vent covers, dust lines, and what to quote before the walkthrough.",
+    keywords: "window tracks move-out cleaning, clean blinds before moving out, ceiling fan cleaning move out, move-out cleaning window sills, dusting blinds final walkthrough",
+    kicker: "Dust details",
+    h1: "Window tracks, blinds, and fans before move-out: small details that can look big in an empty home.",
+    copy: "Plan reachable track cleaning, sill wiping, light blind dusting, ceiling fan dusting, and vent-cover dusting before assuming every fragile or high detail is included.",
+  }],
+  ["/guides/bathroom-move-out-cleaning-soap-scum-caulk-hard-water", {
+    title: "Bathroom Move-Out Cleaning: Soap Scum, Caulk, And Hard Water | Shynli",
+    description: "Plan bathroom move-out cleaning around soap scum, hard water, toilets, tubs, showers, caulk boundaries, mildew-like staining, and realistic quote expectations.",
+    keywords: "bathroom move-out cleaning, soap scum move-out cleaning, hard water stains move out, caulk cleaning before move out, shower cleaning landlord inspection",
+    kicker: "Bathroom detail",
+    h1: "Bathroom move-out cleaning: soap scum, caulk, hard water, and what cleaning can realistically fix.",
+    copy: "Clean visible hygiene details while separating normal bathroom residue from re-caulking, grout repair, mold remediation, damaged fixtures, and old hard-water staining.",
+  }],
+  ["/guides/garage-basement-and-storage-move-out-cleaning", {
+    title: "Garage, Basement, And Storage Area Move-Out Cleaning | Shynli",
+    description: "Move-out cleaning for garages, basements, storage rooms, closets, utility areas, and unfinished spaces works best when debris, access, and scope are clear first.",
+    keywords: "garage move-out cleaning, basement move-out cleaning, storage room cleaning before moving, utility room move-out cleaning, empty home storage cleaning",
+    kicker: "Storage areas",
+    h1: "Garage, basement, and storage area move-out cleaning: what to clear before the cleaner arrives.",
+    copy: "Clear belongings and junk first, then quote accessible floors, shelves, storage areas, garage sweeping, and utility-room surfaces separately from hauling or repairs.",
+  }],
+  ["/guides/seller-final-walkthrough-cleaning-before-closing", {
+    title: "Seller Final Walkthrough Cleaning Before Closing | Shynli",
+    description: "A practical seller guide to cleaning before a buyer final walkthrough: broom-clean expectations, personal items, appliances, floors, bathrooms, and timing.",
+    keywords: "seller final walkthrough cleaning, clean house before closing, broom clean before closing, cleaning before buyer walkthrough, seller move-out cleaning",
+    kicker: "Seller walkthrough",
+    h1: "Seller final walkthrough cleaning before closing: how clean should the home feel?",
+    copy: "Before a buyer walkthrough, remove personal items and trash, clean visible kitchens and bathrooms, handle floors, and keep cleaning separate from contract questions.",
+  }],
 ])
 
 const currentGuidePaths = new Set([
@@ -234,7 +274,15 @@ const currentGuidePaths = new Set([
   "/guides/landlord-cleaning-checklist-too-much",
 ])
 
-const guideDateForPath = (path) => currentGuidePaths.has(path) ? "2026-06-20" : "2026-06-05"
+const latestGuidePaths = new Set([
+  "/guides/wall-scuffs-and-nail-holes-before-move-out",
+  "/guides/window-tracks-blinds-and-fans-move-out-cleaning",
+  "/guides/bathroom-move-out-cleaning-soap-scum-caulk-hard-water",
+  "/guides/garage-basement-and-storage-move-out-cleaning",
+  "/guides/seller-final-walkthrough-cleaning-before-closing",
+])
+
+const guideDateForPath = (path) => latestGuidePaths.has(path) ? "2026-06-23" : currentGuidePaths.has(path) ? "2026-06-20" : "2026-06-05"
 
 const guideFaqs = new Map([
   ["/guides", [
@@ -315,6 +363,31 @@ const guideFaqs = new Map([
     ["Can a cleaner tell me if a landlord checklist is legally required?", "No. A cleaner can explain cleaning scope and practical limits, but legal or lease questions should be handled through the lease, property manager, tenant resources, or qualified advice."],
     ["Should I give the checklist to the cleaning company?", "Yes. It helps separate standard cleaning, add-ons, and non-cleaning work before the appointment is priced."],
     ["What if the checklist includes carpet cleaning or repairs?", "Treat those as separate items unless the quote specifically includes them. Standard move-out cleaning usually does not include carpet extraction, repairs, painting, or junk hauling."],
+  ]],
+  ["/guides/wall-scuffs-and-nail-holes-before-move-out", [
+    ["Do move-out cleaners clean walls?", "Usually only light reachable spot wiping if it is included. Full wall washing, paint touch-ups, patching, and repair are usually outside normal move-out cleaning."],
+    ["Can cleaners fix nail holes before move-out?", "No. Nail holes are repair or touch-up work, not cleaning. Ask the landlord or property manager what they expect before patching or painting."],
+    ["Should I scrub wall scuffs before inspection?", "Be careful. Gentle wiping can help light scuffs, but aggressive scrubbing can damage paint or leave shiny spots."],
+  ]],
+  ["/guides/window-tracks-blinds-and-fans-move-out-cleaning", [
+    ["Are window tracks included in move-out cleaning?", "Sometimes, but not always. Light sill wiping may be included while detailed track cleaning should be confirmed before booking."],
+    ["Do cleaners clean blinds before move-out?", "Often only light dusting if included. Deep slat-by-slat cleaning, fragile blinds, damaged blinds, or blind replacement are separate issues."],
+    ["Can cleaners clean ceiling fans and vents?", "They can often dust reachable exterior surfaces. Electrical parts, ducts, motors, and unsafe heights are not normal cleaning scope."],
+  ]],
+  ["/guides/bathroom-move-out-cleaning-soap-scum-caulk-hard-water", [
+    ["Can move-out cleaning remove hard-water stains?", "Light buildup may improve, but older mineral staining, etching, rust, or damaged finishes may not fully come out during normal cleaning."],
+    ["Do cleaners re-caulk tubs or showers?", "No. Re-caulking is repair or maintenance work, not standard move-out cleaning."],
+    ["What bathroom details do landlords notice?", "They often notice toilets, tubs, showers, sinks, mirrors, faucets, floors, hair, soap residue, cabinet areas, and whether the bathroom feels hygienic."],
+  ]],
+  ["/guides/garage-basement-and-storage-move-out-cleaning", [
+    ["Do move-out cleaners clean garages?", "Sometimes, if it is quoted and accessible. Sweeping and reachable surface cleaning may be possible, but junk hauling, oil stain restoration, and repairs are separate."],
+    ["Can cleaners clean a basement before move-out?", "Yes, when it is accessible and the scope is clear. Unfinished basements, storage areas, moisture, pests, or damage may need separate expectations."],
+    ["Should I remove items before cleaning storage areas?", "Yes. Remove boxes, trash, furniture, tools, and donation piles before expecting shelves, floors, or corners to be cleaned."],
+  ]],
+  ["/guides/seller-final-walkthrough-cleaning-before-closing", [
+    ["Do sellers have to deep clean before closing?", "That depends on the contract and local expectations. Practically, many sellers choose move-out cleaning so the home feels ready for the buyer walkthrough."],
+    ["Is broom clean enough for a final walkthrough?", "Sometimes, but broom clean should still mean personal items and trash are gone and the home does not feel neglected."],
+    ["When should a seller schedule move-out cleaning?", "Usually after movers leave and before the final walkthrough, with utilities and access still available."],
   ]],
 ])
 
@@ -578,6 +651,9 @@ const addMoveOutShell = (html, path = "/") => {
           <a href="https://shynlimoveoutcleaning.com/guides/last-minute-move-out-cleaning-plan">Last-minute plan</a>
           <a href="https://shynlimoveoutcleaning.com/guides/oven-and-refrigerator-move-out-cleaning">Appliances</a>
           <a href="https://shynlimoveoutcleaning.com/guides/move-out-cleaning-receipts-and-photos">Receipts</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/wall-scuffs-and-nail-holes-before-move-out">Walls</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/window-tracks-blinds-and-fans-move-out-cleaning">Windows and fans</a>
+          <a href="https://shynlimoveoutcleaning.com/guides/seller-final-walkthrough-cleaning-before-closing">Seller walkthrough</a>
         </nav>
         <span id="handoff" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
         <span id="report" style="position:absolute;bottom:0;width:1px;height:1px;overflow:hidden;"></span>
