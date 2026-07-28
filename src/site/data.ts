@@ -6,6 +6,16 @@ export const businessPhoneSchema = "+1-630-812-7077"
 export const businessEmail = "info@shynli.com"
 export const preferredArrivalWindow = "Preferred arrival slots: 9 AM-4 PM CT"
 
+/**
+ * Профиль Google и опубликованная стартовая цена.
+ * $197 это та же цифра, что публикует прайс Shynli для move-in / move-out.
+ * Число отзывов растёт, сверять время от времени.
+ */
+export const moveOutStartingPrice = "$197"
+export const googleRatingValue = "5.0"
+export const googleReviewCount = "44"
+export const googleReviewsUrl = "https://www.google.com/maps/place/?q=place_id:ChIJw5zPGN2Y-GMRTHBrFh1rKYE"
+
 export const services = [
   {
     value: "standard",

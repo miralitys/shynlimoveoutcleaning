@@ -513,7 +513,7 @@ const getShellCopy = (path) => {
 
   if (cityName && !intentSlug) {
     return {
-      title: `${cityName} Move-Out Cleaning | Shynli Move-Out Cleaning`,
+      title: `${cityName}, IL Move-Out Cleaning | Shynli Move-Out Cleaning`,
       description: `Move-out cleaning in ${cityName}, IL with empty-home checklist, access notes, after-clean photos, and final walkthrough-ready scope.`,
       kicker: `${cityName} apartment empty, keys due, inspection coming`,
       h1: `${cityName} move-out cleaning.`,
@@ -525,7 +525,7 @@ const getShellCopy = (path) => {
 
   if (cityName) {
     return {
-      title: `${cityName} ${intentLabel} | Shynli Move-Out Cleaning`,
+      title: `${cityName}, IL ${intentLabel} | Shynli Move-Out Cleaning`,
       description: `${cityName} ${intentLabel.toLowerCase()} with move-out scope, access notes, add-on clarity, after-clean photos, and a fast quote path.`,
       kicker: `${cityName} service`,
       h1: `${cityName} ${intentLabel} before keys change hands.`,

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { businessEmail, businessPhoneDisplay, businessPhoneHref, cityHeroImages, cityList, cityPages, cityRouteNotes, featuredServiceAreaCities, serviceAreaGroups, slugifyCity } from "@/site/data"
+import { businessEmail, businessPhoneDisplay, businessPhoneHref, cityHeroImages, cityList, cityPages, cityRouteNotes, featuredServiceAreaCities, googleRatingValue, googleReviewCount, googleReviewsUrl, moveOutStartingPrice, serviceAreaGroups, slugifyCity } from "@/site/data"
 import { type LegalPageData, LegalLine } from "@/site/legal-pages"
 import { shinyMoveOutAllCityIntentLinks, shinyMoveOutFeaturedSeoLinks, shinyMoveOutGuideLinks, shinyMoveOutPriorityCityIntentLinks } from "@/site/shiny-move-out-seo"
 import { buildQuoteUrl, submitQuoteForm, useSeoMeta } from "@/site/shared"
@@ -98,7 +98,21 @@ function ShynliMoveOutFooter({ city }: { city?: (typeof cityPages)[number] }) {
           <div className="mt-4 grid gap-1 text-sm font-bold text-[#f6fbff]/72">
             <a className="transition-colors hover:text-[#f6fbff]" href={businessPhoneHref}>{businessPhoneDisplay}</a>
             <a className="transition-colors hover:text-[#f6fbff]" href={`mailto:${businessEmail}`}>{businessEmail}</a>
+            <a
+              className="transition-colors hover:text-[#f6fbff]"
+              href={googleReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {googleRatingValue} from {googleReviewCount} Google reviews
+            </a>
           </div>
+          <p className="mt-4 text-sm font-black text-[#f6fbff]">
+            Move-out cleaning from {moveOutStartingPrice} per visit.
+            <span className="mt-1 block font-bold text-[#f6fbff]/72">
+              Final price depends on home size, condition, add-ons, and access.
+            </span>
+          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="h-11 rounded-sm bg-[#22c7a9] px-5 font-black text-[#0b2430] hover:bg-[#37d8bb]">
               <a href={buildQuoteUrl({ service: "move-out-cleaning", city: city?.name })}>Start quote</a>
@@ -2786,7 +2800,7 @@ export function ShynliMoveOutPage({ city }: { city?: (typeof cityPages)[number] 
   const homeHref = getShynliMoveOutPath()
   const cityName = city?.name
   const canonicalPath = city ? `/${city.slug}` : "/"
-  const pageTitle = cityName ? `${cityName} Move-Out Cleaning | Shynli Move-Out Cleaning` : "Shynli Move-Out Cleaning | Final Walkthrough Cleaning"
+  const pageTitle = cityName ? `${cityName}, IL Move-Out Cleaning | Shynli Move-Out Cleaning` : "Shynli Move-Out Cleaning | Final Walkthrough Cleaning"
   const pageDescription = cityName
     ? `Move-out cleaning in ${cityName}, IL with empty-home checklist, access notes, after-clean photos, and final walkthrough-ready scope.`
     : "Move-out cleaning for renters, sellers, landlords, and realtors with clear scope, handoff notes, after-clean photos, and fast quote flow."
