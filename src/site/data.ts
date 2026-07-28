@@ -8,10 +8,18 @@ export const preferredArrivalWindow = "Preferred arrival slots: 9 AM-4 PM CT"
 
 /**
  * Профиль Google и опубликованная стартовая цена.
- * $197 это та же цифра, что публикует прайс Shynli для move-in / move-out.
+ *
+ * $189 это нижний тариф из moveOutPackages на этом же сайте
+ * ("Apartment handoff"). Держать их одинаковыми: если тут поставить
+ * другую цифру, страница начнёт спорить сама с собой.
+ *
+ * ⚠️ По сети цифры пока расходятся: здесь от $189, прайс Shynli даёт
+ * от $197 за move-in / move-out, а shynliapartmentcleaning от $279.
+ * Свести это решение Рамиса, см. заметку 88.
+ *
  * Число отзывов растёт, сверять время от времени.
  */
-export const moveOutStartingPrice = "$197"
+export const moveOutStartingPrice = "$189"
 export const googleRatingValue = "5.0"
 export const googleReviewCount = "44"
 export const googleReviewsUrl = "https://www.google.com/maps/place/?q=place_id:ChIJw5zPGN2Y-GMRTHBrFh1rKYE"
