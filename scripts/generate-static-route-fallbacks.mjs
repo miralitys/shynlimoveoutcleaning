@@ -684,41 +684,31 @@ const addMoveOutShell = (html, path = "/") => {
   return withMoveOutMeta.replace(`<div id="root"></div>`, `<div id="root">${shell}</div>`)
 }
 
-const deferHomepageScripts = (html) => {
-  const entryScript = html.match(/    <script type="module" crossorigin src="([^"]+)"><\/script>\n/)
-
-  if (!entryScript) {
-    return html
-  }
-
-  const entryPath = entryScript[1]
-  const loader = `    <script>
-      (() => {
-        let loaded = false;
-        const loadApp = () => {
-          if (loaded) return;
-          loaded = true;
-          import("${entryPath}").then(() => {
-            if (!window.location.hash) return;
-            window.setTimeout(() => {
-              document.querySelector(window.location.hash)?.scrollIntoView();
-            }, 0);
-          });
-        };
-        const opts = { once: true, passive: true };
-        window.addEventListener("click", loadApp, opts);
-        window.addEventListener("keydown", loadApp, { once: true });
-        window.addEventListener("pointerdown", loadApp, opts);
-        window.addEventListener("touchstart", loadApp, opts);
-        window.addEventListener("wheel", loadApp, opts);
-        window.addEventListener("scroll", loadApp, opts);
-      })();
-    </script>\n`
-
-  return html
-    .replace(/    <link rel="modulepreload"[^>]+>\n/g, "")
-    .replace(entryScript[0], loader)
-}
+/*
+ * Здесь раньше стояла функция deferHomepageScripts. Она заменяла обычный
+ * <script type="module"> на загрузчик, который подтягивал приложение через
+ * import() только после click, keydown, pointerdown, touchstart, wheel или
+ * scroll, и заодно вырезала все <link rel="modulepreload">.
+ *
+ * Для скорости это выглядело выгодно, но стоило всего содержания сайта.
+ * Googlebot страницы отрисовывает, однако не кликает, не прокручивает и не
+ * двигает мышь, поэтому получал только каркас: около 105 видимых слов на
+ * каждой из 371 страницы, все одного размера и с одинаковым текстом.
+ * Для сравнения, у shynlideepcleaning.com на такой же городской странице
+ * около 2 900 слов.
+ *
+ * Проверено в браузере 2026-07-27: до касания высота страницы 957 пикселей и
+ * одна секция, после искусственного клика 9 232 пикселя и девять секций.
+ * Страница была полной и нормальной, её просто не существовало, пока
+ * посетитель не пошевелился.
+ *
+ * Страницы /guides этой обработки не получали и работали правильно, что и
+ * подсказало причину.
+ *
+ * Модульный скрипт и так не блокирует разбор страницы, а первый экран
+ * по-прежнему приходит статикой из addMoveOutShell, так что видимой потери
+ * скорости нет.
+ */
 
 const indexHtml = inlineStylesheets(readFileSync(indexFile, "utf8"))
 writeFileSync(indexFile, indexHtml)
@@ -733,10 +723,9 @@ const paths = urls
 for (const path of paths) {
   const routeIndex = join(distDir, path, "index.html")
   mkdirSync(dirname(routeIndex), { recursive: true })
-  const routeHtml = path.startsWith("/guides") ? indexHtml : deferHomepageScripts(indexHtml)
-  writeFileSync(routeIndex, addMoveOutShell(routeHtml, path))
+  writeFileSync(routeIndex, addMoveOutShell(indexHtml, path))
 }
 
-writeFileSync(indexFile, addMoveOutShell(deferHomepageScripts(indexHtml)))
+writeFileSync(indexFile, addMoveOutShell(indexHtml))
 
 console.log(`Generated ${paths.length} static route fallbacks.`)
