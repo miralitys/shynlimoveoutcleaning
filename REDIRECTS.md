@@ -25,3 +25,21 @@ Remove the move-out apex/www bindings from the shared Node service and reattach 
 Pre-migration source revision: `43e14195f8cd18d05e4009358e8756340af62f83`.
 
 `MOVEOUT_REDIRECT_ENABLED=false` disables this hostname handler. Restoring old content requires the Static Site bindings. Cached 301s may persist for the configured one-hour cache lifetime. The other migrated domains have independent handlers.
+
+Onrender migration configuration version `2026-10-23.2`
+
+`https://shynlimoveoutcleaning.onrender.com` now uses the same mapping as its public domain.
+Render publishes the `redirect-origin` directory with a deployment marker only, built with
+`node scripts/prepare-onrender-redirect.mjs`. Its `/*` rule internally rewrites
+to `https://shynlicom.onrender.com/__moveout_redirect/*`. The existing Node handler returns a server-side
+301 directly to the final main-site URL. The internal rewrite adds no client
+redirect hop. The sole new diagnostic file `/__shynli_redirect_version.txt`
+answers 200 with noindex; all former website paths use the redirect handler. Query parameters are preserved by Render and the Node handler.
+The mapping code remains version `2026-10-23.1` and is unchanged.
+
+Original `src/`, `public/` and committed `dist/` files are unchanged. Previous
+source revision: `7d21cc3e913e4254f0ca3923377cc387e23d9b38`. To restore this Static Site, remove the external
+rewrite, restore its prior route rules, set Publish Directory to `dist`, restore
+Build Command to `(empty)`, and deploy the retained
+revision. Its retained noindex header can be removed when restoring public
+content. DNS, custom-domain bindings and the main website are unchanged.
