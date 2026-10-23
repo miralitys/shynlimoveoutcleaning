@@ -4,16 +4,16 @@ services:
     runtime: static
     repo: https://github.com/miralitys/shynlimoveoutcleaning.git
     branch: main
-    buildCommand: npm ci && npm run build
+    buildCommand: ""
     staticPublishPath: ./dist
-    domains:
-      - shynlimoveoutcleaning.com
-      - www.shynlimoveoutcleaning.com
     routes:
       - type: rewrite
         source: /*
         destination: /index.html
     headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex
       - path: /*
         name: Cache-Control
         value: public, max-age=300, s-maxage=86400, stale-while-revalidate=604800
